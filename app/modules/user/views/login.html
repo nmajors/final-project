@@ -1,0 +1,15 @@
+<h1>login</h1>
+<div class="page">
+<div class="login container">
+  <form ng-submit="loginCtrl.login()">
+
+    <input type="email" placeholder="email" ng-model="loginCtrl.user.email">
+    <input type="password" placeholder="password" ng-model="loginCtrl.user.password">
+
+    <input type="submit" value="Login">
+    <a ui-sref="register"><button>New User</button></a>
+
+
+  </form>
+</div>
+</div>
