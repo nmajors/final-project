@@ -1,4 +1,5 @@
 import angular from 'angular';
+// import angular-google-maps from 'angular-google-maps';
 
 import config from './config';
 

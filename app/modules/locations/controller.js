@@ -3,6 +3,9 @@ class LocationsController {
     this._$state = $state;
     this._UserService = UserService;
 
+
+    this.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
+
     this._UserService
       .isLoggedIn()
       .then((response) => {

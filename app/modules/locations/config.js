@@ -4,6 +4,6 @@ function config($stateProvider) {
     url: '/',
     controller: 'LocationsController as locationsCtrl',
     template: require('./view.html')
-  });
+  })
 }
  export default config;
