@@ -21,7 +21,12 @@
 
 <ui-gmap-google-map center='locationsCtrl.map.center' zoom='locationsCtrl.map.zoom'>
 
+  <ui-gmap-marker coords="marker.coords" idkey="marker.id" ng-repeat="marker in locationsCtrl.markers">
+    <ui-gmap-window closeClick="closeClick()">
+       <div>
+        {{ marker.address }}
+       </div>
+   </ui-gmap-window>
+  </ui-gmap-marker>
 
-  <!-- <ui-gmap-markers ng-repeat='{location in locationsCtrl.location}' idKey='{{location.place_id}}'>
-  </ui-gmap-markers> -->
 </ui-gmap-google-map>
