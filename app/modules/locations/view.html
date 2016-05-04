@@ -18,7 +18,7 @@
     <input type="submit" ng-click="locationsCtrl.logout()" value="Logout">
   </div>
 </div>
-
+<!-- <div ng-if='' -->
 <ui-gmap-google-map center='locationsCtrl.map.center' zoom='locationsCtrl.map.zoom'>
 
   <ui-gmap-marker coords="marker.coords" idkey="marker.id" ng-repeat="marker in locationsCtrl.markers">

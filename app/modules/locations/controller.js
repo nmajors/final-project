@@ -1,9 +1,11 @@
 class LocationsController {
-  constructor($state, UserService, LocationsService, $scope) {
+  constructor($state, UserService, LocationsService, $scope, $http) {
     this._$state = $state;
     this._LocationsService = LocationsService;
     this._UserService = UserService;
     this.newLocation = this._LocationsService.new();
+    this._$http = $http;
+    // this.showAlerts = this._LocationsService.getAlerts();
 
     this.map = {
       center: {
@@ -28,12 +30,14 @@ class LocationsController {
         this._LocationsService.getLocations(this.user)
           .then((response) => {
             this.locations = response;
+            this.getAlerts();
             this.showMarkers();
           });
       })
       .catch((error) => {
         this._$state.go("login");
       });
+
   }
 
     addLocation() {
@@ -56,6 +60,8 @@ class LocationsController {
       this.markers = [];
 
       this.locations.forEach((location) => {
+        // this.getAlerts();
+        // console.log(location.coords);
         this.marker = {
           id: location.$id,
           coords: {
@@ -65,8 +71,24 @@ class LocationsController {
           address: `${location.address} ${location.city} ${location.state}`,
         }
         this.markers.push(this.marker);
+
       });
     }
+
+    getAlerts(){
+      this.locations.forEach((location) =>{
+        let latitude = location.coords.lat;
+        let longitude = location.coords.lng;
+        this._$http
+        .get(`http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=97e2a65458fa6ffa369e9f2c945bd316&units=imperial`)
+        .then((response) =>{
+          console.log(response);
+        })
+
+      });
+    }
+
+
 
 
 }
