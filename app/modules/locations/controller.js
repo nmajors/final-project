@@ -5,9 +5,7 @@ class LocationsController {
     this._UserService = UserService;
     this.newLocation = this._LocationsService.new();
 
-
-
-    this.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
+    this.map = { center: { latitude: 34.7476539, longitude: -92.2650471 }, zoom: 8 };
     this.markers = [];
 
     this._UserService

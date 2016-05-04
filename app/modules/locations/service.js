@@ -24,18 +24,22 @@ class LocationsService {
   }
 
   createLocation(location){
-    this.geocoder.geocode( { "address": 'location' }, function(results, status) {
-        if (status == google.maps.GeocoderStatus.OK && results.length > 0) {
-            let location = results[0].geometry.location,
-                lat      = location.lat(),
-                lng      = location.lng();
+    this.geocoder.geocode( { "address": `${location.address}, ${location.city}, ${location.state}` }, function(results) {
+          console.log(results);
+            let loc = results[0].geometry.location,
+                lat      = loc.lat(),
+                lng      = loc.lng();
           console.log("Latitude: " + lat);
           console.log("Longitude: " + lng);
-          console.log(results);
-        }
-    });
+          this.locations.$add({
+            address: location.address,
+            city: location.city,
+            state: location.state,
+            lat,
+            lng
+          });
+    }.bind(this));
 
-    this.locations.$add(location);
   }
 
 

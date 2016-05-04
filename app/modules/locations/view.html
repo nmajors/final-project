@@ -15,15 +15,13 @@
 
 </form>
 
-
     <input type="submit" ng-click="locationsCtrl.logout()" value="Logout">
-
   </div>
 </div>
 
 <ui-gmap-google-map center='locationsCtrl.map.center' zoom='locationsCtrl.map.zoom'>
 
-  <!-- <ui-gmap-marker ng-repeat="location in locationsCtrl.locations" coords="location.coords" idKey="marker_{{ $index }}">
 
-</ui-gmap-marker> -->
+  <!-- <ui-gmap-markers ng-repeat='{location in locationsCtrl.location}' idKey='{{location.place_id}}'>
+  </ui-gmap-markers> -->
 </ui-gmap-google-map>
