@@ -1,12 +1,29 @@
 <h1>locations</h1>
 <div class="page">
-<div class="profile">
-  <h1>Email: <span> {{ locationsCtrl.user.password.email }}</span></h1>
+  <div class="locations">
+    <h1>Email: <span> {{ locationsCtrl.user.password.email }}</span></h1>
+
+    <form ng-submit="locationsCtrl.addLocation()">
+  <input type="text" placeholder="street address" ng-model="locationsCtrl.newLocation.address">
+  <input type="text" placeholder="city" ng-model="locationsCtrl.newLocation.city">
+  <input type="text" placeholder="state" ng-model="locationsCtrl.newLocation.state">
 
 
-  <input type="submit" ng-click="locationsCtrl.logout()" value="Logout">
+  <input type="submit" value="Add Location">
+  <a ui-sref="profile"><button>Go to My Profile</button></a>
 
+
+</form>
+
+
+    <input type="submit" ng-click="locationsCtrl.logout()" value="Logout">
+
+  </div>
 </div>
-</div>
 
-<ui-gmap-google-map center='locationsCtrl.map.center' zoom='locationsCtrl.map.zoom'></ui-gmap-google-map>
+<ui-gmap-google-map center='locationsCtrl.map.center' zoom='locationsCtrl.map.zoom'>
+
+  <!-- <ui-gmap-marker ng-repeat="location in locationsCtrl.locations" coords="location.coords" idKey="marker_{{ $index }}">
+
+</ui-gmap-marker> -->
+</ui-gmap-google-map>
