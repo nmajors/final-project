@@ -1,10 +1,11 @@
 class LocationsController {
   constructor($state, UserService, LocationsService, $scope, $http) {
+    this._$http = $http;
     this._$state = $state;
     this._LocationsService = LocationsService;
     this._UserService = UserService;
     this.newLocation = this._LocationsService.new();
-    this._$http = $http;
+
     // this.showAlerts = this._LocationsService.getAlerts();
 
     this.map = {
@@ -30,7 +31,6 @@ class LocationsController {
         this._LocationsService.getLocations(this.user)
           .then((response) => {
             this.locations = response;
-            this.getAlerts();
             this.showMarkers();
           });
       })
@@ -44,7 +44,7 @@ class LocationsController {
       this._LocationsService
         .createLocation(this.newLocation)
         .then((response) => {
-          console.log(response);
+          // console.log(response);
           this.locations = response;
           this.showMarkers();
         });
@@ -56,26 +56,11 @@ class LocationsController {
       this._$state.go("login");
     }
 
-    showMarkers() {
+
+    showMarkers(){
+
       this.markers = [];
 
-      this.locations.forEach((location) => {
-        // this.getAlerts();
-        // console.log(location.coords);
-        this.marker = {
-          id: location.$id,
-          coords: {
-            latitude: location.coords.lat,
-            longitude: location.coords.lng
-          },
-          address: `${location.address} ${location.city} ${location.state}`,
-        }
-        this.markers.push(this.marker);
-
-      });
-    }
-
-    getAlerts(){
       this.locations.forEach((location) =>{
         let latitude = location.coords.lat;
         let longitude = location.coords.lng;
@@ -83,6 +68,35 @@ class LocationsController {
         .get(`http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=97e2a65458fa6ffa369e9f2c945bd316&units=imperial`)
         .then((response) =>{
           console.log(response);
+          let weather = response.data;
+          let iconCode = response.data.weather[0].icon;
+          let iconUrl = `http://openweathermap.org/img/w/${iconCode}.png`;
+
+          location.weather = weather;
+          location.icon = iconUrl;
+          console.log(location.icon);
+
+          this.marker = {
+            id: location.$id,
+            coords: {
+              latitude: location.coords.lat,
+              longitude: location.coords.lng
+            },
+            address: `${location.address} ${location.city} ${location.state}`,
+            options: {
+              icon: location.icon
+              }
+          }
+          console.log(this.marker);
+          this.markers.push(this.marker);
+
+
+          // let location.weather = response;
+          // console.log(location);
+          // this.iconCode = response.data.weather[0].icon;
+          // this.iconUrl = `http://openweathermap.org/img/w/${iconCode}.png`;
+
+
         })
 
       });

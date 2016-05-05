@@ -22,7 +22,9 @@ class LocationsService {
       address: "",
       city: "",
       state: "",
-      coords: {}
+      coords: {},
+      weather: {},
+      icon: ""
       }
   }
 
