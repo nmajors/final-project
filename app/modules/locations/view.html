@@ -1,32 +1,47 @@
-<h1>locations</h1>
+
 <div class="page">
-  <div class="locations">
-    <h1>Email: <span> {{ locationsCtrl.user.password.email }}</span></h1>
+  <h1>Locations for {{ locationsCtrl.user.password.email }}</h1>
 
     <form ng-submit="locationsCtrl.addLocation()">
-  <input type="text" placeholder="street address" ng-model="locationsCtrl.newLocation.address">
-  <input type="text" placeholder="city" ng-model="locationsCtrl.newLocation.city">
-  <input type="text" placeholder="state" ng-model="locationsCtrl.newLocation.state">
+      <input type="text" placeholder='Name this location' ng-model="locationsCtrl.newLocation.title">
+      <input type="text" placeholder="street address" ng-model="locationsCtrl.newLocation.address">
+      <input type="text" placeholder="city" ng-model="locationsCtrl.newLocation.city">
+      <input type="text" placeholder="state" ng-model="locationsCtrl.newLocation.state">
 
+      <input type="submit" value="Add Location">
 
-  <input type="submit" value="Add Location">
-  <a ui-sref="profile"><button>Go to My Profile</button></a>
+      <button ng-click="locationsCtrl.logout()">Log Out</button>
+    </form>
 
+<!-- <div ng-if='' -->
+  <div class="locationsMap">
+    <ui-gmap-google-map center='locationsCtrl.map.center' zoom='locationsCtrl.map.zoom'>
+      <ui-gmap-markers models="locationsCtrl.markers" coords="'coords'"  fit="true" click="onClick">
+        <ui-gmap-windows show="show">
+          <div ng-non-bindable>
+            <ul class="locationWeather">
+              <li><img class="weatherIcon" src="{{ icon }}" alt="{{ condition }}"></li>
+              <li>{{ temp | number:0 }}°</li>
+              <li>{{ condition }}</li>
+            </ul>
+            <ul class="locationInfo">
+              <li>{{ name }}</li>
+              <li>{{ address }}</li>
+              <li>{{ city }},  {{ state }}</li>
 
-</form>
+            </ul>
+          </div>
+        </ui-gmap-windows>
+      </ui-gmap-markers>
+      <!-- <ui-gmap-marker coords="marker.coords" idkey="marker.id" ng-repeat="marker in locationsCtrl.markers" options="marker.options">
+        <ui-gmap-window closeClick="closeClick()">
+           <div>
+             {{ marker.name }}
+            {{ marker.address }}
+           </div>
+       </ui-gmap-window>
+      </ui-gmap-marker> -->
 
-    <input type="submit" ng-click="locationsCtrl.logout()" value="Logout">
+    </ui-gmap-google-map>
   </div>
 </div>
-<!-- <div ng-if='' -->
-<ui-gmap-google-map center='locationsCtrl.map.center' zoom='locationsCtrl.map.zoom'>
-
-  <ui-gmap-marker coords="marker.coords" idkey="marker.id" ng-repeat="marker in locationsCtrl.markers" options="marker.options";>
-    <ui-gmap-window closeClick="closeClick()">
-       <div>
-        {{ marker.address }}
-       </div>
-   </ui-gmap-window>
-  </ui-gmap-marker>
-
-</ui-gmap-google-map>

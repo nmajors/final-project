@@ -19,6 +19,7 @@ class LocationsService {
 
   new() {
     return {
+      title: "",
       address: "",
       city: "",
       state: "",
@@ -32,13 +33,13 @@ class LocationsService {
     return new this._$q((resolve, reject) => {
 
       this.geocoder.geocode( { "address": `${location.address}, ${location.city}, ${location.state}` }, function(results) {
-            console.log(results);
+            // console.log(results);
               let loc = results[0].geometry.location,
                   lat      = loc.lat(),
                   lng      = loc.lng();
-            console.log("Latitude: " + lat);
-            console.log("Longitude: " + lng);
+
             this.locations.$add({
+              title: location.title,
               address: location.address,
               city: location.city,
               state: location.state,
@@ -57,22 +58,6 @@ class LocationsService {
     });
   }
 
-  // getAlerts(){
-  //   this._$http
-  //   .get(`http://api.openweathermap.org/data/2.5/weather?lat=${location.coords.lat}&lon=${location.coords.lng}&appid=97e2a65458fa6ffa369e9f2c945bd316&units=imperial`)
-  //   .then((response) =>{
-  //     console.log(response);
-  //   })
-  // }
-
-// getSevereAlerts(){
-//   let baseUrl = "http://api.openweathermap.org/data/2.5/";
-//   let apiKey = "97e2a65458fa6ffa369e9f2c945bd316";
-//   this._$http
-//     .get(`${baseUrl}weather?lat=${location.latitude}&lon=${location.longitude}&appid=${apiKey}&units=imperial`)
-//
-//
-// }
 
 }
 
