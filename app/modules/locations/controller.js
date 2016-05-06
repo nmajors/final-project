@@ -8,6 +8,7 @@ class LocationsController {
     this.demoMode = false;
     this.showWindow = true
     this.markers = [];
+    // this.currentPosition = {};
 
     this.newLocation = this._LocationsService.new();
 
@@ -29,20 +30,13 @@ class LocationsController {
       .isLoggedIn()
       .then((response) => {
 
-        navigator.geolocation.getCurrentPosition((position) => {
-          // this.map.center.latitude = position.coords.latitude;
-          // this.map.center.longitude = position.coords.longitude;
-          // $scope.$digest();
-
-          this.user = response;
-          // console.log(this.user);
-          this._LocationsService.getLocations(this.user)
-            .then((response) => {
-              this.locations = response;
-              this.showMarkers();
-            });
-
-        })
+        this.user = response;
+        // console.log(this.user);
+        this._LocationsService.getLocations(this.user)
+          .then((response) => {
+            this.locations = response;
+            this.showMarkers();
+          });
 
       })
       .catch((error) => {
@@ -52,37 +46,39 @@ class LocationsController {
   }
 
 
-    addLocation() {
-      this._LocationsService
-        .createLocation(this.newLocation)
+  addLocation() {
+    this._LocationsService
+      .createLocation(this.newLocation)
+      .then((response) => {
+        // console.log(response);
+        this.locations = response;
+        this.showMarkers();
+      });
+  }
+
+
+  logout() {
+    this._UserService.logout();
+    this._$state.go("login");
+  }
+
+  toggleDemo() {
+    this.demoMode = !this.demoMode;
+    showMarkers();
+  }
+
+  showMarkers() {
+
+    this.markers = [];
+    this.currentPosition = {};
+
+    this.locations.forEach((location) => {
+
+      let latitude = location.coords.lat;
+      let longitude = location.coords.lng;
+      this._$http
+        .get(`http://whispering-everglades-16419.herokuapp.com/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial`)
         .then((response) => {
-          // console.log(response);
-          this.locations = response;
-          this.showMarkers();
-        });
-    }
-
-
-    logout() {
-      this._UserService.logout();
-      this._$state.go("login");
-    }
-
-    toggleDemo() {
-      this.demoMode = !this.demoMode;
-      showMarkers();
-    }
-
-    showMarkers(){
-
-      this.markers = [];
-
-      this.locations.forEach((location) =>{
-        let latitude = location.coords.lat;
-        let longitude = location.coords.lng;
-        this._$http
-        .get(`http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=97e2a65458fa6ffa369e9f2c945bd316&units=imperial`)
-        .then((response) =>{
           // console.log(response);
           let weather = response.data;
           let iconCode = response.data.weather[0].icon;
@@ -116,8 +112,22 @@ class LocationsController {
 
         })
 
-      });
-    }
+
+
+    });
+    navigator.geolocation.getCurrentPosition((position ) => {
+      this.currentPosition = {
+          id: "1",
+          coords: {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+          }
+        }
+        // $scope.$digest();
+      console.log(this.currentPosition);
+    });
+
+  }
 
 
 

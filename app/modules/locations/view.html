@@ -28,19 +28,15 @@
               <li>{{ name }}</li>
               <li>{{ address }}</li>
               <li>{{ city }},  {{ state }}</li>
-
             </ul>
           </div>
         </ui-gmap-windows>
       </ui-gmap-markers>
-      <!-- <ui-gmap-marker coords="marker.coords" idkey="marker.id" ng-repeat="marker in locationsCtrl.markers" options="marker.options">
-        <ui-gmap-window closeClick="closeClick()">
-           <div>
-             {{ marker.name }}
-            {{ marker.address }}
-           </div>
-       </ui-gmap-window>
-      </ui-gmap-marker> -->
+
+      <ui-gmap-marker coords="locationsCtrl.currentPosition.coords" idKey="locationsCtrl.currentPosition.id">
+
+
+      </ui-gmap-marker>
 
     </ui-gmap-google-map>
   </div>
