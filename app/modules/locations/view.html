@@ -33,7 +33,7 @@
         </ui-gmap-windows>
       </ui-gmap-markers>
 
-      <ui-gmap-marker coords="locationsCtrl.currentPosition.coords" idKey="locationsCtrl.currentPosition.id">
+      <ui-gmap-marker ng-if="locationsCtrl.currentPosition" coords="locationsCtrl.currentPosition.coords" idKey="locationsCtrl.currentPosition.id" options="locationsCtrl.currentPosition.options">
 
 
       </ui-gmap-marker>

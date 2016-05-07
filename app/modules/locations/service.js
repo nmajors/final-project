@@ -17,6 +17,7 @@ class LocationsService {
     return this.locations.$loaded();
   }
 
+
   new() {
     return {
       title: "",
@@ -48,6 +49,7 @@ class LocationsService {
 
             .then((ref) => {
               resolve(this.locations);
+
             })
             .catch((error) => {
               reject(error);

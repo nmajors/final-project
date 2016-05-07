@@ -1,21 +1,27 @@
 class LocationsController {
-  constructor($state, UserService, LocationsService, $scope, $http) {
+  constructor($state, UserService, LocationsService, $scope, $http, $q) {
     this._$http = $http;
     this._$state = $state;
     this._LocationsService = LocationsService;
     this._UserService = UserService;
+    // this._$scope = $scope;
+    this._$q = $q;
 
     this.demoMode = false;
-    this.showWindow = true
+    this.showWindow = true;
     this.markers = [];
+
     // this.currentPosition = {};
 
     this.newLocation = this._LocationsService.new();
 
-    $scope.onClick = function(marker, eventName, model) {
+
+  $scope.onClick = function(marker, eventName, model) {
       model.show = !model.show;
       console.log(model);
     };
+
+
 
     this.map = {
       center: {
@@ -31,11 +37,28 @@ class LocationsController {
       .then((response) => {
 
         this.user = response;
+        navigator.geolocation.getCurrentPosition((position ) => {
+          // this.position = response;
+          // console.log(position);
+          this.currentPosition = {
+              id: position.timestamp.toString(),
+              coords: {
+                latitude: position.coords.latitude,
+                longitude: position.coords.longitude
+              },
+              options: {
+                icon: '../assets/images/home-icon.png'
+              }
+            }
+            // $scope.$digest();
+          console.log(this.currentPosition);
+        });
         // console.log(this.user);
         this._LocationsService.getLocations(this.user)
           .then((response) => {
             this.locations = response;
             this.showMarkers();
+            // this.getPosition();
           });
 
       })
@@ -70,7 +93,8 @@ class LocationsController {
   showMarkers() {
 
     this.markers = [];
-    this.currentPosition = {};
+    // this.currentPosition = {}
+
 
     this.locations.forEach((location) => {
 
@@ -86,6 +110,8 @@ class LocationsController {
 
           location.weather = weather;
           location.icon = iconUrl;
+
+          //set icon using switch?
 
           if (this.demoMode) {
             // location.weather = CRAZY SHIT
@@ -105,29 +131,26 @@ class LocationsController {
             state: location.state,
             icon: location.icon,
             temp: location.weather.main.temp,
-            condition: location.weather.weather[0].description
+            condition: location.weather.weather[0].description,
+            weather: location.weather
           }
           console.log(this.marker);
           this.markers.push(this.marker);
+
+
 
         })
 
 
 
     });
-    navigator.geolocation.getCurrentPosition((position ) => {
-      this.currentPosition = {
-          id: "1",
-          coords: {
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude
-          }
-        }
-        // $scope.$digest();
-      console.log(this.currentPosition);
-    });
 
   }
+
+  // getPosition(){
+  //
+  //
+  // }
 
 
 
