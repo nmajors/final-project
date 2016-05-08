@@ -4,23 +4,19 @@ class LocationsController {
     this._$state = $state;
     this._LocationsService = LocationsService;
     this._UserService = UserService;
-    // this._$scope = $scope;
     this._$q = $q;
 
     this.demoMode = false;
     this.showWindow = true;
+    this.deleteLocation = false;
     this.markers = [];
-
-    // this.currentPosition = {};
 
     this.newLocation = this._LocationsService.new();
 
 
   $scope.onClick = function(marker, eventName, model) {
       model.show = !model.show;
-      console.log(model);
     };
-
 
 
     this.map = {
@@ -38,8 +34,7 @@ class LocationsController {
 
         this.user = response;
         navigator.geolocation.getCurrentPosition((position ) => {
-          // this.position = response;
-          // console.log(position);
+          //add a marker to the user's current location.
           this.currentPosition = {
               id: position.timestamp.toString(),
               coords: {
@@ -48,17 +43,15 @@ class LocationsController {
               },
               options: {
                 icon: '../assets/images/home-icon.png'
-              }
+              },
+              title: "Your current Location"
             }
-            // $scope.$digest();
-          console.log(this.currentPosition);
+            //ng-if on ui-gmap-marker prevents marker add attempts before geolocation is complete
         });
-        // console.log(this.user);
         this._LocationsService.getLocations(this.user)
           .then((response) => {
             this.locations = response;
             this.showMarkers();
-            // this.getPosition();
           });
 
       })
@@ -73,11 +66,11 @@ class LocationsController {
     this._LocationsService
       .createLocation(this.newLocation)
       .then((response) => {
-        // console.log(response);
         this.locations = response;
         this.showMarkers();
       });
   }
+
 
 
   logout() {
@@ -91,10 +84,7 @@ class LocationsController {
   }
 
   showMarkers() {
-
     this.markers = [];
-    // this.currentPosition = {}
-
 
     this.locations.forEach((location) => {
 
@@ -103,7 +93,6 @@ class LocationsController {
       this._$http
         .get(`http://whispering-everglades-16419.herokuapp.com/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial`)
         .then((response) => {
-          // console.log(response);
           let weather = response.data;
           let iconCode = response.data.weather[0].icon;
           let iconUrl = `http://openweathermap.org/img/w/${iconCode}.png`;
@@ -137,22 +126,11 @@ class LocationsController {
           console.log(this.marker);
           this.markers.push(this.marker);
 
-
-
         })
-
-
 
     });
 
   }
-
-  // getPosition(){
-  //
-  //
-  // }
-
-
 
 
 }

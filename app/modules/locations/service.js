@@ -27,40 +27,59 @@ class LocationsService {
       coords: {},
       weather: {},
       icon: ""
-      }
+    }
   }
 
-  createLocation(location){
+  createLocation(location) {
     return new this._$q((resolve, reject) => {
 
-      this.geocoder.geocode( { "address": `${location.address}, ${location.city}, ${location.state}` }, function(results) {
-            // console.log(results);
-              let loc = results[0].geometry.location,
-                  lat      = loc.lat(),
-                  lng      = loc.lng();
+      this.geocoder.geocode({
+        "address": `${location.address}, ${location.city}, ${location.state}`
+      }, function(results) {
+        // console.log(results);
+        let loc = results[0].geometry.location,
+          lat = loc.lat(),
+          lng = loc.lng();
 
-            this.locations.$add({
-              title: location.title,
-              address: location.address,
-              city: location.city,
-              state: location.state,
-              coords: { lat, lng }
-            })
+        this.locations.$add({
+          title: location.title,
+          address: location.address,
+          city: location.city,
+          state: location.state,
+          coords: {
+            lat,
+            lng
+          }
+        })
 
-            .then((ref) => {
-              resolve(this.locations);
+        .then((ref) => {
+            resolve(this.locations);
 
-            })
-            .catch((error) => {
-              reject(error);
-            });
+            //clear form input fields after add
+            location.title = "";
+            location.address = "";
+            location.city = "";
+            location.state="";
+
+          })
+          .catch((error) => {
+            reject(error);
+          });
 
       }.bind(this));
 
     });
   }
 
+  // removeLocation(location) {
+  //   console.log('deleting' + location);
+  //   this.locations.$remove(location);
+  // }
+
 
 }
+
+
+
 
 export default LocationsService;
