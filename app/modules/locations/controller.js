@@ -44,8 +44,25 @@ class LocationsController {
               options: {
                 icon: '../assets/images/home-icon.png'
               },
-              title: "Your current Location"
-            }
+              title: "Your current Location",
+              weather: {}
+
+            };
+
+            let latitude = position.coords.latitude;
+            let longitude = position.coords.longitude;
+            this._$http
+              .get(`http://whispering-everglades-16419.herokuapp.com/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial`)
+              .then((response) => {
+                console.log(response);
+                let weather = response.data;
+                let iconCode = response.data.weather[0].icon;
+                let iconUrl = `http://openweathermap.org/img/w/${iconCode}.png`;
+
+                this.currentPosition.weather = weather;
+                this.currentPosition.icon = iconUrl;
+                console.log(this.currentPosition);
+              });
             //ng-if on ui-gmap-marker prevents marker add attempts before geolocation is complete
         });
         this._LocationsService.getLocations(this.user)
@@ -54,10 +71,10 @@ class LocationsController {
             this.showMarkers();
           });
 
-      })
-      .catch((error) => {
-        this._$state.go("login");
-      });
+        })
+        .catch((error) => {
+          this._$state.go("login");
+        });
 
   }
 
@@ -71,6 +88,12 @@ class LocationsController {
       });
   }
 
+  removeLocation(location) {
+    if (deleteLocation == true)
+    console.log('deleting' + location);
+    this.locations.$remove(location);
+
+  }
 
 
   logout() {

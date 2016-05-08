@@ -29,6 +29,7 @@
               <li>{{ address }}</li>
               <li>{{ city }},  {{ state }}</li>
             </ul>
+            <button onclick="locationsCtrl.removeLocation()">DELETE</button>
           </div>
         </ui-gmap-windows>
       </ui-gmap-markers>
@@ -38,6 +39,8 @@
 
         <ui-gmap-window>
           {{ locationsCtrl.currentPosition.title }}
+          <!--TODO: fix image-->
+          <img src="{{locationsCtrl.currentPosition.icon }}">
         </ui-gmap-window>
       </ui-gmap-marker>
 
