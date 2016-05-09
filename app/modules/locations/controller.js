@@ -8,10 +8,12 @@ class LocationsController {
 
     this.demoMode = false;
     this.showWindow = true;
-    this.deleteLocation = false;
+
     this.markers = [];
+    // this.locations = [];
 
     this.newLocation = this._LocationsService.new();
+
 
 
   $scope.onClick = function(marker, eventName, model) {
@@ -45,7 +47,8 @@ class LocationsController {
                 icon: '../assets/images/home-icon.png'
               },
               title: "Your current Location",
-              weather: {}
+              weather: {},
+              image: ""
 
             };
 
@@ -60,7 +63,9 @@ class LocationsController {
                 let iconUrl = `http://openweathermap.org/img/w/${iconCode}.png`;
 
                 this.currentPosition.weather = weather;
-                this.currentPosition.icon = iconUrl;
+                this.currentPosition.image = iconUrl;
+
+
                 console.log(this.currentPosition);
               });
             //ng-if on ui-gmap-marker prevents marker add attempts before geolocation is complete
@@ -88,12 +93,9 @@ class LocationsController {
       });
   }
 
-  removeLocation(location) {
-    if (deleteLocation == true)
-    console.log('deleting' + location);
-    this.locations.$remove(location);
-
-  }
+deleteLocation(place){
+   this._LocationsService.removeLocation(place);
+ }
 
 
   logout() {
@@ -144,7 +146,10 @@ class LocationsController {
             icon: location.icon,
             temp: location.weather.main.temp,
             condition: location.weather.weather[0].description,
-            weather: location.weather
+            weather: location.weather,
+            // options: {
+            //   icon: this.getTheFinIcon(location)
+            // }
           }
           console.log(this.marker);
           this.markers.push(this.marker);

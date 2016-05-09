@@ -7,7 +7,6 @@ class LocationsService {
     this.ref = new Firebase("https://nms-severe.firebaseio.com/");
     this.geocoder = new google.maps.Geocoder();
 
-    this.markers = [];
   }
 
   //get locations for logged in user
@@ -26,7 +25,7 @@ class LocationsService {
       state: "",
       coords: {},
       weather: {},
-      icon: ""
+      icon: "",
     }
   }
 
@@ -49,7 +48,7 @@ class LocationsService {
           coords: {
             lat,
             lng
-          }
+          },
         })
 
         .then((ref) => {
@@ -71,10 +70,9 @@ class LocationsService {
     });
   }
 
-  // removeLocation(location) {
-  //   console.log('deleting' + location);
-  //   this.locations.$remove(location);
-  // }
+  removeLocation(location) {
+      this.locations.$remove(location);
+  }
 
 
 }

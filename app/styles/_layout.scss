@@ -11,7 +11,7 @@ li{
   list-style-type: none;
 }
 
-ul{
+.locationInfo, .locationWeather{
   float: left;
 }
 
@@ -19,6 +19,6 @@ ul{
   padding-top: 15px;
 }
 
-ul.weatherInfo li{
-  text-align: center;
+.locationsList {
+  color: white;
 }

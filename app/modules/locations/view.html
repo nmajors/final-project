@@ -13,6 +13,13 @@
       <button ng-click="locationsCtrl.logout()">Log Out</button>
     </form>
 
+  <ul class="locationsList" ng-repeat="place in locationsCtrl.locations">
+    <li>{{ place.address }}</li>
+    <li>{{ place.city }}</li>
+    <li>{{ place.state }}</li>
+    <button ng-click="locationsCtrl.deleteLocation(place)">Delete</button>
+  </ul>
+
 <!-- <div ng-if='' -->
   <div class="locationsMap">
     <ui-gmap-google-map center='locationsCtrl.map.center' zoom='locationsCtrl.map.zoom'>
@@ -29,19 +36,22 @@
               <li>{{ address }}</li>
               <li>{{ city }},  {{ state }}</li>
             </ul>
-            <button onclick="locationsCtrl.removeLocation()">DELETE</button>
+
           </div>
         </ui-gmap-windows>
       </ui-gmap-markers>
 
 
       <ui-gmap-marker ng-if="locationsCtrl.currentPosition" coords="locationsCtrl.currentPosition.coords" idKey="locationsCtrl.currentPosition.id" options="locationsCtrl.currentPosition.options">
-
         <ui-gmap-window>
-          {{ locationsCtrl.currentPosition.title }}
-          <!--TODO: fix image-->
-          <img src="{{locationsCtrl.currentPosition.icon }}">
+          <div>
+            {{ locationsCtrl.currentPosition.title }}
+            {{locationsCtrl.currentPosition.image }}
+            <!--TODO: fix image-->
+            <img class="weatherIcon" ng-src="{{ locationsCtrl.currentPosition.image }}" alt="current weather">
+            </div>
         </ui-gmap-window>
+
       </ui-gmap-marker>
 
     </ui-gmap-google-map>
