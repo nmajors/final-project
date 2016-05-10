@@ -119,11 +119,17 @@ deleteLocation(place){
     let locationWeatherCode = location.weather.weather[0].id;
     console.log(locationWeatherCode);
     let markerIcon = '../assets/images/';
-    if (locationWeatherCode >= 200 && locationWeatherCode <= 232){
+    if (locationWeatherCode >= 200 && locationWeatherCode <= 232 || locationWeatherCode === 960 || locationWeatherCode === 961){
       markerIcon += 'thunderstorm.png';
     }
     else if (locationWeatherCode >= 300 && locationWeatherCode <= 531){
       markerIcon += 'rain.png';
+    }
+    else if (locationWeatherCode >= 600 && locationWeatherCode <= 622){
+      markerIcon += 'snow.png';
+    }
+    else if (locationWeatherCode >=700 && locationWeatherCode <=771){
+      markerIcon += 'haze.png';
     }
     else if (locationWeatherCode >= 801 && locationWeatherCode <= 804){
       markerIcon += 'cloudy.png';
@@ -131,11 +137,16 @@ deleteLocation(place){
     else if (locationWeatherCode === 800){
       markerIcon += 'sunny.png';
     }
-    else {
+    else if (locationWeatherCode === 781 || locationWeatherCode === 900){
       markerIcon += 'tornado.png';
     }
+    else if (locationWeatherCode === 901 || locationWeatherCode === 902){
+      markerIcon += 'hurricane.png';
+    }
+    else {
+      markerIcon += 'default.png';
+    }
     return markerIcon;
-
 
   }
 

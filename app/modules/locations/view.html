@@ -32,18 +32,18 @@
   <!-- <div ng-if='' -->
   <div class="locationsMap">
     <ui-gmap-google-map center='locationsCtrl.map.center' zoom='locationsCtrl.map.zoom'>
-      <ui-gmap-markers models="locationsCtrl.markers" coords="'coords'" fit="true" click="onClick" doCluster="true" options="'options'">
+      <ui-gmap-markers models="locationsCtrl.markers" coords="'coords'" fit="true" click="onClick"  options="'options'">
         <ui-gmap-windows show="show">
           <div ng-non-bindable>
             <ul class="locationInfo">
               <li><h5>{{ name }}</h5></li>
-              <li>{{ address }}</li>
-              <li>{{ city }}, {{ state }}</li>
+              <li class="address">{{ address }}</li>
+              <li><span class="city">{{ city }}</span>, <span class="state">{{ state }}</span></li>
             </ul>
             <ul class="locationWeather">
               <li><img class="weatherIcon" src="{{ image }}" alt="{{ condition }}"></li>
               <li>{{ temp | number:0 }}°</li>
-              <li>{{ condition }}</li>
+              <li class="condition">{{ condition }}</li>
               <li>{{ time | date: 'short' }}</li>
             </ul>
 
@@ -61,7 +61,7 @@
             <ul class="locationWeather">
               <li><img class="weatherIcon" ng-src="{{ locationsCtrl.currentPosition.image }}" alt="{{ locationsCtrl.currentPosition.weather.weather[0].description }}"></li>
               <li>{{ locationsCtrl.currentPosition.weather.main.temp | number:0 }}°</li>
-              <li>{{ locationsCtrl.currentPosition.weather.weather[0].description }}</li>
+              <li class="condition">{{ locationsCtrl.currentPosition.weather.weather[0].description }}</li>
             </ul>
 
 

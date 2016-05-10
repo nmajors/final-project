@@ -26,3 +26,11 @@ li{
 .currentWeather {
   color: black;
 }
+
+.address, .condition, .city {
+  text-transform: capitalize;
+}
+
+.state {
+  text-transform: uppercase;
+}
