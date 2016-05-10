@@ -1,5 +1,20 @@
 .angular-google-map-container {
-  height: 400px;
+  height: 80vh;
   width: 80%;
-  margin: 30px auto;
+  float: left;
+  // margin: 30px auto;
   }
+ li{
+   list-style-type: none;
+ }
+
+ul{
+  margin-left: -40px;
+}
+
+button{
+  background-color: black;
+  border: 1px solid white;
+  border-radius: 3px;
+
+}

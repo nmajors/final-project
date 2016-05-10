@@ -1,35 +1,48 @@
 body {
   background-color: black;
-}
-
-.page h1{
   color: white;
+  margin: 0 auto;
 }
 
-li{
-  list-style-type: none;
+.page {
+  margin: 0 5%;
 }
 
-.demo{
-  color: white;
-}
 
-.locationInfo, .locationWeather{
-  float: left;
-}
-
-.locationInfo{
-  padding-top: 15px;
-}
-
-.locationsList {
-  color: white;
-  display: inline-block;
-}
-
-.currentWeather {
+.infoWindow{
   color: black;
+
 }
+
+
+// .page h1{
+//   color: white;
+// }
+//
+// li{
+//   list-style-type: none;
+// }
+//
+// .demo{
+//   color: white;
+// }
+//
+// .locationInfo, .locationWeather{
+//   float: left;
+// }
+//
+// .locationInfo{
+//   padding-top: 15px;
+// }
+//
+// .locationsList {
+//   color: white;
+//   display: inline-block;
+// }
+//
+// .currentWeather {
+//   color: black;
+// }
 
 .address, .condition, .city {
   text-transform: capitalize;

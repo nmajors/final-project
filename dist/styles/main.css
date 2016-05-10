@@ -1,31 +1,28 @@
 .angular-google-map-container {
-  height: 400px;
+  height: 80vh;
   width: 80%;
-  margin: 30px auto; }
-
-body {
-  background-color: black; }
-
-.page h1 {
-  color: white; }
+  float: left; }
 
 li {
   list-style-type: none; }
 
-.demo {
-  color: white; }
+ul {
+  margin-left: -40px; }
 
-.locationInfo, .locationWeather {
-  float: left; }
+button {
+  background-color: black;
+  border: 1px solid white;
+  border-radius: 3px; }
 
-.locationInfo {
-  padding-top: 15px; }
-
-.locationsList {
+body {
+  background-color: black;
   color: white;
-  display: inline-block; }
+  margin: 0 auto; }
 
-.currentWeather {
+.page {
+  margin: 0 5%; }
+
+.infoWindow {
   color: black; }
 
 .address, .condition, .city {
@@ -33,3 +30,10 @@ li {
 
 .state {
   text-transform: uppercase; }
+
+.locations .locationsUser {
+  padding-bottom: 30px; }
+
+.locations .locationsListContainer {
+  width: 20%;
+  float: left; }

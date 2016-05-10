@@ -45,7 +45,7 @@ class LocationsController {
                 longitude: position.coords.longitude
               },
               options: {
-                icon: '../assets/images/home-icon.png'
+                icon: '../assets/images/star.png'
               },
               title: "Your current Location",
               weather: {},
@@ -125,6 +125,7 @@ saveLocation(place) {
 
     let markerIcon = '../assets/images/';
     let locationWeatherCode = location.weather.weather[0].id;
+
     // console.log(locationWeatherCode);
 
     if (this.demoMode) {
@@ -138,6 +139,9 @@ saveLocation(place) {
 
     if (locationWeatherCode >= 200 && locationWeatherCode <= 232 || locationWeatherCode === 960 || locationWeatherCode === 961){
       markerIcon += 'thunderstorm.png';
+
+
+
     }
     else if (locationWeatherCode >= 300 && locationWeatherCode <= 531){
       markerIcon += 'rain.png';
@@ -205,9 +209,19 @@ saveLocation(place) {
             }
           }
 
-          if (this.marker.options.icon === '../assets/images/tornado.png') {
+          if (this.demoMode && this.marker.options.icon === '../assets/images/tornado.png' || this.marker.options.icon ==='../assets/images/hurricane.png') {
+          // if (this.locationWeatherCode === 781 || this.locationWeatherCode === 900){
             this.marker.options.animation = google.maps.Animation.BOUNCE;
+            this.marker.image = 'http://openweathermap.org/img/w/11d.png';
+            this.marker.condition = "BONED";
           }
+
+          // if (this.marker.options.icon === '../assets/images/tornado.png') {
+          // // if (this.locationWeatherCode === 781 || this.locationWeatherCode === 900){
+          //   this.marker.options.animation = google.maps.Animation.BOUNCE;
+          //   this.marker.image = 'http://openweathermap.org/img/w/11d.png';
+          //   this.marker.condition = "BONED";
+          // }
           console.log(this.marker);
           this.markers.push(this.marker);
 
