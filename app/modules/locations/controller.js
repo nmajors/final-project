@@ -98,9 +98,14 @@ deleteLocation(place){
    this._LocationsService.removeLocation(place);
  }
 
-// changeLocation(place){
-//   this._LocationsService.editLocation(place);
-// }
+changeLocation(place){
+  place.editing = true;
+}
+
+saveLocation(place) {
+  place.editing = false;
+  this._LocationsService.editLocation(place);
+}
 
 
   logout() {
@@ -120,15 +125,13 @@ deleteLocation(place){
 
     let markerIcon = '../assets/images/';
     let locationWeatherCode = location.weather.weather[0].id;
-    console.log(locationWeatherCode);
+    // console.log(locationWeatherCode);
 
     if (this.demoMode) {
-      // location.weather = CRAZY SHIT
-      // location.icon = poop guy
-      // make array of bad stuff, random it
-      console.log('demo mode');
+
       let demoCodes = [ 961, 531, 622, 771, 800, 804, 900, 902 ];
        locationWeatherCode = demoCodes[Math.floor(Math.random() * demoCodes.length)];
+       console.log('demo mode ' + locationWeatherCode);
     }
 
 
@@ -140,7 +143,7 @@ deleteLocation(place){
       markerIcon += 'rain.png';
     }
     else if (locationWeatherCode >= 600 && locationWeatherCode <= 622){
-      markerIcon += 'snow.png';
+      markerIcon += 'snowy.png';
     }
     else if (locationWeatherCode >=700 && locationWeatherCode <=771){
       markerIcon += 'haze.png';
@@ -200,6 +203,10 @@ deleteLocation(place){
             options: {
               icon: this.getMarkerIcon(location)
             }
+          }
+
+          if (this.marker.options.icon === '../assets/images/tornado.png') {
+            this.marker.options.animation = google.maps.Animation.BOUNCE;
           }
           console.log(this.marker);
           this.markers.push(this.marker);

@@ -71,15 +71,9 @@ class LocationsService {
     this.locations.$remove(location);
   }
 
-  // editLocation(location) {
-  //   location.editing = !location.editing;
-  //   this.locations.$save({
-  //     title: location.title,
-  //     address: location.address,
-  //     city: location.city,
-  //     state: location.state,
-  //   });
-  // }
+  editLocation(location) {
+    this.locations.$save(location);
+  }
 
 
 }

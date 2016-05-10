@@ -10,6 +10,10 @@ li{
   list-style-type: none;
 }
 
+.demo{
+  color: white;
+}
+
 .locationInfo, .locationWeather{
   float: left;
 }
@@ -20,6 +24,7 @@ li{
 
 .locationsList {
   color: white;
+  display: inline-block;
 }
 
 .currentWeather {
