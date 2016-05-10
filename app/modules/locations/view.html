@@ -1,5 +1,6 @@
 <div class="page">
   <h1>Locations for {{ locationsCtrl.user.password.email }}</h1>
+  <button ng-click="locationsCtrl.toggleDemo()">Demo Mode</button>
 
   <form ng-submit="locationsCtrl.addLocation()">
     <input type="text" placeholder='Name this location' ng-model="locationsCtrl.newLocation.title">

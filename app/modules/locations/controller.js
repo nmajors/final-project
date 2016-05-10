@@ -110,15 +110,29 @@ deleteLocation(place){
 
   toggleDemo() {
     this.demoMode = !this.demoMode;
-    showMarkers();
+    this.showMarkers();
   }
 
 
 
+
   getMarkerIcon(location) {
+
+    let markerIcon = '../assets/images/';
     let locationWeatherCode = location.weather.weather[0].id;
     console.log(locationWeatherCode);
-    let markerIcon = '../assets/images/';
+
+    if (this.demoMode) {
+      // location.weather = CRAZY SHIT
+      // location.icon = poop guy
+      // make array of bad stuff, random it
+      console.log('demo mode');
+      let demoCodes = [ 961, 531, 622, 771, 800, 804, 900, 902 ];
+       locationWeatherCode = demoCodes[Math.floor(Math.random() * demoCodes.length)];
+    }
+
+
+
     if (locationWeatherCode >= 200 && locationWeatherCode <= 232 || locationWeatherCode === 960 || locationWeatherCode === 961){
       markerIcon += 'thunderstorm.png';
     }
@@ -155,6 +169,7 @@ deleteLocation(place){
 
     this.locations.forEach((location) => {
 
+
       let latitude = location.coords.lat;
       let longitude = location.coords.lng;
       this._$http
@@ -166,17 +181,6 @@ deleteLocation(place){
 
           location.weather = weather;
           location.image = iconUrl;
-
-          //set icon using switch?
-          // getMarkerIcon() {
-          //   let markerIcon = location.weather[0].id;
-          // }
-
-          if (this.demoMode) {
-            // location.weather = CRAZY SHIT
-            // location.icon = poop guy
-            // make array of bad stuff, random it
-          }
 
           this.marker = {
             id: location.$id,
