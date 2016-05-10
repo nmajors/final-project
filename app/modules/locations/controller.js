@@ -13,6 +13,7 @@ class LocationsController {
     // this.locations = [];
 
     this.newLocation = this._LocationsService.new();
+    // this.editedLocation = this._locationsService.removeLocation();
 
 
 
@@ -97,6 +98,10 @@ deleteLocation(place){
    this._LocationsService.removeLocation(place);
  }
 
+// changeLocation(place){
+//   this._LocationsService.editLocation(place);
+// }
+
 
   logout() {
     this._UserService.logout();
@@ -106,6 +111,32 @@ deleteLocation(place){
   toggleDemo() {
     this.demoMode = !this.demoMode;
     showMarkers();
+  }
+
+
+
+  getMarkerIcon(location) {
+    let locationWeatherCode = location.weather.weather[0].id;
+    console.log(locationWeatherCode);
+    let markerIcon = '../assets/images/';
+    if (locationWeatherCode >= 200 && locationWeatherCode <= 232){
+      markerIcon += 'thunderstorm.png';
+    }
+    else if (locationWeatherCode >= 300 && locationWeatherCode <= 531){
+      markerIcon += 'rain.png';
+    }
+    else if (locationWeatherCode >= 801 && locationWeatherCode <= 804){
+      markerIcon += 'cloudy.png';
+    }
+    else if (locationWeatherCode === 800){
+      markerIcon += 'sunny.png';
+    }
+    else {
+      markerIcon += 'tornado.png';
+    }
+    return markerIcon;
+
+
   }
 
   showMarkers() {
@@ -123,9 +154,12 @@ deleteLocation(place){
           let iconUrl = `http://openweathermap.org/img/w/${iconCode}.png`;
 
           location.weather = weather;
-          location.icon = iconUrl;
+          location.image = iconUrl;
 
           //set icon using switch?
+          // getMarkerIcon() {
+          //   let markerIcon = location.weather[0].id;
+          // }
 
           if (this.demoMode) {
             // location.weather = CRAZY SHIT
@@ -143,13 +177,14 @@ deleteLocation(place){
             address: location.address,
             city: location.city,
             state: location.state,
-            icon: location.icon,
+            image: location.image,
             temp: location.weather.main.temp,
             condition: location.weather.weather[0].description,
             weather: location.weather,
-            // options: {
-            //   icon: this.getTheFinIcon(location)
-            // }
+            time: location.weather.dt * 1000,
+            options: {
+              icon: this.getMarkerIcon(location)
+            }
           }
           console.log(this.marker);
           this.markers.push(this.marker);

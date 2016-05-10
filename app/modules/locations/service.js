@@ -26,6 +26,7 @@ class LocationsService {
       coords: {},
       weather: {},
       icon: "",
+      editing: false
     }
   }
 
@@ -48,31 +49,37 @@ class LocationsService {
           coords: {
             lat,
             lng
-          },
+          }
         })
 
         .then((ref) => {
             resolve(this.locations);
-
             //clear form input fields after add
             location.title = "";
             location.address = "";
             location.city = "";
-            location.state="";
-
+            location.state = "";
           })
           .catch((error) => {
             reject(error);
           });
-
       }.bind(this));
-
     });
   }
 
   removeLocation(location) {
-      this.locations.$remove(location);
+    this.locations.$remove(location);
   }
+
+  // editLocation(location) {
+  //   location.editing = !location.editing;
+  //   this.locations.$save({
+  //     title: location.title,
+  //     address: location.address,
+  //     city: location.city,
+  //     state: location.state,
+  //   });
+  // }
 
 
 }
