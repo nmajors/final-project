@@ -7,6 +7,10 @@
       h1{
       width: 20%;
       }
+      button{
+        background: #b9bbd3;
+        background-image: linear-gradient(to bottom, #868899, #272b33);
+      }
     }
 
     .userInfo{
@@ -26,6 +30,32 @@
       }
     }
   }
+.locationsListContainer{
+  border-top: 1px solid #aaa;
+  margin-top: 30px;
+}
+.locationsList{
+  margin-top: 15px;
+  border-bottom: 1px solid #aaa;
+  // width: 100%;
+  // float: left;
+  .locationInfo{
+    display: inline-block;
+    float: left;
+    margin-left: -40px;
+    // width: 100%;
+  }
+  .listButtons{
+    .listButton{
+      margin-bottom: 15px;
 
+    }
+
+    // display: inline-block;
+    text-align: right;
+    margin: 30px auto;
+  }
+
+}
 
 }

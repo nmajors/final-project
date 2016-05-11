@@ -12,15 +12,14 @@ body {
   letter-spacing: 0.1em; }
 
 ul {
-  margin-left: -40px; }
+  padding-left: -40px; }
 
 li {
   list-style-type: none; }
 
 button,
 input[type="submit"] {
-  background: #b9bbd3;
-  background-image: linear-gradient(to bottom, #868899, #272b33);
+  background: none;
   border: none;
   border-radius: 4px;
   text-shadow: 1px 1px 3px #111;
@@ -93,6 +92,9 @@ form {
     display: inline-block; }
     .locations header .appTitle h1 {
       width: 20%; }
+    .locations header .appTitle button {
+      background: #b9bbd3;
+      background-image: linear-gradient(to bottom, #868899, #272b33); }
   .locations header .userInfo {
     float: right;
     text-align: right;
@@ -104,3 +106,20 @@ form {
         .locations header .userInfo li .logout:hover {
           background: #d6d6d6;
           background-image: linear-gradient(to bottom, #d6d6d6, #868899); }
+
+.locations .locationsListContainer {
+  border-top: 1px solid #aaa;
+  margin-top: 30px; }
+
+.locations .locationsList {
+  margin-top: 15px;
+  border-bottom: 1px solid #aaa; }
+  .locations .locationsList .locationInfo {
+    display: inline-block;
+    float: left;
+    margin-left: -40px; }
+  .locations .locationsList .listButtons {
+    text-align: right;
+    margin: 30px auto; }
+    .locations .locationsList .listButtons .listButton {
+      margin-bottom: 15px; }

@@ -30,13 +30,22 @@
     </form>
 
     <div class="locationsListContainer">
-      <ul class="locations--list" ng-repeat="place in locationsCtrl.locations">
-        <li class="title">{{ place.title }}</li>
-        <li class="address">{{ place.address }}</li>
-        <li class="city">{{ place.city }}</li>
-        <li class="state">{{ place.state }}</li>
-        <button ng-click="locationsCtrl.changeLocation(place)">Edit</button>
-        <button ng-click="locationsCtrl.deleteLocation(place)">Delete</button>
+      <ul class="locationsList" ng-repeat="place in locationsCtrl.locations">
+        <div class="locationInfo">
+          <li class="title">{{ place.title }}</li>
+          <li class="address">{{ place.address }}</li>
+          <li class="city">{{ place.city }}</li>
+          <li class="state">{{ place.state }}</li>
+        </div>
+        <div class="listButtons">
+          <li class="listButton">
+            <button ng-click="locationsCtrl.changeLocation(place)">Edit</button>
+          </li>
+          <li class="listButton">
+            <button ng-click="locationsCtrl.deleteLocation(place)">Delete</button>
+          </li>
+        </div>
+
         <li ng-if="place.editing">
           <form class="locations--list--edit" ng-submit="locationsCtrl.saveLocation(place)">
             <input type="text" placeholder='Name this location' ng-model="place.title">
