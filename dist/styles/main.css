@@ -12,7 +12,16 @@ ul {
 button {
   background-color: black;
   border: 1px solid white;
-  border-radius: 3px; }
+  border-radius: 2px;
+  margin: 10px auto; }
+
+input {
+  color: black;
+  border-radius: 2px;
+  line-height: 1.5; }
+
+form {
+  margin-bottom: 15px; }
 
 body {
   background-color: black;

@@ -38,10 +38,10 @@
   </div>
 
   <!-- <div ng-if='' -->
-  <div class="locations--map">
-    <ui-gmap-google-map center='locationsCtrl.map.center' zoom='locationsCtrl.map.zoom'>
-      <ui-gmap-markers models="locationsCtrl.markers" coords="'coords'" fit="true" click="onClick" options="'options'">
+  <div class="locations--map" ng-if="locationsCtrl.markers[0].coords">
+    <ui-gmap-google-map  center='locationsCtrl.map.center' zoom='locationsCtrl.map.zoom'>
 
+      <ui-gmap-markers models="locationsCtrl.markers" coords="'coords'" fit="true" click="onClick" options="'options'">
         <ui-gmap-windows show="show">
           <div class="infoWindow" ng-non-bindable>
             <ul class="locationInfo">
@@ -58,7 +58,6 @@
             </ul>
           </div>
         </ui-gmap-windows>
-
       </ui-gmap-markers>
 
 
@@ -72,7 +71,6 @@
               <li>{{ locationsCtrl.currentPosition.weather.main.temp | number:0 }}°</li>
               <li class="condition">{{ locationsCtrl.currentPosition.weather.weather[0].description }}</li>
             </ul>
-
 
           </div>
         </ui-gmap-window>
