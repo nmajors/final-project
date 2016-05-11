@@ -1,16 +1,16 @@
 
 <div class="page">
-  <h1>login to use THE FINGER OF GOD</h1>
-<div class="login container">
-  <form ng-submit="loginCtrl.login()">
 
+<div class="userContainer">
+  <h1 class="appTitle">WEATHER WATCHER</h1>
+<span>Log in to check your Weather Watcher</span>
+  <form class="userForm" ng-submit="loginCtrl.login()">
     <input type="email" placeholder="email" ng-model="loginCtrl.user.email">
     <input type="password" placeholder="password" ng-model="loginCtrl.user.password">
 
     <input type="submit" value="Login">
-    <a ui-sref="register"><button>New User</button></a>
-
-
+    <a ui-sref="register"><button class="highlighted">New User</button></a>
   </form>
+
 </div>
 </div>

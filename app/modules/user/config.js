@@ -1,6 +1,6 @@
 function config($stateProvider) {
   $stateProvider
-  .state('profile', {
+  .state('register', {
     url: '/register',
     controller: 'RegisterController as registerCtrl',
     template: require('./views/register.html')

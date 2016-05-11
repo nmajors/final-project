@@ -13,11 +13,22 @@ ul{
   // border-bottom: 1px solid white;
 }
 
-button{
-  background-color: black;
-  border: 1px solid white;
-  border-radius: 2px;
-  margin: 10px auto;
+button, input[type="submit"] {
+  background: #b9bbd3;
+  background-image: linear-gradient(to bottom, #868899, #272b33);
+  border: none;
+  border-radius: 4px;
+  text-shadow: 1px 1px 3px #111;
+  box-shadow: 0px 1px 3px 0px #111;
+  color: #ffffff;
+  padding: 7px 15px;
+  text-decoration: none;
+}
+
+button:hover, input[type="submit"]:hover {
+  background: #d6d6d6;
+  background-image: linear-gradient(to bottom, #d6d6d6, #868899);
+  text-decoration: none;
 }
 
 input {
