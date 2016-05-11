@@ -1,61 +1,56 @@
-.locations{
-  header{
-    height: 200px;
-    .appTitle{
+.locations {
+  header {
+    // height: 200px;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #aaa;
+    .appTitle {
       width: 50%;
       display: inline-block;
-      h1{
-      width: 20%;
-      }
-      button{
-        background: #b9bbd3;
-        background-image: linear-gradient(to bottom, #868899, #272b33);
+      h1 {
+        width: 20%;
       }
     }
-
-    .userInfo{
+    .userInfo {
       float: right;
       text-align: right;
       margin-top: 30px;
-      li{
-        padding: 0 0 10px 0;
-        .logout{
+      li {
+        padding: 0 0 10px;
+        .logout {
           background: none;
           // padding: 3px 6px;
-          &:hover{
+          &:hover {
             background: #d6d6d6;
-            background-image: linear-gradient(to bottom, #d6d6d6, #868899)
+            background-image: linear-gradient(to bottom, #d6d6d6, #868899);
           }
         }
       }
     }
   }
-.locationsListContainer{
-  border-top: 1px solid #aaa;
-  margin-top: 30px;
-}
-.locationsList{
-  margin-top: 15px;
-  border-bottom: 1px solid #aaa;
-  // width: 100%;
-  // float: left;
-  .locationInfo{
-    display: inline-block;
-    float: left;
-    margin-left: -40px;
-    // width: 100%;
+  .locationsListContainer {
+    border-top: 1px solid #aaa;
+    margin-top: 30px;
+    // display: none;
   }
-  .listButtons{
-    .listButton{
-      margin-bottom: 15px;
+  .locationsList {
+    margin-top: 15px;
+    border-bottom: 1px solid #aaa;
+    .locationInfo {
+      display: inline-block;
+      float: left;
+      margin-left: -40px;
+    }
+    .listButtons {
+      text-align: right;
+      margin: 30px auto;
+      .listButton {
+        margin-bottom: 15px;
+      }
 
     }
-
-    // display: inline-block;
-    text-align: right;
-    margin: 30px auto;
   }
-
-}
-
+  .demoMode {
+    float: right;
+  }
 }

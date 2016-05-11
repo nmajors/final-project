@@ -47,8 +47,10 @@ form {
 
 .angular-google-map-container {
   height: 80vh;
-  width: 80%;
-  float: left; }
+  width: 100%;
+  margin: 30px auto;
+  border: 2px solid #666;
+  border-radius: 5px; }
 
 .userContainer {
   text-align: center;
@@ -86,21 +88,20 @@ form {
   text-transform: uppercase; }
 
 .locations header {
-  height: 200px; }
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #aaa; }
   .locations header .appTitle {
     width: 50%;
     display: inline-block; }
     .locations header .appTitle h1 {
       width: 20%; }
-    .locations header .appTitle button {
-      background: #b9bbd3;
-      background-image: linear-gradient(to bottom, #868899, #272b33); }
   .locations header .userInfo {
     float: right;
     text-align: right;
     margin-top: 30px; }
     .locations header .userInfo li {
-      padding: 0 0 10px 0; }
+      padding: 0 0 10px; }
       .locations header .userInfo li .logout {
         background: none; }
         .locations header .userInfo li .logout:hover {
@@ -123,3 +124,6 @@ form {
     margin: 30px auto; }
     .locations .locationsList .listButtons .listButton {
       margin-bottom: 15px; }
+
+.locations .demoMode {
+  float: right; }

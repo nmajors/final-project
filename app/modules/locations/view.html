@@ -3,8 +3,7 @@
     <header>
       <div class="appTitle">
         <h1>Weather Watcher</h1>
-        <button ng-hide="locationsCtrl.demoMode" ng-click="locationsCtrl.toggleDemo()">Go to Demo Mode</button>
-        <button ng-show="locationsCtrl.demoMode" ng-click="locationsCtrl.toggleDemo()">Leave Demo Mode</button>
+
       </div>
 
       <ul class="userInfo">
@@ -19,6 +18,9 @@
 
     <span class="demo" ng-if="locationsCtrl.demoMode">(Demo Mode)</span>
     <button class="highlighted" ng-hide="locationsCtrl.adding" ng-click="locationsCtrl.toggleAdding()">Add New Location</button>
+    <button class="demoMode" ng-hide="locationsCtrl.demoMode" ng-click="locationsCtrl.toggleDemo()">Go to Demo Mode</button>
+    <button class="demoMode" ng-show="locationsCtrl.demoMode" ng-click="locationsCtrl.toggleDemo()">Leave Demo Mode</button>
+
 
     <form ng-show="locationsCtrl.adding" class="userForm" ng-submit="locationsCtrl.addLocation()">
       <input type="text" placeholder='Name this location' ng-model="locationsCtrl.newLocation.title">
@@ -36,6 +38,7 @@
           <li class="address">{{ place.address }}</li>
           <li class="city">{{ place.city }}</li>
           <li class="state">{{ place.state }}</li>
+
         </div>
         <div class="listButtons">
           <li class="listButton">

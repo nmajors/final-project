@@ -5,8 +5,11 @@
 }
 .angular-google-map-container {
   height: 80vh;
-  width: 80%;
-  float: left;
+  width: 100%;
+  margin: 30px auto;
+  border: 2px solid #666;
+  border-radius: 5px;
+
 }
 .userContainer {
   text-align: center;
