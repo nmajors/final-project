@@ -1,38 +1,3 @@
-.angular-google-map-container {
-  height: 80vh;
-  width: 80%;
-  float: left; }
-
-li {
-  list-style-type: none; }
-
-ul {
-  margin-left: -40px; }
-
-button, input[type="submit"] {
-  background: #b9bbd3;
-  background-image: linear-gradient(to bottom, #868899, #272b33);
-  border: none;
-  border-radius: 4px;
-  text-shadow: 1px 1px 3px #111;
-  box-shadow: 0px 1px 3px 0px #111;
-  color: #ffffff;
-  padding: 7px 15px;
-  text-decoration: none; }
-
-button:hover, input[type="submit"]:hover {
-  background: #d6d6d6;
-  background-image: linear-gradient(to bottom, #d6d6d6, #868899);
-  text-decoration: none; }
-
-input {
-  color: black;
-  border-radius: 2px;
-  line-height: 1.5; }
-
-form {
-  margin-bottom: 15px; }
-
 body {
   min-height: 100vh;
   min-width: 100vw;
@@ -46,8 +11,45 @@ body {
   font-family: 'Raleway', sans-serif;
   letter-spacing: 0.1em; }
 
+ul {
+  margin-left: -40px; }
+
+li {
+  list-style-type: none; }
+
+button,
+input[type="submit"] {
+  background: #b9bbd3;
+  background-image: linear-gradient(to bottom, #868899, #272b33);
+  border: none;
+  border-radius: 4px;
+  text-shadow: 1px 1px 3px #111;
+  box-shadow: 0 1px 3px 0 #111;
+  color: #ffffff;
+  padding: 7px 15px;
+  text-decoration: none; }
+
+button:hover,
+input[type="submit"]:hover {
+  background: #d6d6d6;
+  background-image: linear-gradient(to bottom, #d6d6d6, #868899);
+  text-decoration: none; }
+
+input {
+  color: black;
+  border-radius: 2px;
+  line-height: 1.5; }
+
+form {
+  margin-bottom: 15px; }
+
 .page {
-  margin: 0 10%; }
+  margin: 0 5%; }
+
+.angular-google-map-container {
+  height: 80vh;
+  width: 80%;
+  float: left; }
 
 .userContainer {
   text-align: center;
@@ -66,11 +68,12 @@ body {
     .userContainer .userForm input[type="submit"] {
       margin-right: 0.75rem;
       height: 34px; }
-  .userContainer .highlighted {
-    margin-bottom: 15px;
-    background-image: linear-gradient(to bottom, #557a30, #293A18); }
-  .userContainer .highlighted:hover {
-    background-image: linear-gradient(to bottom, #7ca058, #557a30); }
+
+.highlighted {
+  background-image: linear-gradient(to bottom, #557a30, #293A18); }
+
+.highlighted:hover {
+  background-image: linear-gradient(to bottom, #7ca058, #557a30); }
 
 .infoWindow {
   color: black; }
@@ -83,9 +86,21 @@ body {
 .state {
   text-transform: uppercase; }
 
-.locations .locationsUser {
-  padding-bottom: 30px; }
-
-.locations .locationsListContainer {
-  width: 20%;
-  float: left; }
+.locations header {
+  height: 200px; }
+  .locations header .appTitle {
+    width: 50%;
+    display: inline-block; }
+    .locations header .appTitle h1 {
+      width: 20%; }
+  .locations header .userInfo {
+    float: right;
+    text-align: right;
+    margin-top: 30px; }
+    .locations header .userInfo li {
+      padding: 0 0 10px 0; }
+      .locations header .userInfo li .logout {
+        background: none; }
+        .locations header .userInfo li .logout:hover {
+          background: #d6d6d6;
+          background-image: linear-gradient(to bottom, #d6d6d6, #868899); }

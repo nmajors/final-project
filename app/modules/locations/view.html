@@ -1,19 +1,32 @@
 <div class="page">
   <div class="locations">
-    <h1 class="locationsUser">Locations for {{ locationsCtrl.user.password.email }}</h1>
+    <header>
+      <div class="appTitle">
+        <h1>Weather Watcher</h1>
+        <button ng-hide="locationsCtrl.demoMode" ng-click="locationsCtrl.toggleDemo()">Go to Demo Mode</button>
+        <button ng-show="locationsCtrl.demoMode" ng-click="locationsCtrl.toggleDemo()">Leave Demo Mode</button>
+      </div>
 
-    <button ng-click="locationsCtrl.toggleDemo()">Toggle Demo Mode</button>
+      <ul class="userInfo">
+        <li>{{ locationsCtrl.user.password.email }} </li>
+        <li>
+          <button class="logout" ng-click="locationsCtrl.logout()">Log Out</button>
+        </li>
+      </ul>
+
+    </header>
+
+
     <span class="demo" ng-if="locationsCtrl.demoMode">(Demo Mode)</span>
+    <button class="highlighted" ng-hide="locationsCtrl.adding" ng-click="locationsCtrl.toggleAdding()">Add New Location</button>
 
-    <form class="locations--form" ng-submit="locationsCtrl.addLocation()">
+    <form ng-show="locationsCtrl.adding" class="userForm" ng-submit="locationsCtrl.addLocation()">
       <input type="text" placeholder='Name this location' ng-model="locationsCtrl.newLocation.title">
       <input type="text" placeholder="street address" ng-model="locationsCtrl.newLocation.address">
       <input type="text" placeholder="city" ng-model="locationsCtrl.newLocation.city">
       <input type="text" placeholder="state" ng-model="locationsCtrl.newLocation.state">
 
       <input type="submit" value="Add Location">
-
-      <button ng-click="locationsCtrl.logout()">Log Out</button>
     </form>
 
     <div class="locationsListContainer">

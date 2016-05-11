@@ -1,42 +1,46 @@
-.angular-google-map-container {
-  height: 80vh;
-  width: 80%;
-  float: left;
-  // margin: 30px auto;
-  }
- li{
-   list-style-type: none;
- }
 
-ul{
-  margin-left: -40px;
-  // border-bottom: 1px solid white;
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/images/background.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: white;
+  margin: 0 auto;
+  font-family: 'Raleway', sans-serif;
+  letter-spacing: 0.1em;
 }
-
-button, input[type="submit"] {
+ul {
+  margin-left: -40px;
+}
+li {
+  list-style-type: none;
+}
+button,
+input[type="submit"] {
   background: #b9bbd3;
   background-image: linear-gradient(to bottom, #868899, #272b33);
   border: none;
   border-radius: 4px;
   text-shadow: 1px 1px 3px #111;
-  box-shadow: 0px 1px 3px 0px #111;
+  box-shadow: 0 1px 3px 0 #111;
   color: #ffffff;
   padding: 7px 15px;
   text-decoration: none;
 }
-
-button:hover, input[type="submit"]:hover {
+button:hover,
+input[type="submit"]:hover {
   background: #d6d6d6;
   background-image: linear-gradient(to bottom, #d6d6d6, #868899);
   text-decoration: none;
 }
-
 input {
   color: black;
   border-radius: 2px;
   line-height: 1.5;
 }
-
 form {
   margin-bottom: 15px;
 }

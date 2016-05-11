@@ -8,6 +8,7 @@ class LocationsController {
 
     this.demoMode = false;
     this.showWindow = true;
+    this.adding = false;
 
     this.markers = [];
     // this.locations = [];
@@ -82,14 +83,18 @@ class LocationsController {
 
   }
 
-
+  toggleAdding(){
+    this.adding = !this.adding;
+  }
   addLocation() {
+    // this.adding = true;
     this._LocationsService
       .createLocation(this.newLocation)
       .then((response) => {
         this.locations = response;
         this.showMarkers();
       });
+      this.toggleAdding();
   }
 
   deleteLocation(place) {

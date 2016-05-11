@@ -1,18 +1,12 @@
-body {
-  min-height: 100vh;
-  min-width: 100vw;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/images/background.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  color: white;
-  margin: 0 auto;
-  font-family: 'Raleway', sans-serif;
-  letter-spacing: 0.1em;
-}
+
 .page {
-  margin: 0 10%;
+  margin: 0 5%;
+  // margin: 0 10%;
+}
+.angular-google-map-container {
+  height: 80vh;
+  width: 80%;
+  float: left;
 }
 .userContainer {
   text-align: center;
@@ -34,51 +28,17 @@ body {
       height: 34px;
     }
   }
-  .highlighted{
-      margin-bottom: 15px;
-      background-image: linear-gradient(to bottom, #557a30, #293A18);
-    }
-
-  .highlighted:hover{
-      // background: #d6d6d6;
-      background-image: linear-gradient(to bottom, #7ca058, #557a30);
-      // text-decoration: none;
-    }
 }
+.highlighted{
+    // margin-bottom: 15px;
+    background-image: linear-gradient(to bottom, #557a30, #293A18);
+  }
+.highlighted:hover{
+    background-image: linear-gradient(to bottom, #7ca058, #557a30);
+  }
 .infoWindow {
   color: black;
 }
-.appTitle {
-  // text-shadow: 1px 1px 3px #272b33;
-}
-// .page h1{
-//   color: white;
-// }
-//
-// li{
-//   list-style-type: none;
-// }
-//
-// .demo{
-//   color: white;
-// }
-//
-// .locationInfo, .locationWeather{
-//   float: left;
-// }
-//
-// .locationInfo{
-//   padding-top: 15px;
-// }
-//
-// .locationsList {
-//   color: white;
-//   display: inline-block;
-// }
-//
-// .currentWeather {
-//   color: black;
-// }
 .address,
 .city,
 .condition {
