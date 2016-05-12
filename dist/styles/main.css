@@ -17,13 +17,10 @@ ul {
 li {
   list-style-type: none; }
 
-input {
+input[type="text"] {
   color: black;
   border-radius: 2px;
   line-height: 1.5; }
-
-form {
-  margin-bottom: 15px; }
 
 .page {
   margin: 0 5%; }
@@ -41,16 +38,11 @@ form {
       width: 90%;
       margin-bottom: 15px;
       line-height: 1.7;
-      border-radius: 2px; }
+      border-radius: 2px;
+      color: black; }
     .userContainer .userForm input[type="submit"] {
       margin-right: 0.75rem;
       height: 34px; }
-
-.highlighted {
-  background-image: linear-gradient(to bottom, #557a30, #293A18); }
-
-.highlighted:hover {
-  background-image: linear-gradient(to bottom, #7ca058, #557a30); }
 
 .infoWindow {
   color: black; }
@@ -72,6 +64,21 @@ form {
     display: inline-block; }
     .locations header .appTitle h1 {
       width: 20%; }
+    .locations header .appTitle .demoMode {
+      background: #b9bbd3;
+      background-image: linear-gradient(to bottom, #868899, #272b33);
+      border: none;
+      border-radius: 4px;
+      text-shadow: 1px 1px 3px #111;
+      box-shadow: 0 1px 3px 0 #111;
+      color: #ffffff;
+      padding: 7px 15px;
+      text-decoration: none;
+      margin-bottom: 15px; }
+      .locations header .appTitle .demoMode:hover {
+        background: #d6d6d6;
+        background-image: linear-gradient(to bottom, #d6d6d6, #868899);
+        text-decoration: none; }
   .locations header .userInfo {
     float: right;
     text-align: right;
@@ -79,10 +86,34 @@ form {
     .locations header .userInfo li {
       padding: 0 0 10px; }
       .locations header .userInfo li .logout {
+        background: #b9bbd3;
+        background-image: linear-gradient(to bottom, #868899, #272b33);
+        border: none;
+        border-radius: 4px;
+        text-shadow: 1px 1px 3px #111;
+        box-shadow: 0 1px 3px 0 #111;
+        color: #ffffff;
+        padding: 7px 15px;
+        text-decoration: none;
+        margin-bottom: 15px;
         background: none; }
         .locations header .userInfo li .logout:hover {
           background: #d6d6d6;
-          background-image: linear-gradient(to bottom, #d6d6d6, #868899); }
+          background-image: linear-gradient(to bottom, #d6d6d6, #868899);
+          text-decoration: none; }
+
+.locations .addNew {
+  background-image: linear-gradient(to bottom, #557a30, #293A18);
+  border: none;
+  border-radius: 4px;
+  text-shadow: 1px 1px 3px #111;
+  box-shadow: 0 1px 3px 0 #111;
+  color: #ffffff;
+  padding: 7px 15px;
+  text-decoration: none;
+  margin-bottom: 15px; }
+  .locations .addNew:hover {
+    background-image: linear-gradient(to bottom, #7ca058, #557a30); }
 
 .locations .addLocationForm form {
   text-align: center;
@@ -94,13 +125,16 @@ form {
   .locations .addLocationForm form input[type="submit"] {
     margin-top: 15px;
     background-image: linear-gradient(to bottom, #557a30, #293A18);
-    border: 0;
+    border: none;
     border-radius: 4px;
     text-shadow: 1px 1px 3px #111;
     box-shadow: 0 1px 3px 0 #111;
     color: #ffffff;
     padding: 7px 15px;
-    text-decoration: none; }
+    text-decoration: none;
+    margin-bottom: 15px; }
+    .locations .addLocationForm form input[type="submit"]:hover {
+      background-image: linear-gradient(to bottom, #7ca058, #557a30); }
 
 .locations .locationsListContainer {
   border-top: 1px solid #aaa;
@@ -117,7 +151,22 @@ form {
     text-align: right;
     margin: 30px auto; }
     .locations .locationsList .listButtons .listButton {
+      background: #b9bbd3;
+      background-image: linear-gradient(to bottom, #868899, #272b33);
+      border: none;
+      border-radius: 4px;
+      text-shadow: 1px 1px 3px #111;
+      box-shadow: 0 1px 3px 0 #111;
+      color: #ffffff;
+      padding: 7px 15px;
+      text-decoration: none;
+      margin-bottom: 15px;
+      background: none;
       margin-bottom: 15px; }
+      .locations .locationsList .listButtons .listButton:hover {
+        background: #d6d6d6;
+        background-image: linear-gradient(to bottom, #d6d6d6, #868899);
+        text-decoration: none; }
 
 .locations .angular-google-map-container {
   height: 80vh;
@@ -126,12 +175,31 @@ form {
   border: 2px solid #666;
   border-radius: 5px; }
 
-.newUser {
-  background-image: linear-gradient(to bottom, #557a30, #293A18);
-  border: 0;
+.gray {
+  background: #b9bbd3;
+  background-image: linear-gradient(to bottom, #868899, #272b33);
+  border: none;
   border-radius: 4px;
   text-shadow: 1px 1px 3px #111;
   box-shadow: 0 1px 3px 0 #111;
   color: #ffffff;
   padding: 7px 15px;
-  text-decoration: none; }
+  text-decoration: none;
+  margin-bottom: 15px; }
+  .gray:hover {
+    background: #d6d6d6;
+    background-image: linear-gradient(to bottom, #d6d6d6, #868899);
+    text-decoration: none; }
+
+.prominent {
+  background-image: linear-gradient(to bottom, #557a30, #293A18);
+  border: none;
+  border-radius: 4px;
+  text-shadow: 1px 1px 3px #111;
+  box-shadow: 0 1px 3px 0 #111;
+  color: #ffffff;
+  padding: 7px 15px;
+  text-decoration: none;
+  margin-bottom: 15px; }
+  .prominent:hover {
+    background-image: linear-gradient(to bottom, #7ca058, #557a30); }

@@ -19,11 +19,11 @@ li {
   list-style-type: none;
 }
 
-input {
+input[type="text"]{
   color: black;
   border-radius: 2px;
   line-height: 1.5;
 }
-form {
-  margin-bottom: 15px;
-}
+// form {
+//   margin-bottom: 15px;
+// }

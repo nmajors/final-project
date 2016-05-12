@@ -1,3 +1,5 @@
+
+
 .locations {
   header {
     // height: 200px;
@@ -10,6 +12,9 @@
       h1 {
         width: 20%;
       }
+      .demoMode{
+        @include grayButton;
+      }
     }
     .userInfo {
       float: right;
@@ -18,24 +23,21 @@
       li {
         padding: 0 0 10px;
         .logout {
+          @include grayButton;
           background: none;
-          // padding: 3px 6px;
-          &:hover {
-            background: #d6d6d6;
-            background-image: linear-gradient(to bottom, #d6d6d6, #868899);
-          }
         }
       }
     }
   }
-
+.addNew{
+  @include greenButton;
+}
   .addLocationForm {
     form {
       text-align: center;
       margin-top: 15px;
       margin-bottom: 15px;
       input{
-
         width: 80%;
         margin-bottom: 7px;
       }
@@ -62,8 +64,9 @@
       text-align: right;
       margin: 30px auto;
       .listButton {
+        @include grayButton;
+        background: none;
         margin-bottom: 15px;
-        // @include grayButton;
       }
     }
   }

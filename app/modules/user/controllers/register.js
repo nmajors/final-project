@@ -8,12 +8,17 @@ class RegisterController {
 
 
   register() {
+    if (this.newUser.password !== "" && this.newUser.password===this.newUser.password2){
     this._UserService.create(this.newUser)
       .then((response) => {
         console.log(response);
         this._$state.go('locations');
       })
   }
+  else{
+    alert("Passwords do not match!");
+  }
+}
 
 }
 

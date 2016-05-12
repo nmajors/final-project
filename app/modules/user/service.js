@@ -38,14 +38,14 @@ class UserService {
 
   create(user) {
     return new this._$q((resolve, reject) => {
-      console.log("creating");
+      // console.log("creating");
       this.auth.$createUser(user)
       .then((response) => {
-        console.log("in response 1");
+        console.log(this.auth.$authWithPassword(user));
         return this.auth.$authWithPassword(user);
       })
       .then((response) => {
-        console.log("in response 2");
+        // console.log("in response 2");
         this.user = response;
         resolve(this.user);
         console.log(this.user);

@@ -20,7 +20,7 @@
 
 
 
-      <button class="highlighted" ng-hide="locationsCtrl.adding" ng-click="locationsCtrl.toggleAdding()">Add New Location</button>
+    <button class="addNew" ng-hide="locationsCtrl.adding" ng-click="locationsCtrl.toggleAdding()">Add New Location</button>
 
 
     <div class="addLocationForm" ng-show="locationsCtrl.adding">
@@ -44,11 +44,11 @@
 
         </div>
         <div class="listButtons">
-          <li class="listButton">
-            <button ng-click="locationsCtrl.changeLocation(place)">Edit</button>
+          <li>
+            <button class="listButton" ng-click="locationsCtrl.changeLocation(place)">Edit</button>
           </li>
-          <li class="listButton">
-            <button ng-click="locationsCtrl.deleteLocation(place)">Delete</button>
+          <li>
+            <button class="listButton" ng-click="locationsCtrl.deleteLocation(place)">Delete</button>
           </li>
         </div>
 

@@ -1,4 +1,9 @@
-
-.newUser{
+.gray{
+  @include grayButton;
+  // margin-top: 15px;
+}
+.prominent{
   @include greenButton;
 }
+
+// .loginButtons{}
