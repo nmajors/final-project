@@ -18,10 +18,7 @@
 
     </header>
 
-
-
     <button class="addNew" ng-hide="locationsCtrl.adding" ng-click="locationsCtrl.toggleAdding()">Add New Location</button>
-
 
     <div class="addLocationForm" ng-show="locationsCtrl.adding">
       <form ng-submit="locationsCtrl.addLocation()">
@@ -36,14 +33,14 @@
 
     <div class="locationsListContainer">
       <ul class="locationsList" ng-repeat="place in locationsCtrl.locations">
-        <div class="locationInfo">
+        <div  ng-hide="place.editing" class="locationInfo">
           <li class="title">{{ place.title }}</li>
           <li class="address">{{ place.address }}</li>
           <li class="city">{{ place.city }}</li>
           <li class="state">{{ place.state }}</li>
 
         </div>
-        <div class="listButtons">
+        <div  ng-hide="place.editing" class="listButtons">
           <li>
             <button class="listButton" ng-click="locationsCtrl.changeLocation(place)">Edit</button>
           </li>
@@ -51,28 +48,28 @@
             <button class="listButton" ng-click="locationsCtrl.deleteLocation(place)">Delete</button>
           </li>
         </div>
-
-        <li ng-if="place.editing">
-          <form class="locations--list--edit" ng-submit="locationsCtrl.saveLocation(place)">
+        <div ng-show="place.editing" class="editForm" >
+          <form ng-submit="locationsCtrl.saveLocation(place)">
             <input type="text" placeholder='Name this location' ng-model="place.title">
             <input type="text" placeholder="street address" ng-model="place.address">
             <input type="text" placeholder="city" ng-model="place.city">
             <input type="text" placeholder="state" ng-model="place.state">
             <input type="submit" value="Edit Location">
           </form>
-        </li>
+        </div>
       </ul>
+
     </div>
   </div>
 
   <!-- <div ng-if='' -->
-  <div class="locations--map" ng-if="locationsCtrl.markers[0].coords">
+  <div class="locationsMap" ng-if="locationsCtrl.markers[0].coords">
     <ui-gmap-google-map center='locationsCtrl.map.center' zoom='locationsCtrl.map.zoom'>
 
       <ui-gmap-markers models="locationsCtrl.markers" coords="'coords'" fit="true" click="onClick" options="'options'">
         <ui-gmap-windows show="show">
           <div class="infoWindow" ng-non-bindable>
-            <ul class="locationInfo">
+            <ul class="windowInfo">
               <li>
                 <h5>{{ name }}</h5></li>
               <li class="address">{{ address }}</li>
@@ -87,7 +84,6 @@
           </div>
         </ui-gmap-windows>
       </ui-gmap-markers>
-
 
       <ui-gmap-marker ng-if="locationsCtrl.currentPosition" coords="locationsCtrl.currentPosition.coords" idKey="locationsCtrl.currentPosition.id" options="locationsCtrl.currentPosition.options">
         <ui-gmap-window>

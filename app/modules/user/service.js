@@ -32,20 +32,19 @@ class UserService {
   new() {
   return {
     email: "",
-    password: ""
+    password: "",
+    password2: ""
     }
   }
 
   create(user) {
     return new this._$q((resolve, reject) => {
-      // console.log("creating");
       this.auth.$createUser(user)
       .then((response) => {
         console.log(this.auth.$authWithPassword(user));
         return this.auth.$authWithPassword(user);
       })
       .then((response) => {
-        // console.log("in response 2");
         this.user = response;
         resolve(this.user);
         console.log(this.user);
