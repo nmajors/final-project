@@ -28,6 +28,12 @@
       }
     }
   }
+
+  // .addLocationForm {
+  //   form {
+  //     margin-top: 15px;
+  //   }
+  // }
   .locationsListContainer {
     border-top: 1px solid #aaa;
     margin-top: 30px;
@@ -47,10 +53,13 @@
       .listButton {
         margin-bottom: 15px;
       }
-
     }
   }
-  .demoMode {
-    float: right;
+  .angular-google-map-container {
+    height: 80vh;
+    width: 100%;
+    margin: 30px auto;
+    border: 2px solid #666;
+    border-radius: 5px;
   }
 }
