@@ -19,6 +19,11 @@
     </header>
 
     <button class="addNew" ng-hide="locationsCtrl.adding" ng-click="locationsCtrl.toggleAdding()">Add New Location</button>
+    <!-- <button class="viewAll">View All / Edit</button> -->
+
+    <button ng-class="{'viewAll': !isActive, 'closeList': isActive}"
+       ng-init="isActive = false"
+       ng-click="isActive = !isActive">Toggle List View</button>
 
     <div class="addLocationForm" ng-show="locationsCtrl.adding">
       <form ng-submit="locationsCtrl.addLocation()">
@@ -31,7 +36,7 @@
       </form>
     </div>
 
-    <div class="locationsListContainer">
+    <div class="locationsListContainer" ng-show="isActive">
       <ul class="locationsList" ng-repeat="place in locationsCtrl.locations">
         <div  ng-hide="place.editing" class="locationInfo">
           <li class="title">{{ place.title }}</li>

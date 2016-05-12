@@ -111,9 +111,28 @@ input[type="text"] {
   color: #ffffff;
   padding: 7px 15px;
   text-decoration: none;
-  margin-bottom: 15px; }
+  margin-bottom: 15px;
+  margin-bottom: 0; }
   .locations .addNew:hover {
     background-image: linear-gradient(to bottom, #7ca058, #557a30); }
+
+.locations .viewAll, .locations .closeList {
+  background: #b9bbd3;
+  background-image: linear-gradient(to bottom, #868899, #272b33);
+  border: none;
+  border-radius: 4px;
+  text-shadow: 1px 1px 3px #111;
+  box-shadow: 0 1px 3px 0 #111;
+  color: #ffffff;
+  padding: 7px 15px;
+  text-decoration: none;
+  margin-bottom: 15px;
+  margin-bottom: 0;
+  float: right; }
+  .locations .viewAll:hover, .locations .closeList:hover {
+    background: #d6d6d6;
+    background-image: linear-gradient(to bottom, #d6d6d6, #868899);
+    text-decoration: none; }
 
 .locations .addLocationForm form {
   text-align: center;
@@ -200,6 +219,14 @@ input[type="text"] {
 
 .locationWeather {
   float: right; }
+
+@keyframes list-animation {
+  0% {
+    width: 0%; }
+  50% {
+    width: 50%; }
+  100% {
+    width: 100%; } }
 
 .gray {
   background: #b9bbd3;

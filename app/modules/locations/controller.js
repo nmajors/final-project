@@ -122,6 +122,10 @@ class LocationsController {
     this.showMarkers();
   }
 
+  // toggleList(){
+  //   this.showList = !this.showList;
+  // }
+
 
   getMarkerIcon(location) {
 

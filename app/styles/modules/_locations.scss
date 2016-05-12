@@ -31,7 +31,14 @@
   }
 .addNew{
   @include greenButton;
+  margin-bottom: 0;
 }
+.viewAll, .closeList{
+  @include grayButton;
+  margin-bottom: 0;
+  float: right;
+}
+
   .addLocationForm {
     form {
       text-align: center;
@@ -100,4 +107,18 @@
   float: right;
 
   // display: inline-block;
+}
+
+@keyframes list-animation {
+    0% {
+        width: 0%;
+    }
+
+    50% {
+        width: 50%;
+    }
+
+    100% {
+        width: 100%;
+    }
 }
