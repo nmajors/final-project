@@ -1,7 +1,8 @@
 class LocationsController {
-  constructor($state, UserService, LocationsService, $scope, $http, $q) {
+  constructor($state, UserService, LocationsService, $scope, $http, $q, $timeout) {
     this._$http = $http;
     this._$state = $state;
+    this._$timeout = $timeout;
     this._LocationsService = LocationsService;
     this._UserService = UserService;
     this._$q = $q;
@@ -9,6 +10,7 @@ class LocationsController {
     this.demoMode = false;
     this.showWindow = true;
     this.adding = false;
+    this.isActive = false;
 
     this.markers = [];
     // this.locations = [];
@@ -98,8 +100,11 @@ class LocationsController {
   }
 
   deleteLocation(place) {
-    this._LocationsService.removeLocation(place);
-    this.showMarkers();
+    let confirmDelete = confirm(`Are you sure you want to delete?`);
+    if (confirmDelete) {
+      this._LocationsService.removeLocation(place);
+      this.showMarkers();
+    }
   }
 
   changeLocation(place) {
@@ -122,9 +127,29 @@ class LocationsController {
     this.showMarkers();
   }
 
-  // toggleList(){
-  //   this.showList = !this.showList;
-  // }
+  toggleList(){
+    if (this.isActive) {
+      this.isFading = true;
+
+      this._$timeout(() => {
+        this.isActive = false;
+        this.isFading = false;
+      }, 1000);
+    }
+    else {
+      this.isActive = true;
+    }
+
+  //   if (this.isActive = true){
+  //         const listContainer = document.querySelector('#locationsListContainer');
+  // //     let listContainer = angular.element( document.querySelector( '#locationsListContainer' ));
+  //     listContainer.addClass('animated slideInLeft');
+  // //
+  // //     //  ng-class="{ 'animated slideInLeft': isActive, 'animated slideOutLeft': !isActive }"
+  // //
+  //   }
+    console.log(this.isActive);
+  }
 
 
   getMarkerIcon(location) {
@@ -221,6 +246,7 @@ class LocationsController {
           if (this.demoMode && this.marker.options.icon === '../assets/images/snowy.png') {
             this.marker.image = 'http://openweathermap.org/img/w/13d.png';
             this.marker.condition = "Snow";
+            this.marker.temp = 30;
           }
 
           if (this.demoMode && this.marker.options.icon === '../assets/images/rain.png') {

@@ -21,11 +21,9 @@
     <button class="addNew" ng-hide="locationsCtrl.adding" ng-click="locationsCtrl.toggleAdding()">Add New Location</button>
 
 <!--TODO: put the isActive toggle in a function-->
-    <button ng-class="{'viewAll': !isActive, 'closeList': isActive}"
-       ng-init="isActive = false"
-       ng-click="isActive = !isActive">Toggle List View</button>
 
-    <div class="addLocationForm" ng-show="locationsCtrl.adding">
+
+    <!-- <div class="addLocationForm" ng-show="locationsCtrl.adding">
       <form ng-submit="locationsCtrl.addLocation()">
         <input type="text" placeholder='Name this location' ng-model="locationsCtrl.newLocation.title">
         <input type="text" placeholder="street address" ng-model="locationsCtrl.newLocation.address">
@@ -34,10 +32,11 @@
 
         <input type="submit" value="Add Location">
       </form>
-    </div>
-
+    </div> -->
+    <button ng-hide="locationsCtrl.adding" ng-class="{'viewAll': !locationsCtrl.isActive, 'closeList': locationsCtrl.isActive}"
+       ng-click="locationsCtrl.toggleList()">Toggle List View</button>
 <!--TODO: get slideOutLeft working-->
-    <div class="locationsListContainer" ng-class="{ 'animated slideInLeft': isActive, 'animated slideOutLeft': !isActive }" ng-show="isActive">
+    <div id="locationsListContainer" ng-class="{ 'animated slideInLeft': locationsCtrl.isActive, 'animated slideOutLeft': locationsCtrl.isFading }" ng-show="locationsCtrl.isActive">
       <ul class="locationsList" ng-repeat="place in locationsCtrl.locations">
         <div  ng-hide="place.editing" class="locationInfo">
           <li class="title">{{ place.title }}</li>

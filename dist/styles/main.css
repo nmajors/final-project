@@ -154,7 +154,7 @@ input[type="text"] {
     .locations .addLocationForm form input[type="submit"]:hover {
       background-image: linear-gradient(to bottom, #7ca058, #557a30); }
 
-.locations .locationsListContainer {
+.locations #locationsListContainer {
   border-top: 1px solid #aaa;
   margin-top: 30px; }
 
