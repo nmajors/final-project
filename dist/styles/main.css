@@ -12,7 +12,7 @@ body {
   letter-spacing: 0.1em; }
 
 ul {
-  padding-left: -40px; }
+  padding-left: 0; }
 
 li {
   list-style-type: none; }
@@ -116,7 +116,8 @@ input[type="text"] {
   .locations .addNew:hover {
     background-image: linear-gradient(to bottom, #7ca058, #557a30); }
 
-.locations .viewAll, .locations .closeList {
+.locations .closeList,
+.locations .viewAll {
   background: #b9bbd3;
   background-image: linear-gradient(to bottom, #868899, #272b33);
   border: none;
@@ -129,10 +130,21 @@ input[type="text"] {
   margin-bottom: 15px;
   margin-bottom: 0;
   float: right; }
-  .locations .viewAll:hover, .locations .closeList:hover {
+  .locations .closeList:hover,
+  .locations .viewAll:hover {
     background: #d6d6d6;
     background-image: linear-gradient(to bottom, #d6d6d6, #868899);
     text-decoration: none; }
+
+.locations .addLocationForm .fa-times {
+  display: block;
+  width: 100%;
+  text-align: right;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  padding-right: 15px; }
+  .locations .addLocationForm .fa-times:hover {
+    cursor: pointer; }
 
 .locations .addLocationForm form {
   text-align: center;
@@ -163,8 +175,7 @@ input[type="text"] {
   border-bottom: 1px solid #aaa; }
   .locations .locationsList .locationInfo {
     display: inline-block;
-    float: left;
-    margin-left: -40px; }
+    float: left; }
   .locations .locationsList .listButtons {
     text-align: right;
     margin: 30px auto; }
@@ -204,6 +215,10 @@ input[type="text"] {
       background-image: linear-gradient(to bottom, #d6d6d6, #868899);
       text-decoration: none; }
 
+.locationsMap {
+  border-top: 1px solid #aaa;
+  margin-top: 30px; }
+
 .angular-google-map-container {
   height: 80vh;
   width: 100%;
@@ -211,22 +226,21 @@ input[type="text"] {
   border: 2px solid #666;
   border-radius: 5px; }
 
-.windowInfo {
-  float: left;
-  margin-left: -30px;
-  margin-top: 30px;
-  vertical-align: middle; }
-
-.locationWeather {
-  float: right; }
-
-@keyframes list-animation {
-  0% {
-    width: 0%; }
-  50% {
-    width: 50%; }
-  100% {
-    width: 100%; } }
+.infoWindow {
+  overflow: auto;
+  zoom: 1; }
+  .infoWindow .windowLocation {
+    margin-top: 15px;
+    width: 50%;
+    float: left; }
+    .infoWindow .windowLocation li:first-child {
+      font-weight: 700; }
+  .infoWindow .locationWeather {
+    width: 50%;
+    float: right;
+    padding-left: 15px; }
+  .infoWindow .currentWindow {
+    text-align: center; }
 
 .gray {
   background: #b9bbd3;

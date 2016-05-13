@@ -20,10 +20,10 @@
 
     <button class="addNew" ng-hide="locationsCtrl.adding" ng-click="locationsCtrl.toggleAdding()">Add New Location</button>
 
-<!--TODO: put the isActive toggle in a function-->
 
 
-    <!-- <div class="addLocationForm" ng-show="locationsCtrl.adding">
+    <div class="addLocationForm" ng-show="locationsCtrl.adding">
+      <i class="fa fa-times" aria-hidden="true" ng-click="locationsCtrl.toggleAdding()"></i>
       <form ng-submit="locationsCtrl.addLocation()">
         <input type="text" placeholder='Name this location' ng-model="locationsCtrl.newLocation.title">
         <input type="text" placeholder="street address" ng-model="locationsCtrl.newLocation.address">
@@ -32,10 +32,10 @@
 
         <input type="submit" value="Add Location">
       </form>
-    </div> -->
+    </div>
     <button ng-hide="locationsCtrl.adding" ng-class="{'viewAll': !locationsCtrl.isActive, 'closeList': locationsCtrl.isActive}"
        ng-click="locationsCtrl.toggleList()">Toggle List View</button>
-<!--TODO: get slideOutLeft working-->
+
     <div id="locationsListContainer" ng-class="{ 'animated slideInLeft': locationsCtrl.isActive, 'animated slideOutLeft': locationsCtrl.isFading }" ng-show="locationsCtrl.isActive">
       <ul class="locationsList" ng-repeat="place in locationsCtrl.locations">
         <div  ng-hide="place.editing" class="locationInfo">
@@ -68,15 +68,15 @@
   </div>
 
   <!-- <div ng-if='' -->
-  <div class="locationsMap" ng-if="locationsCtrl.markers[0].coords">
+  <div class="locationsMap" ng-if="locationsCtrl.markers[0].coords" ng-hide="locationsCtrl.isActive">
     <ui-gmap-google-map center='locationsCtrl.map.center' zoom='locationsCtrl.map.zoom'>
 
       <ui-gmap-markers models="locationsCtrl.markers" coords="'coords'" fit="true" click="onClick" options="'options'">
         <ui-gmap-windows show="show">
           <div class="infoWindow" ng-non-bindable>
-            <ul class="windowInfo">
-              <li>
-                <h5>{{ name }}</h5></li>
+            <ul class="windowLocation">
+              <li class="windowName">
+                {{ name }}</li>
               <li class="address">{{ address }}</li>
               <li><span class="city">{{ city }}</span>, <span class="state">{{ state }}</span></li>
             </ul>
@@ -93,17 +93,14 @@
       <ui-gmap-marker ng-if="locationsCtrl.currentPosition" coords="locationsCtrl.currentPosition.coords" idKey="locationsCtrl.currentPosition.id" options="locationsCtrl.currentPosition.options">
         <ui-gmap-window>
           <div class="infoWindow">
-            <span>{{ locationsCtrl.currentPosition.title }}</span>
-
-            <ul class="locationWeather">
+            <ul class="currentWindow">
+              <li>{{ locationsCtrl.currentPosition.title }}</li>
               <li><img class="weatherIcon" ng-src="{{ locationsCtrl.currentPosition.image }}" alt="{{ locationsCtrl.currentPosition.weather.weather[0].description }}"></li>
               <li>{{ locationsCtrl.currentPosition.weather.main.temp | number:0 }}°</li>
               <li class="condition">{{ locationsCtrl.currentPosition.weather.weather[0].description }}</li>
             </ul>
-
           </div>
         </ui-gmap-window>
-
       </ui-gmap-marker>
 
     </ui-gmap-google-map>

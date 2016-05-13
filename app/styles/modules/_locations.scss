@@ -1,8 +1,5 @@
-
-
 .locations {
   header {
-    // height: 200px;
     padding-bottom: 15px;
     margin-bottom: 30px;
     border-bottom: 1px solid #aaa;
@@ -12,7 +9,7 @@
       h1 {
         width: 20%;
       }
-      .demoMode{
+      .demoMode {
         @include grayButton;
       }
     }
@@ -29,27 +26,39 @@
       }
     }
   }
-.addNew{
-  @include greenButton;
-  margin-bottom: 0;
-}
-.viewAll, .closeList{
-  @include grayButton;
-  margin-bottom: 0;
-  float: right;
-}
-
+  .addNew {
+    @include greenButton;
+    margin-bottom: 0;
+  }
+  .closeList,
+  .viewAll {
+    @include grayButton;
+    margin-bottom: 0;
+    float: right;
+  }
   .addLocationForm {
+    .fa-times{
+      display: block;
+      width: 100%;
+      text-align: right;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      padding-right: 15px;
+      &:hover{
+        cursor: pointer;
+      }
+      // position: absolute;
+      // right: 5%;
+    }
     form {
       text-align: center;
       margin-top: 15px;
       margin-bottom: 15px;
-      input{
+      input {
         width: 80%;
         margin-bottom: 15px;
       }
-      input[type="submit"]{
-        // margin-top: 15px;
+      input[type="submit"] {
         @include greenButton;
       }
     }
@@ -57,7 +66,6 @@
   #locationsListContainer {
     border-top: 1px solid #aaa;
     margin-top: 30px;
-    // display: none;
   }
   .locationsList {
     margin-top: 15px;
@@ -65,7 +73,6 @@
     .locationInfo {
       display: inline-block;
       float: left;
-      margin-left: -40px;
     }
     .listButtons {
       text-align: right;
@@ -76,19 +83,21 @@
         margin-bottom: 15px;
       }
     }
-    .editForm{
-      input{
+    .editForm {
+      input {
         margin-bottom: 15px;
         width: 80%;
       }
-      input[type="submit"]{
+      input[type="submit"] {
         @include grayButton;
       }
     }
   }
-
 }
-
+.locationsMap{
+  border-top: 1px solid #aaa;
+  margin-top: 30px;
+}
 .angular-google-map-container {
   height: 80vh;
   width: 100%;
@@ -96,29 +105,23 @@
   border: 2px solid #666;
   border-radius: 5px;
 }
-.windowInfo{
-  float: left;
-  margin-left: -30px;
-  margin-top: 30px;
-  vertical-align: middle;
-  // display: inline-block;
-}
-.locationWeather{
-  float: right;
-
-  // display: inline-block;
-}
-
-@keyframes list-animation {
-    0% {
-        width: 0%;
+.infoWindow {
+  overflow: auto;
+  zoom: 1;
+  .windowLocation {
+    margin-top: 15px;
+    width: 50%;
+    float: left;
+    li:first-child {
+      font-weight: 700;
     }
-
-    50% {
-        width: 50%;
-    }
-
-    100% {
-        width: 100%;
-    }
+  }
+  .locationWeather {
+    width: 50%;
+    float: right;
+    padding-left: 15px;
+  }
+  .currentWindow {
+    text-align: center;
+  }
 }

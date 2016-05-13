@@ -8,17 +8,13 @@ class LocationsController {
     this._$q = $q;
 
     this.demoMode = false;
-    this.showWindow = true;
+    // this.showWindow = true;
     this.adding = false;
     this.isActive = false;
 
     this.markers = [];
-    // this.locations = [];
 
     this.newLocation = this._LocationsService.new();
-    // this.editedLocation = this._locationsService.removeLocation();
-
-
 
     $scope.onClick = function(marker, eventName, model) {
       model.show = !model.show;
@@ -40,6 +36,7 @@ class LocationsController {
 
         this.user = response;
         navigator.geolocation.getCurrentPosition((position) => {
+          console.log(position);
           //add a marker to the user's current location.
           this.currentPosition = {
             id: position.timestamp.toString(),
@@ -50,7 +47,7 @@ class LocationsController {
             options: {
               icon: '../assets/images/star.png'
             },
-            title: "Your current Location",
+            title: "Your Current Location",
             weather: {},
             image: ""
           };
@@ -60,7 +57,7 @@ class LocationsController {
           this._$http
             .get(`http://whispering-everglades-16419.herokuapp.com/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial`)
             .then((response) => {
-              console.log(response);
+              // console.log(response);
               let weather = response.data;
               let iconCode = response.data.weather[0].icon;
               let iconUrl = `http://openweathermap.org/img/w/${iconCode}.png`;
@@ -68,7 +65,6 @@ class LocationsController {
               this.currentPosition.weather = weather;
               this.currentPosition.image = iconUrl;
 
-              console.log(this.currentPosition);
             });
           //ng-if on ui-gmap-marker prevents marker add attempts before geolocation is complete
         });
@@ -82,21 +78,19 @@ class LocationsController {
       .catch((error) => {
         this._$state.go("login");
       });
-
   }
 
-  toggleAdding(){
+  toggleAdding() {
     this.adding = !this.adding;
   }
   addLocation() {
-    // this.adding = true;
     this._LocationsService
       .createLocation(this.newLocation)
       .then((response) => {
         this.locations = response;
         this.showMarkers();
       });
-      this.toggleAdding();
+    this.toggleAdding();
   }
 
   deleteLocation(place) {
@@ -127,28 +121,17 @@ class LocationsController {
     this.showMarkers();
   }
 
-  toggleList(){
+  toggleList() {
     if (this.isActive) {
       this.isFading = true;
 
       this._$timeout(() => {
         this.isActive = false;
         this.isFading = false;
-      }, 1000);
-    }
-    else {
+      }, 900);
+    } else {
       this.isActive = true;
     }
-
-  //   if (this.isActive = true){
-  //         const listContainer = document.querySelector('#locationsListContainer');
-  // //     let listContainer = angular.element( document.querySelector( '#locationsListContainer' ));
-  //     listContainer.addClass('animated slideInLeft');
-  // //
-  // //     //  ng-class="{ 'animated slideInLeft': isActive, 'animated slideOutLeft': !isActive }"
-  // //
-  //   }
-    console.log(this.isActive);
   }
 
 
@@ -161,7 +144,7 @@ class LocationsController {
 
       let demoCodes = [961, 531, 622, 771, 800, 804, 900, 902];
       locationWeatherCode = demoCodes[Math.floor(Math.random() * demoCodes.length)];
-      console.log('demo mode ' + locationWeatherCode);
+      // console.log('demo mode ' + locationWeatherCode);
     }
 
     if (locationWeatherCode >= 200 && locationWeatherCode <= 232 || locationWeatherCode === 960 || locationWeatherCode === 961) {
@@ -269,7 +252,7 @@ class LocationsController {
             this.marker.condition = "Clear Sky";
           }
 
-          console.log(this.marker);
+          // console.log(this.marker);
           this.markers.push(this.marker);
 
         })
