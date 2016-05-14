@@ -226,23 +226,27 @@ input[type="text"] {
   border: 2px solid #666;
   border-radius: 5px; }
 
-.infoWindow .windowLocation {
-  margin-top: 15px;
-  width: 50%;
-  float: left; }
-  .infoWindow .windowLocation li:first-child {
-    font-weight: 700; }
-  .infoWindow .windowLocation .state {
+.gm-style-iw {
+  max-width: 350px; }
+
+.infoWindow {
+  overflow: auto;
+  zoom: 1; }
+  .infoWindow .windowLocation {
+    margin-top: 15px;
+    width: 50%;
+    float: left; }
+    .infoWindow .windowLocation li:first-child {
+      font-weight: 700; }
+    .infoWindow .windowLocation .state {
+      white-space: nowrap; }
+  .infoWindow .locationWeather {
+    width: 50%;
+    float: right;
+    padding-left: 15px;
     white-space: nowrap; }
-
-.infoWindow .locationWeather {
-  width: 50%;
-  float: right;
-  padding-left: 15px;
-  white-space: nowrap; }
-
-.infoWindow .currentWindow {
-  text-align: center; }
+  .infoWindow .currentWindow {
+    text-align: center; }
 
 .gray {
   background: #b9bbd3;
