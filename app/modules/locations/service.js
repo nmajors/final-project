@@ -42,21 +42,20 @@ class LocationsService {
           lat = loc.lat(),
           lng = loc.lng();
 
-        function formatState(){
-            let stateDisplay;
-            let stateInput = location.state;
-            let stateInputArray = location.state.split(" ");
+        function formatState() {
+          let stateDisplay;
+          let stateInput = location.state;
+          let stateInputArray = location.state.split(" ");
 
-            if (stateInputArray.length > 2){
-              stateInputArray = stateInputArray.slice(0, 2);
-               stateDisplay = stateInputArray.join(" ");
-              console.log(stateDisplay);
-            }
-            else{
-               stateDisplay = location.state;
-            }
-            return stateDisplay;
+          if (stateInputArray.length > 2) {
+            stateInputArray = stateInputArray.slice(0, 2);
+            stateDisplay = stateInputArray.join(" ");
+            console.log(stateDisplay);
+          } else {
+            stateDisplay = location.state;
           }
+          return stateDisplay;
+        }
 
         this.locations.$add({
           title: location.title,
