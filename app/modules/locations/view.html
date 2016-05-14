@@ -33,7 +33,7 @@
         <input type="submit" value="Add Location">
       </form>
     </div>
-    <button ng-hide="locationsCtrl.adding" ng-class="{'viewAll': !locationsCtrl.isActive, 'closeList': locationsCtrl.isActive}"
+    <button ng-hide="locationsCtrl.adding" ng-if="locationsCtrl.markers[0].coords"  ng-class="{'viewAll': !locationsCtrl.isActive, 'closeList': locationsCtrl.isActive}"
        ng-click="locationsCtrl.toggleList()">Toggle List View</button>
 
     <div id="locationsListContainer" ng-class="{ 'animated slideInLeft': locationsCtrl.isActive, 'animated slideOutLeft': locationsCtrl.isFading }" ng-show="locationsCtrl.isActive">
@@ -78,18 +78,18 @@
               <li class="windowName">
                 {{ name }}</li>
               <li class="address">{{ address }}</li>
-              <li><span class="city">{{ city }}</span>, <span class="state">{{ state }}</span></li>
+              <li class="cityState"><span class="city">{{ city }}</span>, <span class="state">{{ state }}</span></li>
             </ul>
             <ul class="locationWeather">
               <li><img class="weatherIcon" src="{{ image }}" alt="{{ condition }}"></li>
               <li>{{ temp | number:0 }}°</li>
               <li class="condition">{{ condition }}</li>
-              <li>{{ time | date: 'short' }}</li>
+              <li class="time">{{ time | date: 'short' }}</li>
             </ul>
           </div>
         </ui-gmap-windows>
       </ui-gmap-markers>
-
+<!--TODO: make marker close on click-->
       <ui-gmap-marker ng-if="locationsCtrl.currentPosition" coords="locationsCtrl.currentPosition.coords" idKey="locationsCtrl.currentPosition.id" options="locationsCtrl.currentPosition.options">
         <ui-gmap-window>
           <div class="infoWindow">

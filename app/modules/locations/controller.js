@@ -108,6 +108,7 @@ class LocationsController {
   saveLocation(place) {
     place.editing = false;
     this._LocationsService.editLocation(place);
+    this.showMarkers();
   }
 
 

@@ -41,11 +41,21 @@ class LocationsService {
           lat = loc.lat(),
           lng = loc.lng();
 
+//format state to be max 2 words, so input like "North Carolina (NC) only prints as "North Carolina"
+          let stateInput = location.state;
+          let stateInputArray = location.state.split(" ");
+
+          if (stateInputArray.length > 2){
+            stateInputArray = stateInputArray.slice(0, 2);
+            let stateDisplay = stateInputArray.join(" ");
+            console.log(stateDisplay);
+          }
+
         this.locations.$add({
           title: location.title,
           address: location.address,
           city: location.city,
-          state: location.state,
+          state: stateDisplay,
           coords: {
             lat,
             lng
