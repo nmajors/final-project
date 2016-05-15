@@ -28,8 +28,7 @@
         <input type="text" placeholder='Name this location' ng-model="locationsCtrl.newLocation.title">
         <input type="text" placeholder="street address" ng-model="locationsCtrl.newLocation.address">
         <input type="text" placeholder="city" ng-model="locationsCtrl.newLocation.city">
-
-
+<!--autocomplete?-->
         <input type="text" placeholder="state" list="states" ng-model="locationsCtrl.newLocation.state" name="chooseState" autocomplete="true">
           <datalist id="states">
           <option ng-repeat="state in locationsCtrl.states" value="{{ state }}"></option>
@@ -76,7 +75,7 @@
     <ui-gmap-google-map center='locationsCtrl.map.center' zoom='locationsCtrl.map.zoom'>
 
       <ui-gmap-markers models="locationsCtrl.markers" coords="'coords'" fit="true" click="onClick" options="'options'">
-        <ui-gmap-windows show="show">
+        <ui-gmap-windows show="show"  closeClick="'closeClick'">
           <div class="infoWindow" ng-non-bindable>
             <ul class="windowLocation">
               <li class="windowName">

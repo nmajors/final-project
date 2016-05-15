@@ -12,7 +12,7 @@ class LocationsController {
     this.adding = false;
     this.isActive = false;
 
-    this.markers = [];
+    // this.markers = [];
 
 
     this.states = this._LocationsService.statesList();
@@ -23,6 +23,8 @@ class LocationsController {
     $scope.onClick = function(marker, eventName, model) {
       model.show = !model.show;
     };
+
+
 
 
     this.map = {
@@ -142,17 +144,18 @@ class LocationsController {
 
 
 
-  getMarkerIcon(location) {
-
+  getMarkerIcon(location,index) {
     let markerIcon = '../assets/images/';
     let locationWeatherCode = location.weather.weather[0].id;
 
     if (this.demoMode) {
-
       let demoCodes = [961, 531, 622, 771, 800, 804, 900, 902];
       locationWeatherCode = demoCodes[Math.floor(Math.random() * demoCodes.length)];
-      // console.log('demo mode ' + locationWeatherCode);
+      if(index === 0){
+        locationWeatherCode = 900;
+      }
     }
+
 
     if (locationWeatherCode >= 200 && locationWeatherCode <= 232 || locationWeatherCode === 960 || locationWeatherCode === 961) {
       markerIcon += 'thunderstorm.png';
@@ -175,6 +178,7 @@ class LocationsController {
       markerIcon += 'default.png';
     }
     return markerIcon;
+
 
   }
 
@@ -212,9 +216,11 @@ class LocationsController {
             weather: location.weather,
             time: location.weather.dt * 1000,
             options: {
-              icon: this.getMarkerIcon(location)
+              icon: this.getMarkerIcon(location, this.markers.length)
             }
           }
+
+
 
           if (this.demoMode && this.marker.options.icon === '../assets/images/tornado.png') {
             this.marker.options.animation = google.maps.Animation.BOUNCE;
@@ -259,13 +265,9 @@ class LocationsController {
             this.marker.condition = "Clear Sky";
           }
 
-          // console.log(this.marker);
           this.markers.push(this.marker);
-
         })
-
     });
-
   }
 
 

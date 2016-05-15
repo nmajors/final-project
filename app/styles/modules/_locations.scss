@@ -108,14 +108,19 @@
 
 //info window style
 .gm-style-iw{
-  max-width: 350px;
+
+  div:first-child{
+    width: 300px;
+    padding-right: 30px;
+  }
+
 }
 .infoWindow {
   overflow: auto;
   zoom: 1;
   .windowLocation {
     margin-top: 15px;
-    width: 50%;
+    width: 40%;
     float: left;
     li:first-child {
       font-weight: 700;
@@ -125,7 +130,7 @@
     }
   }
   .locationWeather {
-    width: 50%;
+    width: 60%;
     float: right;
     padding-left: 15px;
     white-space: nowrap;

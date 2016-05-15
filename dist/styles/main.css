@@ -226,22 +226,23 @@ input[type="text"] {
   border: 2px solid #666;
   border-radius: 5px; }
 
-.gm-style-iw {
-  max-width: 350px; }
+.gm-style-iw div:first-child {
+  width: 300px;
+  padding-right: 30px; }
 
 .infoWindow {
   overflow: auto;
   zoom: 1; }
   .infoWindow .windowLocation {
     margin-top: 15px;
-    width: 50%;
+    width: 40%;
     float: left; }
     .infoWindow .windowLocation li:first-child {
       font-weight: 700; }
     .infoWindow .windowLocation .state {
       white-space: nowrap; }
   .infoWindow .locationWeather {
-    width: 50%;
+    width: 60%;
     float: right;
     padding-left: 15px;
     white-space: nowrap; }
