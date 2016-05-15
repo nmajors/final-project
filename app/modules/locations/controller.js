@@ -14,7 +14,11 @@ class LocationsController {
 
     this.markers = [];
 
+
+    this.states = this._LocationsService.statesList();
     this.newLocation = this._LocationsService.new();
+
+
 
     $scope.onClick = function(marker, eventName, model) {
       model.show = !model.show;
@@ -31,6 +35,7 @@ class LocationsController {
 
 
     this._UserService
+
       .isLoggedIn()
       .then((response) => {
 
@@ -134,6 +139,7 @@ class LocationsController {
       this.isActive = true;
     }
   }
+
 
 
   getMarkerIcon(location) {

@@ -28,24 +28,28 @@
         <input type="text" placeholder='Name this location' ng-model="locationsCtrl.newLocation.title">
         <input type="text" placeholder="street address" ng-model="locationsCtrl.newLocation.address">
         <input type="text" placeholder="city" ng-model="locationsCtrl.newLocation.city">
-        <input type="text" placeholder="state" ng-model="locationsCtrl.newLocation.state">
 
+
+        <input type="text" placeholder="state" list="states" ng-model="locationsCtrl.newLocation.state" name="chooseState" autocomplete="true">
+          <datalist id="states">
+          <option ng-repeat="state in locationsCtrl.states" value="{{ state }}"></option>
+
+          </datalist>
         <input type="submit" value="Add Location">
       </form>
     </div>
-    <button ng-hide="locationsCtrl.adding" ng-if="locationsCtrl.markers[0].coords"  ng-class="{'viewAll': !locationsCtrl.isActive, 'closeList': locationsCtrl.isActive}"
-       ng-click="locationsCtrl.toggleList()">Toggle List View</button>
+    <button ng-hide="locationsCtrl.adding" ng-if="locationsCtrl.markers[0].coords" ng-class="{'viewAll': !locationsCtrl.isActive, 'closeList': locationsCtrl.isActive}" ng-click="locationsCtrl.toggleList()">Toggle List View</button>
 
     <div id="locationsListContainer" ng-class="{ 'animated slideInLeft': locationsCtrl.isActive, 'animated slideOutLeft': locationsCtrl.isFading }" ng-show="locationsCtrl.isActive">
       <ul class="locationsList" ng-repeat="place in locationsCtrl.locations">
-        <div  ng-hide="place.editing" class="locationInfo">
+        <div ng-hide="place.editing" class="locationInfo">
           <li class="title">{{ place.title }}</li>
           <li class="address">{{ place.address }}</li>
           <li class="city">{{ place.city }}</li>
           <li class="state">{{ place.state }}</li>
 
         </div>
-        <div  ng-hide="place.editing" class="listButtons">
+        <div ng-hide="place.editing" class="listButtons">
           <li>
             <button class="listButton" ng-click="locationsCtrl.changeLocation(place)">Edit</button>
           </li>
@@ -53,7 +57,7 @@
             <button class="listButton" ng-click="locationsCtrl.deleteLocation(place)">Delete</button>
           </li>
         </div>
-        <div ng-show="place.editing" class="editForm" >
+        <div ng-show="place.editing" class="editForm">
           <form ng-submit="locationsCtrl.saveLocation(place)">
             <input type="text" placeholder='Name this location' ng-model="place.title">
             <input type="text" placeholder="street address" ng-model="place.address">
@@ -89,7 +93,7 @@
           </div>
         </ui-gmap-windows>
       </ui-gmap-markers>
-<!--TODO: make marker close on click-->
+      <!--TODO: make marker close on click-->
       <ui-gmap-marker ng-if="locationsCtrl.currentPosition" coords="locationsCtrl.currentPosition.coords" idKey="locationsCtrl.currentPosition.id" options="locationsCtrl.currentPosition.options">
         <ui-gmap-window>
           <div class="infoWindow">

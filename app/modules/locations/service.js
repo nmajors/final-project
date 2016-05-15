@@ -7,6 +7,8 @@ class LocationsService {
     this.ref = new Firebase("https://nms-severe.firebaseio.com/");
     this.geocoder = new google.maps.Geocoder();
 
+    this.statesList();
+
   }
 
   //get locations for logged in user
@@ -31,6 +33,15 @@ class LocationsService {
     }
   }
 
+  statesList() {
+
+  let states = ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Dakota", "North Carolina", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"];
+
+  return states;
+
+
+  }
+
   createLocation(location) {
     return new this._$q((resolve, reject) => {
 
@@ -42,26 +53,26 @@ class LocationsService {
           lat = loc.lat(),
           lng = loc.lng();
 
-        function formatState() {
-          let stateDisplay;
-          let stateInput = location.state;
-          let stateInputArray = location.state.split(" ");
-
-          if (stateInputArray.length > 2) {
-            stateInputArray = stateInputArray.slice(0, 2);
-            stateDisplay = stateInputArray.join(" ");
-            console.log(stateDisplay);
-          } else {
-            stateDisplay = location.state;
-          }
-          return stateDisplay;
-        }
+        // function formatState() {
+        //   let stateDisplay;
+        //   let stateInput = location.state;
+        //   let stateInputArray = location.state.split(" ");
+        //
+        //   if (stateInputArray.length > 2) {
+        //     stateInputArray = stateInputArray.slice(0, 2);
+        //     stateDisplay = stateInputArray.join(" ");
+        //     console.log(stateDisplay);
+        //   } else {
+        //     stateDisplay = location.state;
+        //   }
+        //   return stateDisplay;
+        // }
 
         this.locations.$add({
           title: location.title,
           address: location.address,
           city: location.city,
-          state: formatState(),
+          state: location.state,
           coords: {
             lat,
             lng
