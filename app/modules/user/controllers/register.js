@@ -3,12 +3,14 @@ class RegisterController {
     this._$state = $state;
     this._UserService = UserService;
     this.newUser = this._UserService.new();
+    this.passwordFail = false;
 
   }
 
 
   register() {
     if (this.newUser.password !== "" && this.newUser.password===this.newUser.password2){
+      this.passwordFail = false;
     this._UserService.create(this.newUser)
       .then((response) => {
         console.log(response);
@@ -16,8 +18,9 @@ class RegisterController {
       })
   }
   else{
-    alert("Passwords do not match!");
+    this.passwordFail = true;
   }
+
 }
 
 }

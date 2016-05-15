@@ -5,6 +5,7 @@
 
     <form class="userForm" ng-submit="registerCtrl.register()">
       <input type="email" placeholder="email" ng-model="registerCtrl.newUser.email">
+      <span ng-if="registerCtrl.passwordFail">Passwords do not match. Try again!</span>
       <input type="password" placeholder="password" ng-model="registerCtrl.newUser.password">
       <input type="password" placeholder="confirm password" ng-model="registerCtrl.newUser.password2">
     <div class="loginButtons">

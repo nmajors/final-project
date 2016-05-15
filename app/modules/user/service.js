@@ -18,7 +18,7 @@ class UserService {
           resolve(this.user);
         })
         .catch((error) => {
-          console.error("Error " + error);
+          alert(error);
           reject(error);
         });
       });
@@ -41,16 +41,14 @@ class UserService {
     return new this._$q((resolve, reject) => {
       this.auth.$createUser(user)
       .then((response) => {
-        console.log(this.auth.$authWithPassword(user));
         return this.auth.$authWithPassword(user);
       })
       .then((response) => {
         this.user = response;
         resolve(this.user);
-        console.log(this.user);
       })
       .catch((error) => {
-        console.error("Error " + error);
+        alert(error);
         reject(error);
       });
     })
