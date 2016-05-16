@@ -11,6 +11,7 @@ class LocationsController {
 
     this.adding = false;
     this.showList = false;
+    this.hasCurrentPosition = false;
 
 
     this.states = this._LocationsService.statesList();
@@ -56,6 +57,7 @@ class LocationsController {
     this.adding = !this.adding;
   }
   addLocation() {
+    this.hasCurrentPosition=false;
     this._LocationsService
       .createLocation(this.newLocation)
       .then((response) => {
@@ -160,6 +162,9 @@ class LocationsController {
       //add a marker to the user's current location.
       let latitude = position.coords.latitude;
       let longitude = position.coords.longitude;
+      if(position.coords.longitude){
+        this.hasCurrentPosition=true;
+      }
       this._$http
         .get(`http://whispering-everglades-16419.herokuapp.com/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial`)
         .then((response) => {

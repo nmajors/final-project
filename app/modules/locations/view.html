@@ -85,9 +85,12 @@
     </div>
   </div>
 
+<!--ng-if="!locationsCtrl.hasCurrentPosition"-->
+<div class="loading" ng-if="!locationsCtrl.hasCurrentPosition">
+  <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+</div>
   <!--TODO: make infoWindow close on click-->
-  <!--TODO: add currentPosition code to getMarkers so map fits around all markers including current position-->
-  <div class="locationsMap" ng-if="locationsCtrl.markers[0].coords" ng-hide="locationsCtrl.showList">
+  <div class="locationsMap" ng-if="locationsCtrl.hasCurrentPosition" ng-hide="locationsCtrl.showList">
     <span class="demo" ng-if="locationsCtrl.demoMode">Demo Mode</span>
     <ui-gmap-google-map center='locationsCtrl.map.center' zoom='locationsCtrl.map.zoom'>
 

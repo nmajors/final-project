@@ -21,10 +21,6 @@
         padding: 0 0 10px;
         .logout {
           @include grayButton;
-          // background: rgba(255, 255, 255, 0.1);
-          // @media screen and(min-width: 768px){
-          //   background: none;
-          // }
         }
       }
     }
@@ -108,6 +104,17 @@
       }
     }
   }
+}
+.loading{
+position: relative;
+      text-align: center;
+      z-index: 100;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-25%, -25%);
+
+z-index: 100;
 }
 .locationsMap{
   border-top: 1px solid #aaa;
