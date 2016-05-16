@@ -115,16 +115,21 @@ select {
           background-image: linear-gradient(to bottom, #d6d6d6, #868899);
           text-decoration: none; }
 
-.locations .control {
+@media screen and (min-width: 1024px) {
+  .locations .content {
+    border-top: 1px solid #aaa; } }
+
+.locations .content .control {
   border-top: 1px solid #aaa;
   border-bottom: 1px solid #aaa;
   padding: 30px 0; }
   @media screen and (min-width: 1024px) {
-    .locations .control {
-      width: 30%;
-      border: 1px solid #aaa;
-      float: left; } }
-  .locations .control .addNew {
+    .locations .content .control {
+      width: 26%;
+      border: none;
+      float: left;
+      margin-right: 4%; } }
+  .locations .content .control .addNew {
     background: rgba(81, 150, 13, 0.4);
     border: none;
     border-radius: 4px;
@@ -135,15 +140,15 @@ select {
     text-decoration: none;
     margin-bottom: 15px;
     margin-bottom: 0; }
-    .locations .control .addNew:hover {
+    .locations .content .control .addNew:hover {
       background-image: linear-gradient(to bottom, #7ca058, #557a30); }
     @media screen and (min-width: 1024px) {
-      .locations .control .addNew {
+      .locations .content .control .addNew {
         margin-bottom: 15px;
-        width: 80%;
+        width: 100%;
         display: block; } }
-  .locations .control .closeList,
-  .locations .control .viewAll {
+  .locations .content .control .closeList,
+  .locations .content .control .viewAll {
     background: rgba(255, 255, 255, 0.1);
     border: none;
     border-radius: 4px;
@@ -155,33 +160,32 @@ select {
     margin-bottom: 15px;
     margin-bottom: 0;
     float: right; }
-    .locations .control .closeList:hover,
-    .locations .control .viewAll:hover {
+    .locations .content .control .closeList:hover,
+    .locations .content .control .viewAll:hover {
       background: #d6d6d6;
       background-image: linear-gradient(to bottom, #d6d6d6, #868899);
       text-decoration: none; }
     @media screen and (min-width: 1024px) {
-      .locations .control .closeList,
-      .locations .control .viewAll {
-        float: none;
-        width: 80%; } }
-  .locations .control .addLocationForm .fa-times {
+      .locations .content .control .closeList,
+      .locations .content .control .viewAll {
+        display: none; } }
+  .locations .content .control .addLocationForm .fa-times {
     display: block;
     width: 80%;
     text-align: right;
     font-size: 2rem;
     margin: 0 0 15px auto;
     padding-right: 15px; }
-    .locations .control .addLocationForm .fa-times:hover {
+    .locations .content .control .addLocationForm .fa-times:hover {
       cursor: pointer; }
-  .locations .control .addLocationForm form {
+  .locations .content .control .addLocationForm form {
     text-align: center;
     margin-top: 15px;
     margin-bottom: 15px; }
-    .locations .control .addLocationForm form input, .locations .control .addLocationForm form .ui-select-container {
+    .locations .content .control .addLocationForm form input, .locations .content .control .addLocationForm form .ui-select-container {
       width: 90%;
       margin: 0 auto 15px auto; }
-    .locations .control .addLocationForm form input[type="submit"] {
+    .locations .content .control .addLocationForm form input[type="submit"] {
       background: rgba(81, 150, 13, 0.4);
       border: none;
       border-radius: 4px;
@@ -191,25 +195,25 @@ select {
       padding: 7px 15px;
       text-decoration: none;
       margin-bottom: 15px; }
-      .locations .control .addLocationForm form input[type="submit"]:hover {
+      .locations .content .control .addLocationForm form input[type="submit"]:hover {
         background-image: linear-gradient(to bottom, #7ca058, #557a30); }
 
-.locations #locationsListContainer {
+.locations .content #locationsListContainer {
   border-top: 1px solid #aaa;
   margin-top: 30px; }
 
-.locations .locationsList {
+.locations .content .locationsList {
   margin-top: 15px;
   border-bottom: 1px solid #aaa; }
-  .locations .locationsList .locationInfo {
+  .locations .content .locationsList .locationInfo {
     display: inline-block;
     float: left;
     margin-top: 15px;
     margin-bottom: 15px; }
-  .locations .locationsList .listButtons {
+  .locations .content .locationsList .listButtons {
     text-align: right;
     margin: 30px auto; }
-    .locations .locationsList .listButtons .listButton {
+    .locations .content .locationsList .listButtons .listButton {
       background: rgba(255, 255, 255, 0.1);
       border: none;
       border-radius: 4px;
@@ -220,11 +224,11 @@ select {
       text-decoration: none;
       margin-bottom: 15px;
       margin-bottom: 15px; }
-      .locations .locationsList .listButtons .listButton:hover {
+      .locations .content .locationsList .listButtons .listButton:hover {
         background: #d6d6d6;
         background-image: linear-gradient(to bottom, #d6d6d6, #868899);
         text-decoration: none; }
-    .locations .locationsList .listButtons .confirmDelete {
+    .locations .content .locationsList .listButtons .confirmDelete {
       background: rgba(81, 150, 13, 0.4);
       border: none;
       border-radius: 4px;
@@ -235,9 +239,9 @@ select {
       text-decoration: none;
       margin-bottom: 15px;
       margin-bottom: 15px; }
-      .locations .locationsList .listButtons .confirmDelete:hover {
+      .locations .content .locationsList .listButtons .confirmDelete:hover {
         background-image: linear-gradient(to bottom, #7ca058, #557a30); }
-    .locations .locationsList .listButtons .noDelete {
+    .locations .content .locationsList .listButtons .noDelete {
       background: rgba(255, 255, 255, 0.1);
       border: none;
       border-radius: 4px;
@@ -247,25 +251,25 @@ select {
       padding: 7px 15px;
       text-decoration: none;
       margin-bottom: 15px; }
-      .locations .locationsList .listButtons .noDelete:hover {
+      .locations .content .locationsList .listButtons .noDelete:hover {
         background: #d6d6d6;
         background-image: linear-gradient(to bottom, #d6d6d6, #868899);
         text-decoration: none; }
-  .locations .locationsList .editForm {
+  .locations .content .locationsList .editForm {
     margin-top: 30px; }
-    .locations .locationsList .editForm .fa-times {
+    .locations .content .locationsList .editForm .fa-times {
       display: block;
       width: 80%;
       text-align: right;
       font-size: 2rem;
       margin: 0 0 15px auto;
       padding-right: 15px; }
-      .locations .locationsList .editForm .fa-times:hover {
+      .locations .content .locationsList .editForm .fa-times:hover {
         cursor: pointer; }
-    .locations .locationsList .editForm input {
+    .locations .content .locationsList .editForm input {
       width: 90%;
       margin: 0 auto 15px auto; }
-    .locations .locationsList .editForm input[type="submit"] {
+    .locations .content .locationsList .editForm input[type="submit"] {
       background: rgba(81, 150, 13, 0.4);
       border: none;
       border-radius: 4px;
@@ -276,10 +280,10 @@ select {
       text-decoration: none;
       margin-bottom: 15px;
       margin-left: 5%; }
-      .locations .locationsList .editForm input[type="submit"]:hover {
+      .locations .content .locationsList .editForm input[type="submit"]:hover {
         background-image: linear-gradient(to bottom, #7ca058, #557a30); }
 
-.loading {
+.locations .loading {
   position: relative;
   text-align: center;
   z-index: 100;
@@ -289,9 +293,9 @@ select {
   transform: translate(-25%, 0);
   z-index: 100; }
 
-.locationsMap {
+.locations .locationsMap {
   margin-top: 30px; }
-  .locationsMap .demo {
+  .locations .locationsMap .demo {
     display: block;
     text-align: center;
     font-size: 24px;
@@ -300,42 +304,44 @@ select {
     background: rgba(242, 236, 207, 0.3);
     border-radius: 5px; }
 
-.angular-google-map-container {
+.locations .angular-google-map-container {
   width: 100%;
   margin: 30px auto;
   border: 2px solid #666;
   border-radius: 5px;
   height: 70vh; }
   @media screen and (min-width: 550px) {
-    .angular-google-map-container {
+    .locations .angular-google-map-container {
       height: 60vh; } }
   @media screen and (min-width: 1024px) {
-    .angular-google-map-container {
+    .locations .angular-google-map-container {
+      height: 70vh;
       width: 70%;
-      float: left; } }
+      float: left;
+      margin: 0 auto; } }
 
-.infoWindow {
+.locations .infoWindow {
   overflow: auto;
   zoom: 1;
   text-align: center; }
-  .infoWindow .windowLocation {
+  .locations .infoWindow .windowLocation {
     margin-top: 15px;
     padding-left: 15px; }
     @media screen and (min-width: 768px) {
-      .infoWindow .windowLocation {
+      .locations .infoWindow .windowLocation {
         padding-right: 30px;
         width: 50%;
         float: left;
         text-align: left; }
-        .infoWindow .windowLocation .cityState {
+        .locations .infoWindow .windowLocation .cityState {
           white-space: nowrap; } }
-    .infoWindow .windowLocation li:first-child {
+    .locations .infoWindow .windowLocation li:first-child {
       font-weight: 700; }
-  .infoWindow .locationWeather {
+  .locations .infoWindow .locationWeather {
     padding-left: 15px;
     white-space: nowrap; }
     @media screen and (min-width: 768px) {
-      .infoWindow .locationWeather {
+      .locations .infoWindow .locationWeather {
         width: 50%;
         float: right;
         text-align: left; } }

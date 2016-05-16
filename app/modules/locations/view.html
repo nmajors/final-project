@@ -16,7 +16,7 @@
       </ul>
 
     </header>
-
+<div class="content">
     <div class="control">
       <button class="addNew" ng-hide="locationsCtrl.adding" ng-click="locationsCtrl.toggleAdding()">Add New Location</button>
       <button ng-hide="locationsCtrl.adding" ng-if="locationsCtrl.markers[0].coords" ng-class="{'viewAll': !locationsCtrl.showList, 'closeList': locationsCtrl.showList}" ng-click="locationsCtrl.toggleList()">Toggle Edit/Delete View
@@ -46,7 +46,7 @@
 
 
 
-    <div id="locationsListContainer" ng-class="{ 'hidden-small': !locationsCtrl.showList, 'visible-large animated slideInLeft': locationsCtrl.showList, 'animated slideOutLeft': locationsCtrl.isFading }">
+    <div id="locationsListContainer" ng-class="{ 'visible-large': !locationsCtrl.showList, 'hidden-small animated slideInLeft': locationsCtrl.showList, 'animated slideOutLeft': locationsCtrl.isFading }">
       <ul class="locationsList" ng-repeat="place in locationsCtrl.locations">
         <div ng-hide="place.editing" class="locationInfo">
           <li class="title">{{ place.title }}</li>
@@ -126,6 +126,7 @@
       </ui-gmap-marker> -->
 
     </ui-gmap-google-map>
+  </div>
   </div>
 
 </div>
