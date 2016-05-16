@@ -5,7 +5,6 @@
         <h1>Weather Watcher</h1>
         <button class="demoMode" ng-hide="locationsCtrl.demoMode" ng-click="locationsCtrl.toggleDemo()">Go to Demo Mode</button>
         <button class="demoMode" ng-show="locationsCtrl.demoMode" ng-click="locationsCtrl.toggleDemo()">Leave Demo Mode</button>
-        <span class="demo" ng-if="locationsCtrl.demoMode">(Demo Mode)</span>
 
       </div>
 
@@ -28,23 +27,33 @@
         <input type="text" placeholder='Name this location' ng-model="locationsCtrl.newLocation.title">
         <input type="text" placeholder="street address" ng-model="locationsCtrl.newLocation.address">
         <input type="text" placeholder="city" ng-model="locationsCtrl.newLocation.city">
-<!--autocomplete?-->
+        <!--autocomplete?-->
         <input type="text" placeholder="state" list="states" ng-model="locationsCtrl.newLocation.state" name="chooseState" autocomplete="true">
           <datalist id="states">
-          <option ng-repeat="state in locationsCtrl.states" value="{{ state }}"></option>
+            <option ng-repeat="state in locationsCtrl.states" value="{{ state }}"></option>
 
           </datalist>
+          <!-- <select chosen multiple data-placeholder="state" id="states" ng-model="locationsCtrl.newLocation.state">
+  <option value="choose"></option>
+  <option ng-repeat="state in locationsCtrl.states"="{{ state }}">{{ state }}</option>
+
+</select> -->
         <input type="submit" value="Add Location">
       </form>
     </div>
-    <button ng-hide="locationsCtrl.adding" ng-if="locationsCtrl.markers[0].coords" ng-class="{'viewAll': !locationsCtrl.isActive, 'closeList': locationsCtrl.isActive}" ng-click="locationsCtrl.toggleList()">Toggle List View</button>
+    <button ng-hide="locationsCtrl.adding" ng-if="locationsCtrl.markers[0].coords"
+      ng-class="{'viewAll': !locationsCtrl.showList, 'closeList': locationsCtrl.showList}"
+      ng-click="locationsCtrl.toggleList()">Toggle List View
+    </button>
 
-    <div id="locationsListContainer" ng-class="{ 'animated slideInLeft': locationsCtrl.isActive, 'animated slideOutLeft': locationsCtrl.isFading }" ng-show="locationsCtrl.isActive">
+    <div id="locationsListContainer"
+      ng-class="{ 'animated slideInLeft': locationsCtrl.showList, 'animated slideOutLeft': locationsCtrl.isFading }"
+      ng-show="locationsCtrl.showList">
       <ul class="locationsList" ng-repeat="place in locationsCtrl.locations">
         <div ng-hide="place.editing" class="locationInfo">
           <li class="title">{{ place.title }}</li>
           <li class="address">{{ place.address }}</li>
-          <li class="city">{{ place.city }}</li>
+          <li class="city">{{ place.city }},</li>
           <li class="state">{{ place.state }}</li>
 
         </div>
@@ -70,12 +79,14 @@
     </div>
   </div>
 
-  <!-- <div ng-if='' -->
-  <div class="locationsMap" ng-if="locationsCtrl.markers[0].coords" ng-hide="locationsCtrl.isActive">
+  <!--TODO: make infoWindow close on click-->
+  <!--TODO: add currentPosition code to getMarkers so map fits around all markers including current position-->
+  <div class="locationsMap" ng-if="locationsCtrl.markers[0].coords || locationsCtrl.currentPosition.coords" ng-hide="locationsCtrl.showList">
+    <span class="demo" ng-if="locationsCtrl.demoMode">Demo Mode</span>
     <ui-gmap-google-map center='locationsCtrl.map.center' zoom='locationsCtrl.map.zoom'>
 
       <ui-gmap-markers models="locationsCtrl.markers" coords="'coords'" fit="true" click="onClick" options="'options'">
-        <ui-gmap-windows show="show"  closeClick="'closeClick'">
+        <ui-gmap-windows show="show">
           <div class="infoWindow" ng-non-bindable>
             <ul class="windowLocation">
               <li class="windowName">
@@ -92,8 +103,8 @@
           </div>
         </ui-gmap-windows>
       </ui-gmap-markers>
-      <!--TODO: make marker close on click-->
-      <ui-gmap-marker ng-if="locationsCtrl.currentPosition" coords="locationsCtrl.currentPosition.coords" idKey="locationsCtrl.currentPosition.id" options="locationsCtrl.currentPosition.options">
+
+      <ui-gmap-marker class="currentPosition" ng-if="locationsCtrl.currentPosition" coords="locationsCtrl.currentPosition.coords" idKey="locationsCtrl.currentPosition.id" options="locationsCtrl.currentPosition.options">
         <ui-gmap-window>
           <div class="infoWindow">
             <ul class="currentWindow">

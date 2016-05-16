@@ -44,6 +44,9 @@ input[type="text"] {
       margin-right: 0.75rem;
       height: 34px; }
 
+select {
+  color: black; }
+
 .infoWindow {
   color: black; }
 
@@ -51,9 +54,6 @@ input[type="text"] {
 .city,
 .condition {
   text-transform: capitalize; }
-
-.state {
-  text-transform: uppercase; }
 
 .locations header {
   padding-bottom: 15px;
@@ -65,8 +65,7 @@ input[type="text"] {
     .locations header .appTitle h1 {
       width: 20%; }
     .locations header .appTitle .demoMode {
-      background: #b9bbd3;
-      background-image: linear-gradient(to bottom, #868899, #272b33);
+      background: rgba(255, 255, 255, 0.1);
       border: none;
       border-radius: 4px;
       text-shadow: 1px 1px 3px #111;
@@ -86,8 +85,7 @@ input[type="text"] {
     .locations header .userInfo li {
       padding: 0 0 10px; }
       .locations header .userInfo li .logout {
-        background: #b9bbd3;
-        background-image: linear-gradient(to bottom, #868899, #272b33);
+        background: rgba(255, 255, 255, 0.1);
         border: none;
         border-radius: 4px;
         text-shadow: 1px 1px 3px #111;
@@ -95,15 +93,14 @@ input[type="text"] {
         color: #ffffff;
         padding: 7px 15px;
         text-decoration: none;
-        margin-bottom: 15px;
-        background: none; }
+        margin-bottom: 15px; }
         .locations header .userInfo li .logout:hover {
           background: #d6d6d6;
           background-image: linear-gradient(to bottom, #d6d6d6, #868899);
           text-decoration: none; }
 
 .locations .addNew {
-  background-image: linear-gradient(to bottom, #557a30, #293A18);
+  background: rgba(81, 150, 13, 0.4);
   border: none;
   border-radius: 4px;
   text-shadow: 1px 1px 3px #111;
@@ -118,8 +115,7 @@ input[type="text"] {
 
 .locations .closeList,
 .locations .viewAll {
-  background: #b9bbd3;
-  background-image: linear-gradient(to bottom, #868899, #272b33);
+  background: rgba(255, 255, 255, 0.1);
   border: none;
   border-radius: 4px;
   text-shadow: 1px 1px 3px #111;
@@ -154,7 +150,7 @@ input[type="text"] {
     width: 80%;
     margin-bottom: 15px; }
   .locations .addLocationForm form input[type="submit"] {
-    background-image: linear-gradient(to bottom, #557a30, #293A18);
+    background: rgba(81, 150, 13, 0.4);
     border: none;
     border-radius: 4px;
     text-shadow: 1px 1px 3px #111;
@@ -180,8 +176,7 @@ input[type="text"] {
     text-align: right;
     margin: 30px auto; }
     .locations .locationsList .listButtons .listButton {
-      background: #b9bbd3;
-      background-image: linear-gradient(to bottom, #868899, #272b33);
+      background: rgba(255, 255, 255, 0.1);
       border: none;
       border-radius: 4px;
       text-shadow: 1px 1px 3px #111;
@@ -190,7 +185,6 @@ input[type="text"] {
       padding: 7px 15px;
       text-decoration: none;
       margin-bottom: 15px;
-      background: none;
       margin-bottom: 15px; }
       .locations .locationsList .listButtons .listButton:hover {
         background: #d6d6d6;
@@ -200,8 +194,7 @@ input[type="text"] {
     margin-bottom: 15px;
     width: 80%; }
   .locations .locationsList .editForm input[type="submit"] {
-    background: #b9bbd3;
-    background-image: linear-gradient(to bottom, #868899, #272b33);
+    background: rgba(255, 255, 255, 0.1);
     border: none;
     border-radius: 4px;
     text-shadow: 1px 1px 3px #111;
@@ -218,6 +211,14 @@ input[type="text"] {
 .locationsMap {
   border-top: 1px solid #aaa;
   margin-top: 30px; }
+  .locationsMap .demo {
+    display: block;
+    text-align: center;
+    font-size: 24px;
+    margin-top: 15px;
+    margin-bottom: -15px;
+    background: rgba(242, 236, 207, 0.3);
+    border-radius: 5px; }
 
 .angular-google-map-container {
   height: 70vh;
@@ -250,8 +251,7 @@ input[type="text"] {
     text-align: center; }
 
 .gray {
-  background: #b9bbd3;
-  background-image: linear-gradient(to bottom, #868899, #272b33);
+  background: rgba(255, 255, 255, 0.1);
   border: none;
   border-radius: 4px;
   text-shadow: 1px 1px 3px #111;
@@ -266,7 +266,7 @@ input[type="text"] {
     text-decoration: none; }
 
 .prominent {
-  background-image: linear-gradient(to bottom, #557a30, #293A18);
+  background: rgba(81, 150, 13, 0.4);
   border: none;
   border-radius: 4px;
   text-shadow: 1px 1px 3px #111;

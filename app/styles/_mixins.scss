@@ -1,6 +1,6 @@
 @mixin grayButton{
-  background: #b9bbd3;
-  background-image: linear-gradient(to bottom, #868899, #272b33);
+  background: rgba(255, 255, 255, 0.1);
+  // background-image: linear-gradient(to bottom, #868899, #272b33);
   border: none;
   border-radius: 4px;
   text-shadow: 1px 1px 3px #111;
@@ -17,7 +17,8 @@
 }
 
 @mixin greenButton{
-    background-image: linear-gradient(to bottom, #557a30, #293A18);
+    // background-image: linear-gradient(to bottom, #557a30, #293A18);
+    background: rgba(81, 150, 13, 0.4);
     border: none;
     border-radius: 4px;
     text-shadow: 1px 1px 3px #111;

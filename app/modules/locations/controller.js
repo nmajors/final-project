@@ -10,7 +10,7 @@ class LocationsController {
     this.demoMode = false;
     // this.showWindow = true;
     this.adding = false;
-    this.isActive = false;
+    this.showList = false;
 
     // this.markers = [];
 
@@ -18,10 +18,9 @@ class LocationsController {
     this.states = this._LocationsService.statesList();
     this.newLocation = this._LocationsService.new();
 
-
-
     $scope.onClick = function(marker, eventName, model) {
       model.show = !model.show;
+      console.log(model);
     };
 
 
@@ -101,8 +100,8 @@ class LocationsController {
   }
 
   deleteLocation(place) {
-    let confirmDelete = confirm(`Are you sure you want to delete?`);
-    if (confirmDelete) {
+    let askDelete = confirm(`Are you sure you want to delete ${place.city}, ${place.state}?`);
+    if (askDelete) {
       this._LocationsService.removeLocation(place);
       this.showMarkers();
     }
@@ -130,15 +129,15 @@ class LocationsController {
   }
 
   toggleList() {
-    if (this.isActive) {
+    if (this.showList) {
       this.isFading = true;
 
       this._$timeout(() => {
-        this.isActive = false;
+        this.showList = false;
         this.isFading = false;
       }, 900);
     } else {
-      this.isActive = true;
+      this.showList = true;
     }
   }
 

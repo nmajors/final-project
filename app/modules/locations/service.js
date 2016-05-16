@@ -68,11 +68,19 @@ class LocationsService {
         //   return stateDisplay;
         // }
 
+        function formatState(){
+          let stateInput = location.state;
+          if(stateInput.length === 2){
+            stateInput = stateInput.toUpperCase();
+          }
+          return stateInput;
+        }
+
         this.locations.$add({
           title: location.title,
           address: location.address,
           city: location.city,
-          state: location.state,
+          state: formatState(),
           coords: {
             lat,
             lng

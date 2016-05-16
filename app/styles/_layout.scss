@@ -28,6 +28,10 @@
   }
 }
 
+select{
+  color: black;
+}
+
 .infoWindow {
   color: black;
 }
@@ -37,5 +41,5 @@
   text-transform: capitalize;
 }
 .state {
-  text-transform: uppercase;
+  // text-transform: uppercase;
 }
