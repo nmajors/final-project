@@ -45,7 +45,7 @@
       width: 80%;
       text-align: right;
       font-size: 2rem;
-      margin: 0 auto 30px auto;
+      margin: 0 0 15px auto;
       padding-right: 15px;
       &:hover{
         cursor: pointer;
@@ -57,10 +57,12 @@
       text-align: center;
       margin-top: 15px;
       margin-bottom: 15px;
-      input {
-        width: 80%;
-        margin-bottom: 15px;
+      input, .ui-select-container {
+        width: 90%;
+        margin: 0 auto 15px auto;
       }
+
+
       input[type="submit"] {
         @include greenButton;
       }
@@ -86,15 +88,23 @@
         @include grayButton;
         margin-bottom: 15px;
       }
+      .confirmDelete {
+        @include greenButton;
+        margin-bottom: 15px;
+      }
+      .noDelete{
+        @include grayButton;
+      }
     }
     .editForm {
+      margin-top: 30px;
       input {
-        text-align: center;
-        width: 80%;
-        margin: 0 auto 15px 60px;
+        width: 90%;
+        margin: 0 auto 15px auto;
       }
       input[type="submit"] {
-        @include grayButton;
+        @include greenButton;
+        margin-left: 5%;
       }
     }
   }
@@ -120,35 +130,48 @@
   border-radius: 5px;
 }
 
-.gm-style-iw{
-  div:first-child{
-    width: 300px;
-    padding-right: 30px;
-  }
+// .gm-style-iw{
+//   div:first-child{
+//     width: 300px;
+//     padding-right: 30px;
+//   }
+//
+// }
 
-}
+//media query for column bullshit
 .infoWindow {
   overflow: auto;
   zoom: 1;
+  text-align: center;
   .windowLocation {
     margin-top: 15px;
-    width: 40%;
+    padding-left: 15px;
+
+
+    @media screen and(min-width: 768px){
+      padding-right: 30px;
+    width: 50%;
     float: left;
-    li:first-child {
-      font-weight: 700;
-    }
-    .state{
+    text-align: left;
+    .cityState{
       white-space: nowrap;
     }
   }
-  .locationWeather {
-    width: 60%;
-    float: right;
-    padding-left: 15px;
-    white-space: nowrap;
+    li:first-child {
+      font-weight: 700;
+    }
 
   }
-  .currentWindow {
-    text-align: center;
+  .locationWeather {
+    padding-left: 15px;
+    white-space: nowrap;
+    @media screen and(min-width: 768px){
+
+      width: 50%;
+      float: right;
+      text-align: left;
+    }
+
   }
+
 }

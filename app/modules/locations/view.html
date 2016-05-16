@@ -24,26 +24,22 @@
     <div class="addLocationForm" ng-show="locationsCtrl.adding">
       <i class="fa fa-times" aria-hidden="true" ng-click="locationsCtrl.toggleAdding()"></i>
       <form ng-submit="locationsCtrl.addLocation()">
-        <input type="text" placeholder='Name this location' ng-model="locationsCtrl.newLocation.title">
-        <input type="text" placeholder="street address" ng-model="locationsCtrl.newLocation.address">
-        <input type="text" placeholder="city" ng-model="locationsCtrl.newLocation.city">
-        <!--autocomplete?-->
+        <div class="form-group">
+          <input class="form-control" type="text" placeholder='Name this location' ng-model="locationsCtrl.newLocation.title">
+          <input class="form-control" type="text" placeholder="street address" ng-model="locationsCtrl.newLocation.address">
+          <input class="form-control" type="text" placeholder="city" ng-model="locationsCtrl.newLocation.city">
 
-        <ui-select ng-model="locationsCtrl.newLocation.state">
-            <ui-select-match>
-                <span ng-bind="locationsCtrl.newLocation.state"></span>
-            </ui-select-match>
-            <ui-select-choices repeat="state in (locationsCtrl.states | filter: $select.search) track by state">
-                <span ng-bind="state"></span>
-            </ui-select-choices>
-        </ui-select>
+          <ui-select ng-model="locationsCtrl.newLocation.state">
+              <ui-select-match>
+                  <span ng-bind="locationsCtrl.newLocation.state"></span>
+              </ui-select-match>
+              <ui-select-choices repeat="state in (locationsCtrl.states | filter: $select.search) track by state">
+                  <span ng-bind="state"></span>
+              </ui-select-choices>
+          </ui-select>
 
-          <!-- <select chosen multiple data-placeholder="state" id="states" ng-model="locationsCtrl.newLocation.state">
-  <option value="choose"></option>
-  <option ng-repeat="state in locationsCtrl.states"="{{ state }}">{{ state }}</option>
-
-</select> -->
-        <input type="submit" value="Add Location">
+          <input type="submit" value="Add Location">
+        </div>
       </form>
     </div>
     <button ng-hide="locationsCtrl.adding" ng-if="locationsCtrl.markers[0].coords"
@@ -71,15 +67,16 @@
             <button class="listButton" ng-click="locationsCtrl.toggleDelete(place)" ng-hide="place.deleting">Delete</button>
           </li>
           <li>
-            <button class="listButton" ng-click="locationsCtrl.deleteLocation(place)" ng-show="place.deleting">Are you Sure?</button>
+            <button class="confirmDelete" ng-click="locationsCtrl.deleteLocation(place)" ng-show="place.deleting">Confirm Delete</button>
+            <button class="noDelete" ng-click="locationsCtrl.toggleDelete(place)" ng-show="place.deleting">Go Back to List</button>
           </li>
         </div>
-        <div ng-show="place.editing" class="editForm">
+        <div ng-show="place.editing" class="editForm form-group">
           <form ng-submit="locationsCtrl.saveLocation(place)">
-            <input type="text" placeholder='Name this location' ng-model="place.title">
-            <input type="text" placeholder="street address" ng-model="place.address">
-            <input type="text" placeholder="city" ng-model="place.city">
-            <input type="text" placeholder="state" ng-model="place.state">
+            <input class="form-control" type="text" placeholder='Name this location' ng-model="place.title">
+            <input class="form-control" type="text" placeholder="street address" ng-model="place.address">
+            <input class="form-control" type="text" placeholder="city" ng-model="place.city">
+            <input class="form-control" type="text" placeholder="state" ng-model="place.state">
             <input type="submit" value="Edit Location">
           </form>
         </div>
@@ -90,7 +87,7 @@
 
   <!--TODO: make infoWindow close on click-->
   <!--TODO: add currentPosition code to getMarkers so map fits around all markers including current position-->
-  <div class="locationsMap" ng-if="locationsCtrl.markers[0].coords || locationsCtrl.currentPosition.coords" ng-hide="locationsCtrl.showList">
+  <div class="locationsMap" ng-if="locationsCtrl.markers[0].coords" ng-hide="locationsCtrl.showList">
     <span class="demo" ng-if="locationsCtrl.demoMode">Demo Mode</span>
     <ui-gmap-google-map center='locationsCtrl.map.center' zoom='locationsCtrl.map.zoom'>
 
@@ -101,7 +98,7 @@
               <li class="windowName">
                 {{ name }}</li>
               <li class="address">{{ address }}</li>
-              <li class="cityState"><span class="city">{{ city }}</span>, <span class="state">{{ state }}</span></li>
+              <li class="cityState">{{ cityState }}</li>
             </ul>
             <ul class="locationWeather">
               <li><img class="weatherIcon" src="{{ image }}" alt="{{ condition }}"></li>
@@ -113,7 +110,7 @@
         </ui-gmap-windows>
       </ui-gmap-markers>
 
-      <ui-gmap-marker class="currentPosition" ng-if="locationsCtrl.currentPosition" coords="locationsCtrl.currentPosition.coords" idKey="locationsCtrl.currentPosition.id" options="locationsCtrl.currentPosition.options">
+      <!-- <ui-gmap-marker class="currentPosition" ng-if="locationsCtrl.currentPosition" coords="locationsCtrl.currentPosition.coords" idKey="locationsCtrl.currentPosition.id" options="locationsCtrl.currentPosition.options">
         <ui-gmap-window>
           <div class="infoWindow">
             <ul class="currentWindow">
@@ -124,7 +121,7 @@
             </ul>
           </div>
         </ui-gmap-window>
-      </ui-gmap-marker>
+      </ui-gmap-marker> -->
 
     </ui-gmap-google-map>
   </div>

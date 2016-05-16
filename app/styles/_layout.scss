@@ -20,14 +20,16 @@
       border-radius: 2px;
       color: black;
     }
-    input[type="submit"] {
+    input[type="submit"], {
       // margin-top: 15px;
       margin-right: 0.75rem;
       height: 34px;
     }
   }
 }
-
+.form-control{
+  margin: 0 auto;
+}
 select{
   color: black;
 }

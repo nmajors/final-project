@@ -39,39 +39,7 @@ class LocationsController {
       .then((response) => {
 
         this.user = response;
-        navigator.geolocation.getCurrentPosition((position) => {
-          console.log(position);
-          //add a marker to the user's current location.
-          this.currentPosition = {
-            id: position.timestamp.toString(),
-            coords: {
-              latitude: position.coords.latitude,
-              longitude: position.coords.longitude
-            },
-            options: {
-              icon: '../assets/images/star.png'
-            },
-            title: "Your Current Location",
-            weather: {},
-            image: ""
-          };
 
-          let latitude = position.coords.latitude;
-          let longitude = position.coords.longitude;
-          this._$http
-            .get(`http://whispering-everglades-16419.herokuapp.com/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial`)
-            .then((response) => {
-              // console.log(response);
-              let weather = response.data;
-              let iconCode = response.data.weather[0].icon;
-              let iconUrl = `http://openweathermap.org/img/w/${iconCode}.png`;
-
-              this.currentPosition.weather = weather;
-              this.currentPosition.image = iconUrl;
-
-            });
-          //ng-if on ui-gmap-marker prevents marker add attempts before geolocation is complete
-        });
         this._LocationsService.getLocations(this.user)
           .then((response) => {
             this.locations = response;
@@ -97,17 +65,14 @@ class LocationsController {
     this.toggleAdding();
   }
 
-toggleDelete(place){
-  this.deleting = !this.deleting;
-}
-  deleteLocation(place) {
-
-    let askDelete = confirm(`Are you sure you want to delete ${place.city}, ${place.state}?`);
-    if (askDelete) {
-      this._LocationsService.removeLocation(place);
-      this.showMarkers();
-    }
+  toggleDelete(place) {
+    place.deleting = !place.deleting;
   }
+  deleteLocation(place) {
+    this._LocationsService.removeLocation(place);
+    this.showMarkers();
+  }
+
 
   changeLocation(place) {
     place.editing = true;
@@ -137,10 +102,11 @@ toggleDelete(place){
     if (this.showList) {
 
       this.isFading = true;
-        //allows slideOutLeft time to slide out before showList/ng-show sets to false
+      //allows slideOutLeft time to slide out before showList/ng-show sets to false
       this._$timeout(() => {
         this.showList = false;
         this.isFading = false;
+        this.showMarkers();
       }, 900);
     } else {
       this.showList = true;
@@ -149,14 +115,14 @@ toggleDelete(place){
 
 
 
-  getMarkerIcon(location,index) {
+  getMarkerIcon(location, index) {
     let markerIcon = '../assets/images/';
     let locationWeatherCode = location.weather.weather[0].id;
 
     if (this.demoMode) {
       let demoCodes = [961, 531, 622, 771, 800, 804, 900, 902];
       locationWeatherCode = demoCodes[Math.floor(Math.random() * demoCodes.length)];
-      if(index === 0){
+      if (index === 0) {
         locationWeatherCode = 900;
       }
     }
@@ -189,6 +155,43 @@ toggleDelete(place){
 
   showMarkers() {
     this.markers = [];
+    navigator.geolocation.getCurrentPosition((position) => {
+      console.log(position);
+      //add a marker to the user's current location.
+      let latitude = position.coords.latitude;
+      let longitude = position.coords.longitude;
+      this._$http
+        .get(`http://whispering-everglades-16419.herokuapp.com/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial`)
+        .then((response) => {
+          console.log(response);
+          let currentWeather = response.data;
+          let iconCode = response.data.weather[0].icon;
+          let iconUrl = `http://openweathermap.org/img/w/${iconCode}.png`;
+
+          this.marker = {
+            id: position.timestamp.toString(),
+            coords: {
+              latitude: position.coords.latitude,
+              longitude: position.coords.longitude
+            },
+            options: {
+              icon: '../assets/images/star.png'
+            },
+            name: currentWeather.name,
+            cityState: "Your Location",
+            image: iconUrl,
+            // weather: currentWeather,
+            condition: currentWeather.weather[0].description,
+            temp: currentWeather.main.temp,
+            current: true
+
+          };
+
+          this.markers.push(this.marker);
+
+        });
+      //ng-if on ui-gmap-marker prevents marker add attempts before geolocation is complete
+    })
 
     this.locations.forEach((location) => {
 
@@ -215,6 +218,7 @@ toggleDelete(place){
             address: location.address,
             city: location.city,
             state: location.state,
+            cityState: `${location.city}, ${location.state}`,
             image: location.image,
             temp: location.weather.main.temp,
             condition: location.weather.weather[0].description,
