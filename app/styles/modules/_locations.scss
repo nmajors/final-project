@@ -1,8 +1,18 @@
+.hidden-small {
+  display: none;
+
+  @media screen and (min-width: 1024px) {
+    display: block;
+  }
+}
+
+.visible-large {
+  display: block;
+}
+
 .locations {
   header {
     padding-bottom: 15px;
-    margin-bottom: 30px;
-    border-bottom: 1px solid #aaa;
     .appTitle {
       width: 50%;
       display: inline-block;
@@ -25,48 +35,69 @@
       }
     }
   }
-  .addNew {
-    @include greenButton;
-    margin-bottom: 0;
-  }
-  .closeList,
-  .viewAll {
-    @include grayButton;
-    margin-bottom: 0;
-    float: right;
-  }
-  .addLocationForm {
-    .fa-times{
-      display: block;
-      width: 80%;
-      text-align: right;
-      font-size: 2rem;
-      margin: 0 0 15px auto;
-      padding-right: 15px;
-      &:hover{
-        cursor: pointer;
-      }
-      // position: absolute;
-      // right: 5%;
+
+  .control{
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+    padding: 30px 0;
+    @media screen and (min-width: 1024px){
+      width: 30%;
+      border: 1px solid #aaa;
+      float: left;
     }
-    form {
-      text-align: center;
-      margin-top: 15px;
-      margin-bottom: 15px;
-      input, .ui-select-container {
-        width: 90%;
-        margin: 0 auto 15px auto;
+    .addNew {
+      @include greenButton;
+      margin-bottom: 0;
+      @media screen and(min-width: 1024px){
+        margin-bottom: 15px;
+        width: 80%;
+        display: block;
       }
+    }
+    .closeList,
+    .viewAll {
+      @include grayButton;
+      margin-bottom: 0;
+      float: right;
+      @media screen and(min-width: 1024px){
+      float: none;
+      width: 80%;
 
-
-      input[type="submit"] {
-        @include greenButton;
+      }
+    }
+    .addLocationForm {
+      .fa-times{
+        display: block;
+        width: 80%;
+        text-align: right;
+        font-size: 2rem;
+        margin: 0 0 15px auto;
+        padding-right: 15px;
+        &:hover{
+          cursor: pointer;
+        }
+      }
+      form {
+        text-align: center;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        input, .ui-select-container {
+          width: 90%;
+          margin: 0 auto 15px auto;
+        }
+        input[type="submit"] {
+          @include greenButton;
+        }
       }
     }
   }
   #locationsListContainer {
     border-top: 1px solid #aaa;
     margin-top: 30px;
+    // @media screen and (min-width: 1024px){
+    //   width: 30%;
+    //
+    // }
   }
   .locationsList {
     margin-top: 15px;
@@ -94,6 +125,17 @@
     }
     .editForm {
       margin-top: 30px;
+      .fa-times{
+        display: block;
+        width: 80%;
+        text-align: right;
+        font-size: 2rem;
+        margin: 0 0 15px auto;
+        padding-right: 15px;
+        &:hover{
+          cursor: pointer;
+        }
+      }
       input {
         width: 90%;
         margin: 0 auto 15px auto;
@@ -106,18 +148,17 @@
   }
 }
 .loading{
-position: relative;
-      text-align: center;
-      z-index: 100;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-25%, -25%);
-
-z-index: 100;
+  position: relative;
+  text-align: center;
+  z-index: 100;
+  position: absolute;
+  left: 50%;
+  top: 75%;
+  transform: translate(-25%, 0);
+  z-index: 100;
 }
 .locationsMap{
-  border-top: 1px solid #aaa;
+  // border-top: 1px solid #aaa;
   margin-top: 30px;
   .demo{
     display: block;
@@ -130,22 +171,20 @@ z-index: 100;
   }
 }
 .angular-google-map-container {
-  height: 70vh;
   width: 100%;
   margin: 30px auto;
   border: 2px solid #666;
   border-radius: 5px;
+  height: 70vh;
+  @media screen and(min-width: 550px){
+    height: 60vh;
+  }
+  @media screen and (min-width: 1024px){
+    width: 70%;
+    float: left;
+  }
 }
 
-// .gm-style-iw{
-//   div:first-child{
-//     width: 300px;
-//     padding-right: 30px;
-//   }
-//
-// }
-
-//media query for column bullshit
 .infoWindow {
   overflow: auto;
   zoom: 1;
@@ -173,7 +212,6 @@ z-index: 100;
     padding-left: 15px;
     white-space: nowrap;
     @media screen and(min-width: 768px){
-
       width: 50%;
       float: right;
       text-align: left;

@@ -77,7 +77,7 @@ class LocationsController {
 
 
   changeLocation(place) {
-    place.editing = true;
+    place.editing = !place.editing;
   }
 
   saveLocation(place) {

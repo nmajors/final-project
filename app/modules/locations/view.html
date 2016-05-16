@@ -17,39 +17,36 @@
 
     </header>
 
-    <button class="addNew" ng-hide="locationsCtrl.adding" ng-click="locationsCtrl.toggleAdding()">Add New Location</button>
+    <div class="control">
+      <button class="addNew" ng-hide="locationsCtrl.adding" ng-click="locationsCtrl.toggleAdding()">Add New Location</button>
+      <button ng-hide="locationsCtrl.adding" ng-if="locationsCtrl.markers[0].coords" ng-class="{'viewAll': !locationsCtrl.showList, 'closeList': locationsCtrl.showList}" ng-click="locationsCtrl.toggleList()">Toggle Edit/Delete View
+      </button>
 
+      <div class="addLocationForm" ng-show="locationsCtrl.adding">
+        <i class="fa fa-times" aria-hidden="true" ng-click="locationsCtrl.toggleAdding()"></i>
+        <form ng-submit="locationsCtrl.addLocation()">
+          <div class="form-group">
+            <input class="form-control" type="text" placeholder='Name this location' ng-model="locationsCtrl.newLocation.title">
+            <input class="form-control" type="text" placeholder="street address" ng-model="locationsCtrl.newLocation.address">
+            <input class="form-control" type="text" placeholder="city" ng-model="locationsCtrl.newLocation.city">
 
-
-    <div class="addLocationForm" ng-show="locationsCtrl.adding">
-      <i class="fa fa-times" aria-hidden="true" ng-click="locationsCtrl.toggleAdding()"></i>
-      <form ng-submit="locationsCtrl.addLocation()">
-        <div class="form-group">
-          <input class="form-control" type="text" placeholder='Name this location' ng-model="locationsCtrl.newLocation.title">
-          <input class="form-control" type="text" placeholder="street address" ng-model="locationsCtrl.newLocation.address">
-          <input class="form-control" type="text" placeholder="city" ng-model="locationsCtrl.newLocation.city">
-
-          <ui-select ng-model="locationsCtrl.newLocation.state">
+            <ui-select ng-model="locationsCtrl.newLocation.state">
               <ui-select-match>
-                  <span ng-bind="locationsCtrl.newLocation.state"></span>
+                <span ng-bind="locationsCtrl.newLocation.state"></span>
               </ui-select-match>
               <ui-select-choices repeat="state in (locationsCtrl.states | filter: $select.search) track by state">
-                  <span ng-bind="state"></span>
+                <span ng-bind="state"></span>
               </ui-select-choices>
-          </ui-select>
+            </ui-select>
 
-          <input type="submit" value="Add Location">
-        </div>
-      </form>
-    </div>
-    <button ng-hide="locationsCtrl.adding" ng-if="locationsCtrl.markers[0].coords"
-      ng-class="{'viewAll': !locationsCtrl.showList, 'closeList': locationsCtrl.showList}"
-      ng-click="locationsCtrl.toggleList()">Toggle Edit/Delete View
-    </button>
+            <input type="submit" value="Add Location">
+          </div>
+        </form>
+      </div>
 
-    <div id="locationsListContainer"
-      ng-class="{ 'animated slideInLeft': locationsCtrl.showList, 'animated slideOutLeft': locationsCtrl.isFading }"
-      ng-show="locationsCtrl.showList">
+
+
+    <div id="locationsListContainer" ng-class="{ 'hidden-small': !locationsCtrl.showList, 'visible-large animated slideInLeft': locationsCtrl.showList, 'animated slideOutLeft': locationsCtrl.isFading }">
       <ul class="locationsList" ng-repeat="place in locationsCtrl.locations">
         <div ng-hide="place.editing" class="locationInfo">
           <li class="title">{{ place.title }}</li>
@@ -72,6 +69,7 @@
           </li>
         </div>
         <div ng-show="place.editing" class="editForm form-group">
+          <i class="fa fa-times closeEdit" aria-hidden="true" ng-click="locationsCtrl.changeLocation(place)"></i>
           <form ng-submit="locationsCtrl.saveLocation(place)">
             <input class="form-control" type="text" placeholder='Name this location' ng-model="place.title">
             <input class="form-control" type="text" placeholder="street address" ng-model="place.address">
@@ -84,11 +82,12 @@
 
     </div>
   </div>
+  </div>
 
-<!--ng-if="!locationsCtrl.hasCurrentPosition"-->
-<div class="loading" ng-if="!locationsCtrl.hasCurrentPosition">
-  <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
-</div>
+  <!--ng-if="!locationsCtrl.hasCurrentPosition"-->
+  <div class="loading" ng-if="!locationsCtrl.hasCurrentPosition">
+    <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+  </div>
   <!--TODO: make infoWindow close on click-->
   <div class="locationsMap" ng-if="locationsCtrl.hasCurrentPosition" ng-hide="locationsCtrl.showList">
     <span class="demo" ng-if="locationsCtrl.demoMode">Demo Mode</span>

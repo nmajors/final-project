@@ -24,6 +24,12 @@ input[type="text"] {
 
 .page {
   margin: 0 5%; }
+  @media screen and (min-width: 550px) {
+    .page {
+      margin: 0 10%; } }
+  @media screen and (min-width: 768px) {
+    .page {
+      margin: 0 80px; } }
 
 .userContainer {
   text-align: center;
@@ -58,10 +64,17 @@ select {
 .condition {
   text-transform: capitalize; }
 
+.hidden-small {
+  display: none; }
+  @media screen and (min-width: 1024px) {
+    .hidden-small {
+      display: block; } }
+
+.visible-large {
+  display: block; }
+
 .locations header {
-  padding-bottom: 15px;
-  margin-bottom: 30px;
-  border-bottom: 1px solid #aaa; }
+  padding-bottom: 15px; }
   .locations header .appTitle {
     width: 50%;
     display: inline-block; }
@@ -102,57 +115,16 @@ select {
           background-image: linear-gradient(to bottom, #d6d6d6, #868899);
           text-decoration: none; }
 
-.locations .addNew {
-  background: rgba(81, 150, 13, 0.4);
-  border: none;
-  border-radius: 4px;
-  text-shadow: 1px 1px 3px #111;
-  box-shadow: 0 1px 3px 0 #111;
-  color: #ffffff;
-  padding: 7px 15px;
-  text-decoration: none;
-  margin-bottom: 15px;
-  margin-bottom: 0; }
-  .locations .addNew:hover {
-    background-image: linear-gradient(to bottom, #7ca058, #557a30); }
-
-.locations .closeList,
-.locations .viewAll {
-  background: rgba(255, 255, 255, 0.1);
-  border: none;
-  border-radius: 4px;
-  text-shadow: 1px 1px 3px #111;
-  box-shadow: 0 1px 3px 0 #111;
-  color: #ffffff;
-  padding: 7px 15px;
-  text-decoration: none;
-  margin-bottom: 15px;
-  margin-bottom: 0;
-  float: right; }
-  .locations .closeList:hover,
-  .locations .viewAll:hover {
-    background: #d6d6d6;
-    background-image: linear-gradient(to bottom, #d6d6d6, #868899);
-    text-decoration: none; }
-
-.locations .addLocationForm .fa-times {
-  display: block;
-  width: 80%;
-  text-align: right;
-  font-size: 2rem;
-  margin: 0 0 15px auto;
-  padding-right: 15px; }
-  .locations .addLocationForm .fa-times:hover {
-    cursor: pointer; }
-
-.locations .addLocationForm form {
-  text-align: center;
-  margin-top: 15px;
-  margin-bottom: 15px; }
-  .locations .addLocationForm form input, .locations .addLocationForm form .ui-select-container {
-    width: 90%;
-    margin: 0 auto 15px auto; }
-  .locations .addLocationForm form input[type="submit"] {
+.locations .control {
+  border-top: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
+  padding: 30px 0; }
+  @media screen and (min-width: 1024px) {
+    .locations .control {
+      width: 30%;
+      border: 1px solid #aaa;
+      float: left; } }
+  .locations .control .addNew {
     background: rgba(81, 150, 13, 0.4);
     border: none;
     border-radius: 4px;
@@ -161,9 +133,66 @@ select {
     color: #ffffff;
     padding: 7px 15px;
     text-decoration: none;
-    margin-bottom: 15px; }
-    .locations .addLocationForm form input[type="submit"]:hover {
+    margin-bottom: 15px;
+    margin-bottom: 0; }
+    .locations .control .addNew:hover {
       background-image: linear-gradient(to bottom, #7ca058, #557a30); }
+    @media screen and (min-width: 1024px) {
+      .locations .control .addNew {
+        margin-bottom: 15px;
+        width: 80%;
+        display: block; } }
+  .locations .control .closeList,
+  .locations .control .viewAll {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 4px;
+    text-shadow: 1px 1px 3px #111;
+    box-shadow: 0 1px 3px 0 #111;
+    color: #ffffff;
+    padding: 7px 15px;
+    text-decoration: none;
+    margin-bottom: 15px;
+    margin-bottom: 0;
+    float: right; }
+    .locations .control .closeList:hover,
+    .locations .control .viewAll:hover {
+      background: #d6d6d6;
+      background-image: linear-gradient(to bottom, #d6d6d6, #868899);
+      text-decoration: none; }
+    @media screen and (min-width: 1024px) {
+      .locations .control .closeList,
+      .locations .control .viewAll {
+        float: none;
+        width: 80%; } }
+  .locations .control .addLocationForm .fa-times {
+    display: block;
+    width: 80%;
+    text-align: right;
+    font-size: 2rem;
+    margin: 0 0 15px auto;
+    padding-right: 15px; }
+    .locations .control .addLocationForm .fa-times:hover {
+      cursor: pointer; }
+  .locations .control .addLocationForm form {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px; }
+    .locations .control .addLocationForm form input, .locations .control .addLocationForm form .ui-select-container {
+      width: 90%;
+      margin: 0 auto 15px auto; }
+    .locations .control .addLocationForm form input[type="submit"] {
+      background: rgba(81, 150, 13, 0.4);
+      border: none;
+      border-radius: 4px;
+      text-shadow: 1px 1px 3px #111;
+      box-shadow: 0 1px 3px 0 #111;
+      color: #ffffff;
+      padding: 7px 15px;
+      text-decoration: none;
+      margin-bottom: 15px; }
+      .locations .control .addLocationForm form input[type="submit"]:hover {
+        background-image: linear-gradient(to bottom, #7ca058, #557a30); }
 
 .locations #locationsListContainer {
   border-top: 1px solid #aaa;
@@ -224,6 +253,15 @@ select {
         text-decoration: none; }
   .locations .locationsList .editForm {
     margin-top: 30px; }
+    .locations .locationsList .editForm .fa-times {
+      display: block;
+      width: 80%;
+      text-align: right;
+      font-size: 2rem;
+      margin: 0 0 15px auto;
+      padding-right: 15px; }
+      .locations .locationsList .editForm .fa-times:hover {
+        cursor: pointer; }
     .locations .locationsList .editForm input {
       width: 90%;
       margin: 0 auto 15px auto; }
@@ -247,12 +285,11 @@ select {
   z-index: 100;
   position: absolute;
   left: 50%;
-  top: 50%;
-  transform: translate(-25%, -25%);
+  top: 75%;
+  transform: translate(-25%, 0);
   z-index: 100; }
 
 .locationsMap {
-  border-top: 1px solid #aaa;
   margin-top: 30px; }
   .locationsMap .demo {
     display: block;
@@ -264,11 +301,18 @@ select {
     border-radius: 5px; }
 
 .angular-google-map-container {
-  height: 70vh;
   width: 100%;
   margin: 30px auto;
   border: 2px solid #666;
-  border-radius: 5px; }
+  border-radius: 5px;
+  height: 70vh; }
+  @media screen and (min-width: 550px) {
+    .angular-google-map-container {
+      height: 60vh; } }
+  @media screen and (min-width: 1024px) {
+    .angular-google-map-container {
+      width: 70%;
+      float: left; } }
 
 .infoWindow {
   overflow: auto;
