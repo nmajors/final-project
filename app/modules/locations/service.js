@@ -29,7 +29,8 @@ class LocationsService {
       coords: {},
       weather: {},
       icon: "",
-      editing: false
+      editing: false,
+      deleting: false
     }
   }
 

@@ -8,11 +8,9 @@ class LocationsController {
     this._$q = $q;
 
     this.demoMode = false;
-    // this.showWindow = true;
+
     this.adding = false;
     this.showList = false;
-
-    // this.markers = [];
 
 
     this.states = this._LocationsService.statesList();
@@ -124,14 +122,18 @@ class LocationsController {
   }
 
   toggleDemo() {
+    //switch to view map when demo mode is toggled
+    this.showList = false;
+
     this.demoMode = !this.demoMode;
     this.showMarkers();
   }
 
   toggleList() {
     if (this.showList) {
-      this.isFading = true;
 
+      this.isFading = true;
+        //allows slideOutLeft time to slide out before isFading and showList are changed to false
       this._$timeout(() => {
         this.showList = false;
         this.isFading = false;
