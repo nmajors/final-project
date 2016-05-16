@@ -5,6 +5,7 @@ import firebase from 'firebase';
 import angularFire from 'angularfire';
 import nemLogging from 'angular-simple-logger';
 import googMapos from 'angular-google-maps';
+import select2 from 'ui-select';
 
 import user from './modules/user';
 import locations from './modules/locations';
@@ -15,6 +16,7 @@ let App = angular.module('app', [
   'firebase',
   'nemLogging',
   'uiGmapgoogle-maps',
+  'ui.select',
 
   'tiy.user',
   'tiy.locations'

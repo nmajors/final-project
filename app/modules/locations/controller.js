@@ -97,7 +97,11 @@ class LocationsController {
     this.toggleAdding();
   }
 
+toggleDelete(place){
+  this.deleting = !this.deleting;
+}
   deleteLocation(place) {
+
     let askDelete = confirm(`Are you sure you want to delete ${place.city}, ${place.state}?`);
     if (askDelete) {
       this._LocationsService.removeLocation(place);
@@ -133,7 +137,7 @@ class LocationsController {
     if (this.showList) {
 
       this.isFading = true;
-        //allows slideOutLeft time to slide out before isFading and showList are changed to false
+        //allows slideOutLeft time to slide out before showList/ng-show sets to false
       this._$timeout(() => {
         this.showList = false;
         this.isFading = false;

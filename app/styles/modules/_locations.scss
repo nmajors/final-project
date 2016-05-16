@@ -76,7 +76,6 @@
     .locationInfo {
       display: inline-block;
       float: left;
-      text-align: center;
       margin-top: 15px;
       margin-bottom: 15px;
     }
@@ -86,15 +85,10 @@
       .listButton {
         @include grayButton;
         margin-bottom: 15px;
-        // background: rgba(255, 255, 255, 0.1);
-        // @media screen and(min-width: 768px){
-        //   background: none;
-        // }
       }
     }
     .editForm {
       input {
-        // margin-bottom: 15px;
         text-align: center;
         width: 80%;
         margin: 0 auto 15px 60px;
@@ -126,9 +120,7 @@
   border-radius: 5px;
 }
 
-//info window style
 .gm-style-iw{
-
   div:first-child{
     width: 300px;
     padding-right: 30px;
@@ -154,9 +146,7 @@
     float: right;
     padding-left: 15px;
     white-space: nowrap;
-    // .time {
-    //   white-space: nowrap
-    // }
+
   }
   .currentWindow {
     text-align: center;

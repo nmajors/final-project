@@ -9,6 +9,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "angular-chosen-localytics": "^1.4.0",
     "angular-simple-logger": "^0.1.7",
     "angularfire": "^1.2.0",
     "animate.css": "^3.5.1",

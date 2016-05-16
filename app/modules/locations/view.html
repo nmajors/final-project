@@ -28,11 +28,16 @@
         <input type="text" placeholder="street address" ng-model="locationsCtrl.newLocation.address">
         <input type="text" placeholder="city" ng-model="locationsCtrl.newLocation.city">
         <!--autocomplete?-->
-        <input type="text" placeholder="state" list="states" ng-model="locationsCtrl.newLocation.state" name="chooseState" autocomplete="true">
-          <datalist id="states">
-            <option ng-repeat="state in locationsCtrl.states" value="{{ state }}"></option>
 
-          </datalist>
+        <ui-select ng-model="locationsCtrl.newLocation.state">
+            <ui-select-match>
+                <span ng-bind="locationsCtrl.newLocation.state"></span>
+            </ui-select-match>
+            <ui-select-choices repeat="state in (locationsCtrl.states | filter: $select.search) track by state">
+                <span ng-bind="state"></span>
+            </ui-select-choices>
+        </ui-select>
+
           <!-- <select chosen multiple data-placeholder="state" id="states" ng-model="locationsCtrl.newLocation.state">
   <option value="choose"></option>
   <option ng-repeat="state in locationsCtrl.states"="{{ state }}">{{ state }}</option>
@@ -63,7 +68,10 @@
             <button class="listButton" ng-click="locationsCtrl.changeLocation(place)">Edit</button>
           </li>
           <li>
-            <button class="listButton" ng-click="locationsCtrl.deleteLocation(place)">Delete</button>
+            <button class="listButton" ng-click="locationsCtrl.toggleDelete(place)" ng-hide="place.deleting">Delete</button>
+          </li>
+          <li>
+            <button class="listButton" ng-click="locationsCtrl.deleteLocation(place)" ng-show="place.deleting">Are you Sure?</button>
           </li>
         </div>
         <div ng-show="place.editing" class="editForm">
