@@ -42,10 +42,10 @@
   .addLocationForm {
     .fa-times{
       display: block;
-      width: 100%;
+      width: 80%;
       text-align: right;
       font-size: 2rem;
-      margin-bottom: 30px;
+      margin: 0 auto 30px auto;
       padding-right: 15px;
       &:hover{
         cursor: pointer;
@@ -76,6 +76,9 @@
     .locationInfo {
       display: inline-block;
       float: left;
+      text-align: center;
+      margin-top: 15px;
+      margin-bottom: 15px;
     }
     .listButtons {
       text-align: right;
@@ -91,8 +94,10 @@
     }
     .editForm {
       input {
-        margin-bottom: 15px;
+        // margin-bottom: 15px;
+        text-align: center;
         width: 80%;
+        margin: 0 auto 15px 60px;
       }
       input[type="submit"] {
         @include grayButton;

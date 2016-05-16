@@ -134,10 +134,10 @@ select {
 
 .locations .addLocationForm .fa-times {
   display: block;
-  width: 100%;
+  width: 80%;
   text-align: right;
   font-size: 2rem;
-  margin-bottom: 30px;
+  margin: 0 auto 30px auto;
   padding-right: 15px; }
   .locations .addLocationForm .fa-times:hover {
     cursor: pointer; }
@@ -171,7 +171,10 @@ select {
   border-bottom: 1px solid #aaa; }
   .locations .locationsList .locationInfo {
     display: inline-block;
-    float: left; }
+    float: left;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px; }
   .locations .locationsList .listButtons {
     text-align: right;
     margin: 30px auto; }
@@ -191,8 +194,9 @@ select {
         background-image: linear-gradient(to bottom, #d6d6d6, #868899);
         text-decoration: none; }
   .locations .locationsList .editForm input {
-    margin-bottom: 15px;
-    width: 80%; }
+    text-align: center;
+    width: 80%;
+    margin: 0 auto 15px 60px; }
   .locations .locationsList .editForm input[type="submit"] {
     background: rgba(255, 255, 255, 0.1);
     border: none;

@@ -43,7 +43,7 @@
     </div>
     <button ng-hide="locationsCtrl.adding" ng-if="locationsCtrl.markers[0].coords"
       ng-class="{'viewAll': !locationsCtrl.showList, 'closeList': locationsCtrl.showList}"
-      ng-click="locationsCtrl.toggleList()">Toggle List View
+      ng-click="locationsCtrl.toggleList()">Toggle Edit/Delete View
     </button>
 
     <div id="locationsListContainer"
@@ -57,7 +57,7 @@
           <li class="state">{{ place.state }}</li>
 
         </div>
-        
+
         <div ng-hide="place.editing" class="listButtons">
           <li>
             <button class="listButton" ng-click="locationsCtrl.changeLocation(place)">Edit</button>
