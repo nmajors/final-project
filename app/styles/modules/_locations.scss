@@ -10,8 +10,11 @@
   display: block;
 }
 
+
+
 .locations {
   header {
+
     padding-bottom: 15px;
     .appTitle {
       width: 50%;
@@ -38,6 +41,7 @@
   .content{
       @media screen and (min-width: 1024px){
         border-top: 1px solid #aaa;
+
       }
 
   .control{
@@ -45,10 +49,10 @@
     border-bottom: 1px solid #aaa;
     padding: 30px 0;
     @media screen and (min-width: 1024px){
-      width: 26%;
+      width: 28%;
       border: none;
       float: left;
-      margin-right: 4%;
+      margin-right: 2%;
     }
     .addNew {
       @include greenButton;
@@ -96,16 +100,28 @@
     }
   }
   #locationsListContainer {
-    border-top: 1px solid #aaa;
+
     margin-top: 30px;
-    // @media screen and (min-width: 1024px){
-    //   width: 30%;
-    //
-    // }
+    border-radius: 3px;
+    @media screen and (min-width: 1024px){
+      max-height: 58vh;
+      overflow: scroll;
+      background-color: rgba(230, 230, 230, 0.1);
+
+    }
   }
   .locationsList {
     margin-top: 15px;
     border-bottom: 1px solid #aaa;
+    @media screen and (min-width: 1024px){
+      padding: 0 15px;
+      margin-top: 0;
+    }
+      &:nth-child(1){
+        border-top: 1px solid #aaa;
+      }
+
+
     .locationInfo {
       display: inline-block;
       float: left;
@@ -160,19 +176,15 @@
   top: 75%;
   transform: translate(-25%, 0);
   z-index: 100;
+  @media screen and(min-width: 1024px){
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 .locationsMap{
   // border-top: 1px solid #aaa;
   margin-top: 30px;
-  .demo{
-    display: block;
-    text-align:center;
-    font-size: 24px;
-    margin-top: 15px;
-    margin-bottom: -15px;
-    background: rgba(242, 236, 207, 0.3);
-    border-radius: 5px;
-  }
+
 }
 .angular-google-map-container {
   width: 100%;
@@ -183,8 +195,8 @@
   @media screen and(min-width: 550px){
     height: 60vh;
   }
-  @media screen and (min-width: 1024px){
-    height: 70vh;
+  @media screen and(min-width: 1024px){
+    height: 68vh;
     width: 70%;
     float: left;
     margin: 0 auto;
@@ -225,5 +237,24 @@
 
   }
 }
+.demo{
+  display: block;
+  text-align:center;
+  font-size: 24px;
+  margin-top: 15px;
+  margin-bottom: -15px;
+  background: rgba(242, 236, 207, 0.3);
+  border-radius: 5px;
+  @media screen and(min-width: 1024px){
+    margin-bottom: 15px;
+    width: 30%;
+    display: inline-block;
 
+  }
+}
+.hidden-large {
+  @media screen and (min-width: 1024px){
+    display: none;
+  }
+}
 }

@@ -7,14 +7,15 @@
         <button class="demoMode" ng-show="locationsCtrl.demoMode" ng-click="locationsCtrl.toggleDemo()">Leave Demo Mode</button>
 
       </div>
-
+<span class="demo" ng-if="locationsCtrl.demoMode">Demo Mode</span>
       <ul class="userInfo">
         <li>{{ locationsCtrl.user.password.email }} </li>
         <li>
           <button class="logout" ng-click="locationsCtrl.logout()">Log Out</button>
         </li>
-      </ul>
 
+      </ul>
+  <!-- <span class="demo" ng-if="locationsCtrl.demoMode">Demo Mode</span> -->
     </header>
 <div class="content">
     <div class="control">
@@ -46,7 +47,7 @@
 
 
 
-    <div id="locationsListContainer" ng-class="{ 'visible-large': !locationsCtrl.showList, 'hidden-small animated slideInLeft': locationsCtrl.showList, 'animated slideOutLeft': locationsCtrl.isFading }">
+    <div id="locationsListContainer" ng-class="{ 'hidden-small': !locationsCtrl.showList, 'animated slideInLeft': locationsCtrl.showList, 'animated slideOutLeft': locationsCtrl.isFading }">
       <ul class="locationsList" ng-repeat="place in locationsCtrl.locations">
         <div ng-hide="place.editing" class="locationInfo">
           <li class="title">{{ place.title }}</li>
@@ -90,7 +91,7 @@
   </div>
   <!--TODO: make infoWindow close on click-->
   <div class="locationsMap" ng-if="locationsCtrl.hasCurrentPosition" ng-hide="locationsCtrl.showList">
-    <span class="demo" ng-if="locationsCtrl.demoMode">Demo Mode</span>
+    <span class="demo hidden-large" ng-if="locationsCtrl.demoMode">Demo Mode</span>
     <ui-gmap-google-map center='locationsCtrl.map.center' zoom='locationsCtrl.map.zoom'>
 
       <ui-gmap-markers models="locationsCtrl.markers" coords="'coords'" fit="true" click="onClick" options="'options'">
