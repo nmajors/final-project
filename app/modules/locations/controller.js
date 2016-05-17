@@ -53,8 +53,23 @@ class LocationsController {
       });
   }
 
+
   toggleAdding() {
-    this.adding = !this.adding;
+
+    if (this.adding){
+
+      this.isFading = true;
+
+      this._$timeout(() =>{
+        this.adding = false;
+        this.isFading = false;
+
+      }, 900);
+
+    } else{
+      this.adding = true;
+    }
+
   }
   addLocation() {
     this.hasCurrentPosition=false;
@@ -108,10 +123,12 @@ class LocationsController {
       this._$timeout(() => {
         this.showList = false;
         this.isFading = false;
-        this.showMarkers();
+
       }, 900);
+      this.showMarkers();
     } else {
       this.showList = true;
+
     }
   }
 

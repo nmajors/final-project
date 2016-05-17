@@ -129,10 +129,10 @@ select {
   padding: 30px 0; }
   @media screen and (min-width: 1024px) {
     .locations .content .control {
-      width: 28%;
+      width: 30%;
       border: none;
       float: left;
-      margin-right: 2%; } }
+      margin-right: 30px; } }
   .locations .content .control .addNew {
     background: rgba(81, 150, 13, 0.4);
     border: none;
@@ -173,6 +173,11 @@ select {
       .locations .content .control .closeList,
       .locations .content .control .viewAll {
         display: none; } }
+  @media screen and (min-width: 1024px) {
+    .locations .content .control .addFormLargeScreen {
+      background-color: rgba(230, 230, 230, 0.1);
+      margin-bottom: -30px;
+      padding: 30px 15px; } }
   .locations .content .control .addLocationForm .fa-times {
     display: block;
     width: 80%;
@@ -298,19 +303,21 @@ select {
       .locations .content .locationsList .editForm input[type="submit"]:hover {
         background-image: linear-gradient(to bottom, #7ca058, #557a30); }
 
-.locations .loading {
-  position: relative;
+.locations .fa-spinner {
   text-align: center;
   z-index: 100;
   position: absolute;
-  left: 50%;
-  top: 75%;
+  left: 44%;
+  top: 60%;
   transform: translate(-25%, 0);
   z-index: 100; }
+  @media screen and (min-width: 550px) {
+    .locations .fa-spinner {
+      left: 46%; } }
   @media screen and (min-width: 1024px) {
-    .locations .loading {
-      top: 50%;
-      transform: translate(-50%, -50%); } }
+    .locations .fa-spinner {
+      left: 63%;
+      transform: translate(-30%, -30%); } }
 
 .locations .locationsMap {
   margin-top: 30px; }
@@ -327,7 +334,7 @@ select {
   @media screen and (min-width: 1024px) {
     .locations .angular-google-map-container {
       height: 68vh;
-      width: 70%;
+      width: calc(70% - 30px);
       float: left;
       margin: 0 auto; } }
 
@@ -365,14 +372,26 @@ select {
   margin-bottom: -15px;
   background: rgba(242, 236, 207, 0.3);
   border-radius: 5px; }
+
+.locations #hidden-small {
+  display: none; }
   @media screen and (min-width: 1024px) {
-    .locations .demo {
-      margin-bottom: 15px;
-      width: 30%;
-      display: inline-block; } }
+    .locations #hidden-small {
+      width: 50%;
+      display: inline-block;
+      margin-left: -23%;
+      background-color: rgba(230, 230, 230, 0.1);
+      padding-top: 40px;
+      padding-bottom: 40px;
+      position: relative;
+      top: -35px; } }
 
 @media screen and (min-width: 1024px) {
   .locations .hidden-large {
+    display: none; } }
+
+@media screen and (min-width: 1024px) {
+  .locations .adding {
     display: none; } }
 
 .gray {

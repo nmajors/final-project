@@ -49,10 +49,10 @@
     border-bottom: 1px solid #aaa;
     padding: 30px 0;
     @media screen and (min-width: 1024px){
-      width: 28%;
+      width: 30%;
       border: none;
       float: left;
-      margin-right: 2%;
+      margin-right: 30px;
     }
     .addNew {
       @include greenButton;
@@ -71,6 +71,13 @@
       @media screen and(min-width: 1024px){
       display: none;
 
+      }
+    }
+    .addFormLargeScreen{
+      @media screen and (min-width: 1024px){
+        background-color: rgba(230, 230, 230, 0.1);
+        margin-bottom: -30px;
+        padding: 30px 15px;
       }
     }
     .addLocationForm {
@@ -107,9 +114,9 @@
       max-height: 58vh;
       overflow: scroll;
       background-color: rgba(230, 230, 230, 0.1);
-
     }
   }
+
   .locationsList {
     margin-top: 15px;
     border-bottom: 1px solid #aaa;
@@ -127,6 +134,7 @@
       float: left;
       margin-top: 15px;
       margin-bottom: 15px;
+
     }
     .listButtons {
       text-align: right;
@@ -167,24 +175,25 @@
     }
   }
 }
-.loading{
-  position: relative;
+.fa-spinner{
   text-align: center;
   z-index: 100;
+
   position: absolute;
-  left: 50%;
-  top: 75%;
+  left: 44%;
+  top: 60%;
   transform: translate(-25%, 0);
   z-index: 100;
+  @media screen and(min-width: 550px){
+    left: 46%;
+  }
   @media screen and(min-width: 1024px){
-    top: 50%;
-    transform: translate(-50%, -50%);
+    left: 63%;
+    transform: translate(-30%, -30%);
   }
 }
 .locationsMap{
-  // border-top: 1px solid #aaa;
   margin-top: 30px;
-
 }
 .angular-google-map-container {
   width: 100%;
@@ -197,7 +206,7 @@
   }
   @media screen and(min-width: 1024px){
     height: 68vh;
-    width: 70%;
+    width: calc(70% - 30px);
     float: left;
     margin: 0 auto;
   }
@@ -245,14 +254,29 @@
   margin-bottom: -15px;
   background: rgba(242, 236, 207, 0.3);
   border-radius: 5px;
+
+}
+
+ #hidden-small{
+   display: none;
   @media screen and(min-width: 1024px){
-    margin-bottom: 15px;
-    width: 30%;
+    width: 50%;
     display: inline-block;
+    margin-left: -23%;
+    background-color: rgba(230, 230, 230, 0.1);
+    padding-top: 40px;
+    padding-bottom: 40px;
+    position: relative;
+    top: -35px;
 
   }
 }
 .hidden-large {
+  @media screen and (min-width: 1024px){
+    display: none;
+  }
+}
+.adding{
   @media screen and (min-width: 1024px){
     display: none;
   }
