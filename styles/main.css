@@ -194,9 +194,10 @@ select {
     text-align: center;
     margin-top: 15px;
     margin-bottom: 15px; }
-    .locations .content .control .addLocationForm form input, .locations .content .control .addLocationForm form .ui-select-container {
+    .locations .content .control .addLocationForm form .ui-select-container,
+    .locations .content .control .addLocationForm form input {
       width: 90%;
-      margin: 0 auto 15px auto; }
+      margin: 0 auto 15px; }
     .locations .content .control .addLocationForm form input[type="submit"] {
       background: rgba(81, 150, 13, 0.4);
       border: none;
@@ -289,7 +290,7 @@ select {
         cursor: pointer; }
     .locations .content .locationsList .editForm input {
       width: 90%;
-      margin: 0 auto 15px auto; }
+      margin: 0 auto 15px; }
     .locations .content .locationsList .editForm input[type="submit"] {
       background: rgba(81, 150, 13, 0.4);
       border: none;
@@ -351,11 +352,26 @@ select {
         padding-right: 30px;
         width: 50%;
         float: left;
-        text-align: left; }
-        .locations .infoWindow .windowLocation .cityState {
-          white-space: nowrap; } }
+        text-align: left; } }
     .locations .infoWindow .windowLocation li:first-child {
       font-weight: 700; }
+    .locations .infoWindow .windowLocation .cityState {
+      white-space: nowrap;
+      display: block; }
+      @media screen and (min-width: 768px) {
+        .locations .infoWindow .windowLocation .cityState {
+          display: none; } }
+    .locations .infoWindow .windowLocation .city {
+      display: none; }
+      @media screen and (min-width: 768px) {
+        .locations .infoWindow .windowLocation .city {
+          display: block;
+          white-space: nowrap; } }
+    .locations .infoWindow .windowLocation .state {
+      display: none; }
+      @media screen and (min-width: 768px) {
+        .locations .infoWindow .windowLocation .state {
+          display: block; } }
   .locations .infoWindow .locationWeather {
     padding-left: 15px;
     white-space: nowrap; }
