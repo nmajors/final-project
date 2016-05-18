@@ -79,9 +79,8 @@
         <div id="locationsListContainer" ng-class="{
       'hidden-small': !locationsCtrl.showList,
       'animated slideInLeft': locationsCtrl.showList,
-      'animated slideOutLeft': locationsCtrl.isFading,
-      }">
-      <!-- 'adding': locationsCtrl.adding  -->
+      'hidden-small animated slideOutLeft': locationsCtrl.isFading,}">
+
 
           <ul class="locationsList" ng-repeat="place in locationsCtrl.locations">
             <div ng-hide="place.editing" class="locationInfo">
@@ -120,7 +119,7 @@
       </div>
     </div>
 
-    <!--ng-if="!locationsCtrl.hasCurrentPosition"-->
+
 
     <i class="fa fa-spinner fa-pulse fa-3x fa-fw" ng-if="!locationsCtrl.hasCurrentPosition"></i>
 
@@ -139,6 +138,8 @@
                   {{ name }}</li>
                 <li class="address">{{ address }}</li>
                 <li class="cityState">{{ cityState }}</li>
+                <li class="city">{{ city }},</li>
+                <li class="state">{{ state }}</li>
               </ul>
               <ul class="locationWeather">
                 <li><img class="weatherIcon" src="{{ image }}" alt="{{ condition }}"></li>

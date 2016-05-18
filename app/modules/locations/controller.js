@@ -113,6 +113,7 @@ class LocationsController {
 
     this.demoMode = !this.demoMode;
     this.showMarkers();
+
   }
 
   toggleList() {
@@ -253,45 +254,46 @@ class LocationsController {
 
 
 
-          if (this.demoMode && this.marker.options.icon === '../assets/images/tornado.png') {
+          if (this.demoMode && this.marker.options.icon === './assets/images/tornado.png') {
             this.marker.options.animation = google.maps.Animation.BOUNCE;
             this.marker.image = 'https://openweathermap.org/img/w/11d.png';
             this.marker.condition = "Tornado, seek shelter!";
           }
 
-          if (this.demoMode && this.marker.options.icon === '../assets/images/hurricane.png') {
+
+          if (this.demoMode && this.marker.options.icon === './assets/images/hurricane.png') {
             this.marker.options.animation = google.maps.Animation.BOUNCE;
             this.marker.image = 'https://openweathermap.org/img/w/11d.png';
             this.marker.condition = "Hurricane";
           }
 
-          if (this.demoMode && this.marker.options.icon === '../assets/images/thunderstorm.png') {
+          if (this.demoMode && this.marker.options.icon === './assets/images/thunderstorm.png') {
             this.marker.image = 'https://openweathermap.org/img/w/11d.png';
             this.marker.condition = "Thunderstorm";
           }
 
-          if (this.demoMode && this.marker.options.icon === '../assets/images/snowy.png') {
+          if (this.demoMode && this.marker.options.icon === './assets/images/snowy.png') {
             this.marker.image = 'https://openweathermap.org/img/w/13d.png';
             this.marker.condition = "Snow";
             this.marker.temp = 30;
           }
 
-          if (this.demoMode && this.marker.options.icon === '../assets/images/rain.png') {
+          if (this.demoMode && this.marker.options.icon === './assets/images/rain.png') {
             this.marker.image = 'https://openweathermap.org/img/w/09d.png';
             this.marker.condition = "Rain";
           }
 
-          if (this.demoMode && this.marker.options.icon === '../assets/images/haze.png') {
+          if (this.demoMode && this.marker.options.icon === './assets/images/haze.png') {
             this.marker.image = 'https://openweathermap.org/img/w/50d.png';
             this.marker.condition = "Haze";
           }
 
-          if (this.demoMode && this.marker.options.icon === '../assets/images/cloudy.png') {
+          if (this.demoMode && this.marker.options.icon === './assets/images/cloudy.png') {
             this.marker.image = 'https://openweathermap.org/img/w/04d.png';
             this.marker.condition = "Cloudy";
           }
 
-          if (this.demoMode && this.marker.options.icon === '../assets/images/sunny.png') {
+          if (this.demoMode && this.marker.options.icon === './assets/images/sunny.png') {
             this.marker.image = 'https://openweathermap.org/img/w/01d.png';
             this.marker.condition = "Clear Sky";
           }

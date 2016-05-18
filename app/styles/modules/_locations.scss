@@ -1,30 +1,17 @@
 .hidden-small {
   display: none;
-
   @media screen and (min-width: 1024px) {
     display: block;
   }
 }
-
 .visible-small {
   display: block;
-  @media screen and (min-width: 1024px){
+  @media screen and (min-width: 1024px) {
     display: none;
   }
 }
-
-
-// .noShowLarge{
-//   display: block;
-//   @media screen and(min-width: 1024px){
-//     display: none;
-//   }
-// }
-
-
 .locations {
   header {
-
     padding-bottom: 15px;
     .appTitle {
       width: 50%;
@@ -48,254 +35,249 @@
       }
     }
   }
-  .content{
-      @media screen and (min-width: 1024px){
-        border-top: 1px solid #aaa;
-
-      }
-
-  .control{
-    border-top: 1px solid #aaa;
-    border-bottom: 1px solid #aaa;
-    padding: 30px 0;
-    @media screen and (min-width: 1024px){
-      width: 30%;
-      border: none;
-      float: left;
-      margin-right: 30px;
+  .content {
+    @media screen and (min-width: 1024px) {
+      border-top: 1px solid #aaa;
     }
-    .addNew {
-      @include greenButton;
-      margin-bottom: 0;
-      @media screen and(min-width: 1024px){
-        margin-bottom: 15px;
-        width: 100%;
-        display: block;
-
+    .control {
+      border-top: 1px solid #aaa;
+      border-bottom: 1px solid #aaa;
+      padding: 30px 0;
+      @media screen and (min-width: 1024px) {
+        width: 30%;
+        border: none;
+        float: left;
+        margin-right: 30px;
       }
-    }
-    .closeList,
-    .viewAll {
-      @include grayButton;
-      margin-bottom: 0;
-      float: right;
-      @media screen and(min-width: 1024px){
-      display: none;
-
-      }
-    }
-    .addFormLargeScreen{
-      @media screen and (min-width: 1024px){
-        background-color: rgba(230, 230, 230, 0.1);
-        margin-bottom: -30px;
-        padding: 30px 15px;
-      }
-    }
-    .addLocationForm {
-      .fa-times{
-        display: block;
-        width: 80%;
-        text-align: right;
-        font-size: 2rem;
-        margin: 0 0 15px auto;
-        padding-right: 15px;
-        &:hover{
-          cursor: pointer;
+      .addNew {
+        @include greenButton;
+        margin-bottom: 0;
+        @media screen and(min-width: 1024px) {
+          margin-bottom: 15px;
+          width: 100%;
+          display: block;
         }
       }
-      form {
-        text-align: center;
-        margin-top: 15px;
+      .closeList,
+      .viewAll {
+        @include grayButton;
+        margin-bottom: 0;
+        float: right;
+        @media screen and(min-width: 1024px) {
+          display: none;
+        }
+      }
+      .addFormLargeScreen {
+        @media screen and (min-width: 1024px) {
+          background-color: rgba(230, 230, 230, 0.1);
+          margin-bottom: -30px;
+          padding: 30px 15px;
+        }
+      }
+      .addLocationForm {
+        .fa-times {
+          display: block;
+          width: 80%;
+          text-align: right;
+          font-size: 2rem;
+          margin: 0 0 15px auto;
+          padding-right: 15px;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+        form {
+          text-align: center;
+          margin-top: 15px;
+          margin-bottom: 15px;
+          .ui-select-container,
+          input {
+            width: 90%;
+            margin: 0 auto 15px;
+          }
+          input[type="submit"] {
+            @include greenButton;
+          }
+        }
+      }
+    }
+    #locationsListContainer {
+      margin-top: 30px;
+      border-radius: 3px;
+      @media screen and (min-width: 1024px) {
+        max-height: 59vh;
+        overflow: scroll;
+        background-color: rgba(230, 230, 230, 0.1);
+        box-shadow: 0 1px 3px 0 #111;
+      }
+    }
+    .locationsList {
+      margin-top: 15px;
+      border-bottom: 1px solid #aaa;
+      @media screen and (min-width: 1024px) {
+        padding: 0 15px;
+
+      }
+
+      .locationInfo {
+        display: inline-block;
+        float: left;
+        // margin-top: 15px;
         margin-bottom: 15px;
-        input, .ui-select-container {
+      }
+      .listButtons {
+        text-align: right;
+        margin: 30px auto;
+        .listButton {
+          @include grayButton;
+          margin-bottom: 15px;
+        }
+        .confirmDelete {
+          @include greenButton;
+          margin-bottom: 15px;
+        }
+        .noDelete {
+          @include grayButton;
+        }
+      }
+      .editForm {
+        margin-top: 30px;
+        .fa-times {
+          display: block;
+          width: 80%;
+          text-align: right;
+          font-size: 2rem;
+          margin: 0 0 15px auto;
+          padding-right: 15px;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+        input {
           width: 90%;
-          margin: 0 auto 15px auto;
+          margin: 0 auto 15px;
         }
         input[type="submit"] {
           @include greenButton;
+          margin-left: 5%;
         }
       }
     }
   }
-  #locationsListContainer {
-
+  .fa-spinner {
+    text-align: center;
+    z-index: 100;
+    position: absolute;
+    left: 44%;
+    top: 60%;
+    transform: translate(-25%, 0);
+    z-index: 100;
+    @media screen and(min-width: 550px) {
+      left: 46%;
+    }
+    @media screen and(min-width: 1024px) {
+      left: 63%;
+      transform: translate(-30%, -30%);
+    }
+  }
+  .locationsMap {
     margin-top: 30px;
-    border-radius: 3px;
-    @media screen and (min-width: 1024px){
-      max-height: 59vh;
-      overflow: scroll;
-      background-color: rgba(230, 230, 230, 0.1);
-      // padding-top: 10px;
-      // border-top: 1px solid #aaa;
-      box-shadow: 0 1px 3px 0 #111;
+  }
+  .angular-google-map-container {
+    width: 100%;
+    margin: 30px auto;
+    border: 2px solid #666;
+    border-radius: 5px;
+    height: 70vh;
+    @media screen and(min-width: 550px) {
+      height: 60vh;
+    }
+    @media screen and(min-width: 1024px) {
+      height: 68vh;
+      width: calc(70% - 30px);
+      float: left;
+      margin: 0 auto;
     }
   }
-
-  .locationsList {
-    margin-top: 15px;
-    border-bottom: 1px solid #aaa;
-    @media screen and (min-width: 1024px){
-      padding: 0 15px;
-      // box-shadow: 0 1px 3px 0 #111;
-      // margin-top: 10px;
-    }
-      // &:nth-child(1){
-      //   border-top: 1px solid #aaa;
-      //   // margin-top: 30px;
-      // }
-
-
-    .locationInfo {
-      display: inline-block;
-      float: left;
+  .infoWindow {
+    overflow: auto;
+    zoom: 1;
+    text-align: center;
+    .windowLocation {
       margin-top: 15px;
-      margin-bottom: 15px;
-
-    }
-    .listButtons {
-      text-align: right;
-      margin: 30px auto;
-      .listButton {
-        @include grayButton;
-        margin-bottom: 15px;
+      padding-left: 15px;
+      @media screen and(min-width: 768px) {
+        padding-right: 30px;
+        width: 50%;
+        float: left;
+        text-align: left;
       }
-      .confirmDelete {
-        @include greenButton;
-        margin-bottom: 15px;
+      li:first-child {
+        font-weight: 700;
       }
-      .noDelete{
-        @include grayButton;
-      }
-    }
-    .editForm {
-      margin-top: 30px;
-      .fa-times{
+      .cityState {
+        white-space: nowrap;
         display: block;
-        width: 80%;
-        text-align: right;
-        font-size: 2rem;
-        margin: 0 0 15px auto;
-        padding-right: 15px;
-        &:hover{
-          cursor: pointer;
+        @media screen and(min-width: 768px) {
+          display: none;
         }
       }
-      input {
-        width: 90%;
-        margin: 0 auto 15px auto;
+      .city{
+        display: none;
+        @media screen and(min-width: 768px){
+          display: block;
+          white-space: nowrap;
+        }
       }
-      input[type="submit"] {
-        @include greenButton;
-        margin-left: 5%;
+      .state{
+        display: none;
+        @media screen and(min-width: 768px){
+          display: block;
+        }
       }
     }
-  }
-}
-.fa-spinner{
-  text-align: center;
-  z-index: 100;
-
-  position: absolute;
-  left: 44%;
-  top: 60%;
-  transform: translate(-25%, 0);
-  z-index: 100;
-  @media screen and(min-width: 550px){
-    left: 46%;
-  }
-  @media screen and(min-width: 1024px){
-    left: 63%;
-    transform: translate(-30%, -30%);
-  }
-}
-.locationsMap{
-  margin-top: 30px;
-}
-.angular-google-map-container {
-  width: 100%;
-  margin: 30px auto;
-  border: 2px solid #666;
-  border-radius: 5px;
-  height: 70vh;
-  @media screen and(min-width: 550px){
-    height: 60vh;
-  }
-  @media screen and(min-width: 1024px){
-    height: 68vh;
-    width: calc(70% - 30px);
-    float: left;
-    margin: 0 auto;
-  }
-}
-
-.infoWindow {
-  overflow: auto;
-  zoom: 1;
-  text-align: center;
-  .windowLocation {
-    margin-top: 15px;
-    padding-left: 15px;
-
-
-    @media screen and(min-width: 768px){
-      padding-right: 30px;
-    width: 50%;
-    float: left;
-    text-align: left;
-    .cityState{
+    .locationWeather {
+      padding-left: 15px;
       white-space: nowrap;
-    }
-  }
-    li:first-child {
-      font-weight: 700;
-    }
+      @media screen and(min-width: 768px) {
+        width: 50%;
+        float: right;
+        text-align: left;
+      }
 
+    }
   }
-  .locationWeather {
-    padding-left: 15px;
-    white-space: nowrap;
-    @media screen and(min-width: 768px){
+  .demo {
+    display: block;
+    text-align: center;
+    font-size: 24px;
+    margin-top: 15px;
+    margin-bottom: -15px;
+    background: rgba(242, 236, 207, 0.3);
+    border-radius: 5px;
+  }
+  #hidden-small {
+    display: none;
+    @media screen and(min-width: 1024px) {
       width: 50%;
-      float: right;
-      text-align: left;
+      display: inline-block;
+      margin-left: -23%;
+      background-color: rgba(230, 230, 230, 0.1);
+      padding-top: 40px;
+      padding-bottom: 40px;
+      position: relative;
+      top: -35px;
     }
-
   }
-}
-.demo{
-  display: block;
-  text-align:center;
-  font-size: 24px;
-  margin-top: 15px;
-  margin-bottom: -15px;
-  background: rgba(242, 236, 207, 0.3);
-  border-radius: 5px;
-
-}
-
- #hidden-small{
-   display: none;
-  @media screen and(min-width: 1024px){
-    width: 50%;
-    display: inline-block;
-    margin-left: -23%;
-    background-color: rgba(230, 230, 230, 0.1);
-    padding-top: 40px;
-    padding-bottom: 40px;
-    position: relative;
-    top: -35px;
-
+  .hidden-large {
+    @media screen and (min-width: 1024px) {
+      display: none;
+    }
   }
-}
-.hidden-large {
-  @media screen and (min-width: 1024px){
-    display: none;
+  .adding {
+    display: block;
+    @media screen and (min-width: 1024px) {
+      display: none;
+    }
   }
-}
-.adding{
-  display: block;
-  @media screen and (min-width: 1024px){
-    display: none;
-  }
-}
 }
