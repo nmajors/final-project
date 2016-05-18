@@ -20,7 +20,7 @@
     <div class="content">
       <div class="control">
         <button class="addNew" ng-hide="locationsCtrl.adding" ng-click="locationsCtrl.toggleAdding()">Add New Location</button>
-        <button ng-hide="locationsCtrl.adding" ng-if="locationsCtrl.markers[0].coords" ng-class="{'viewAll': !locationsCtrl.showList, 'closeList': locationsCtrl.showList}" ng-click="locationsCtrl.toggleList()">Toggle Edit/Delete View
+        <button ng-hide="locationsCtrl.adding" ng-if="locationsCtrl.markers[0].coords" ng-class="{'viewAll': !locationsCtrl.showList, 'closeList': locationsCtrl.showList}" ng-click="locationsCtrl.toggleList()">View List
         </button>
 
 
@@ -79,10 +79,10 @@
         <div id="locationsListContainer" ng-class="{
       'hidden-small': !locationsCtrl.showList,
       'animated slideInLeft': locationsCtrl.showList,
-      'hidden-small animated slideOutLeft': locationsCtrl.isFading,}">
-
+      'hidden-small animated slideOutLeft': locationsCtrl.isFading}" ng-if="locationsCtrl.locations.length > 0">
 
           <ul class="locationsList" ng-repeat="place in locationsCtrl.locations">
+
             <div ng-hide="place.editing" class="locationInfo">
               <li class="title">{{ place.title }}</li>
               <li class="address">{{ place.address }}</li>
@@ -133,12 +133,13 @@
         <ui-gmap-markers models="locationsCtrl.markers" coords="'coords'" fit="true" click="onClick" options="'options'">
           <ui-gmap-windows show="show">
             <div class="infoWindow" ng-non-bindable>
+
               <ul class="windowLocation">
                 <li class="windowName">
-                  {{ name }}</li>
+                  {{ name }} </li>
                 <li class="address">{{ address }}</li>
                 <li class="cityState">{{ cityState }}</li>
-                <li class="city">{{ city }},</li>
+                <li class="city">{{ city }}</li>
                 <li class="state">{{ state }}</li>
               </ul>
               <ul class="locationWeather">

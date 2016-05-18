@@ -200,8 +200,11 @@ class LocationsController {
             options: {
               icon: './assets/images/star.png'
             },
-            name: currentWeather.name,
-            cityState: "Your Location",
+
+            name: "Your Weather",
+            cityState: currentWeather.name,
+            city: "",
+            state: currentWeather.name,
             image: iconUrl,
             // weather: currentWeather,
             condition: currentWeather.weather[0].description,
@@ -239,7 +242,7 @@ class LocationsController {
             },
             name: location.title,
             address: location.address,
-            city: location.city,
+            city: `${location.city},`,
             state: location.state,
             cityState: `${location.city}, ${location.state}`,
             image: location.image,
@@ -257,7 +260,7 @@ class LocationsController {
           if (this.demoMode && this.marker.options.icon === './assets/images/tornado.png') {
             this.marker.options.animation = google.maps.Animation.BOUNCE;
             this.marker.image = 'https://openweathermap.org/img/w/11d.png';
-            this.marker.condition = "Tornado, seek shelter!";
+            this.marker.condition = "Tornado!";
           }
 
 

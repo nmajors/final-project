@@ -122,7 +122,7 @@
       .locationInfo {
         display: inline-block;
         float: left;
-        // margin-top: 15px;
+        margin-top: 5px;
         margin-bottom: 15px;
       }
       .listButtons {
@@ -200,14 +200,22 @@
     }
   }
   .infoWindow {
+
     overflow: auto;
     zoom: 1;
     text-align: center;
+    @media screen and (min-width: 768px){
+      padding-left: 40px;
+      padding-right: 40px;
+    }
     .windowLocation {
       margin-top: 15px;
       padding-left: 15px;
+
       @media screen and(min-width: 768px) {
-        padding-right: 30px;
+        // white-space:nowrap;
+        margin-left: -35px;
+        // padding-right: 30px;
         width: 50%;
         float: left;
         text-align: left;
@@ -240,6 +248,7 @@
       padding-left: 15px;
       white-space: nowrap;
       @media screen and(min-width: 768px) {
+        padding-right: 30px;
         width: 50%;
         float: right;
         text-align: left;
