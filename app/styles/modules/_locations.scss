@@ -6,10 +6,20 @@
   }
 }
 
-.visible-large {
+.visible-small {
   display: block;
+  @media screen and (min-width: 1024px){
+    display: none;
+  }
 }
 
+
+// .noShowLarge{
+//   display: block;
+//   @media screen and(min-width: 1024px){
+//     display: none;
+//   }
+// }
 
 
 .locations {
@@ -61,6 +71,7 @@
         margin-bottom: 15px;
         width: 100%;
         display: block;
+
       }
     }
     .closeList,
@@ -111,9 +122,12 @@
     margin-top: 30px;
     border-radius: 3px;
     @media screen and (min-width: 1024px){
-      max-height: 58vh;
+      max-height: 59vh;
       overflow: scroll;
       background-color: rgba(230, 230, 230, 0.1);
+      // padding-top: 10px;
+      // border-top: 1px solid #aaa;
+      box-shadow: 0 1px 3px 0 #111;
     }
   }
 
@@ -122,11 +136,13 @@
     border-bottom: 1px solid #aaa;
     @media screen and (min-width: 1024px){
       padding: 0 15px;
-      margin-top: 0;
+      // box-shadow: 0 1px 3px 0 #111;
+      // margin-top: 10px;
     }
-      &:nth-child(1){
-        border-top: 1px solid #aaa;
-      }
+      // &:nth-child(1){
+      //   border-top: 1px solid #aaa;
+      //   // margin-top: 30px;
+      // }
 
 
     .locationInfo {
@@ -277,6 +293,7 @@
   }
 }
 .adding{
+  display: block;
   @media screen and (min-width: 1024px){
     display: none;
   }

@@ -74,8 +74,11 @@ select {
     .hidden-small {
       display: block; } }
 
-.visible-large {
+.visible-small {
   display: block; }
+  @media screen and (min-width: 1024px) {
+    .visible-small {
+      display: none; } }
 
 .locations header {
   padding-bottom: 15px; }
@@ -212,19 +215,17 @@ select {
   border-radius: 3px; }
   @media screen and (min-width: 1024px) {
     .locations .content #locationsListContainer {
-      max-height: 58vh;
+      max-height: 59vh;
       overflow: scroll;
-      background-color: rgba(230, 230, 230, 0.1); } }
+      background-color: rgba(230, 230, 230, 0.1);
+      box-shadow: 0 1px 3px 0 #111; } }
 
 .locations .content .locationsList {
   margin-top: 15px;
   border-bottom: 1px solid #aaa; }
   @media screen and (min-width: 1024px) {
     .locations .content .locationsList {
-      padding: 0 15px;
-      margin-top: 0; } }
-  .locations .content .locationsList:nth-child(1) {
-    border-top: 1px solid #aaa; }
+      padding: 0 15px; } }
   .locations .content .locationsList .locationInfo {
     display: inline-block;
     float: left;
@@ -390,9 +391,11 @@ select {
   .locations .hidden-large {
     display: none; } }
 
-@media screen and (min-width: 1024px) {
-  .locations .adding {
-    display: none; } }
+.locations .adding {
+  display: block; }
+  @media screen and (min-width: 1024px) {
+    .locations .adding {
+      display: none; } }
 
 .gray {
   background: rgba(255, 255, 255, 0.1);
