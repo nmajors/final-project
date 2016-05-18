@@ -230,7 +230,6 @@ select {
   .locations .content .locationsList .locationInfo {
     display: inline-block;
     float: left;
-    margin-top: 15px;
     margin-bottom: 15px; }
   .locations .content .locationsList .listButtons {
     text-align: right;
