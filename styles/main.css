@@ -74,8 +74,11 @@ select {
     .hidden-small {
       display: block; } }
 
-.visible-large {
+.visible-small {
   display: block; }
+  @media screen and (min-width: 1024px) {
+    .visible-small {
+      display: none; } }
 
 .locations header {
   padding-bottom: 15px; }
