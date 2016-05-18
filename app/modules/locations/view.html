@@ -20,8 +20,12 @@
     <div class="content">
       <div class="control">
         <button class="addNew" ng-hide="locationsCtrl.adding" ng-click="locationsCtrl.toggleAdding()">Add New Location</button>
-        <button ng-hide="locationsCtrl.adding" ng-if="locationsCtrl.markers[0].coords" ng-class="{'viewAll': !locationsCtrl.showList, 'closeList': locationsCtrl.showList}" ng-click="locationsCtrl.toggleList()">View List
+        <button ng-hide="locationsCtrl.adding" ng-if="locationsCtrl.markers[0].coords"
+        ng-class="{'viewAll': !locationsCtrl.showList, 'closeList': locationsCtrl.showList}"
+        ng-click="locationsCtrl.toggleList()">
+        Toggle List
         </button>
+
 
 
         <!-- form for adding location without animation, only visible on small screens -->
@@ -79,7 +83,7 @@
         <div id="locationsListContainer" ng-class="{
       'hidden-small': !locationsCtrl.showList,
       'animated slideInLeft': locationsCtrl.showList,
-      'hidden-small animated slideOutLeft': locationsCtrl.isFading}" ng-if="locationsCtrl.locations.length > 0">
+      ' animated slideOutLeft': locationsCtrl.isFading}" ng-if="locationsCtrl.locations.length > 0">
 
           <ul class="locationsList" ng-repeat="place in locationsCtrl.locations">
 
