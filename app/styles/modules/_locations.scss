@@ -27,7 +27,6 @@
       float: right;
       text-align: right;
       margin-top: 30px;
-
       li {
         padding: 0 0 10px;
         .logout {
@@ -45,7 +44,6 @@
       border-bottom: 1px solid #aaa;
       padding: 30px 0;
       @media screen and (min-width: 1024px) {
-
         width: 30%;
         border: none;
         float: left;
@@ -106,7 +104,6 @@
     #locationsListContainer {
       margin-top: 30px;
       border-top: 1px solid #aaa;
-
       @media screen and (min-width: 1024px) {
         border-top: none;
         border-radius: 3px;
@@ -119,13 +116,15 @@
     .locationsList {
       margin-top: 15px;
       border-bottom: 1px solid #aaa;
-      @media screen and (min-width: 1024px) {
+      @media screen and(min-width: 1024px) {
         padding: 0 15px;
-        &:nth-child(1){
-        border-top: 1px solid #aaa;
+        &:nth-child(1) {
+          .locationInfo {
+            padding-top: 30px;
+          }
+          border-top: 1px solid #aaa;
+        }
       }
-      }
-
       .locationInfo {
         display: inline-block;
         float: left;
@@ -207,18 +206,16 @@
     }
   }
   .infoWindow {
-
     overflow: auto;
     zoom: 1;
     text-align: center;
-    @media screen and (min-width: 768px){
+    @media screen and (min-width: 768px) {
       padding-left: 40px;
       padding-right: 40px;
     }
     .windowLocation {
       margin-top: 15px;
       padding-left: 15px;
-
       @media screen and(min-width: 768px) {
         // white-space:nowrap;
         margin-left: -35px;
@@ -237,16 +234,16 @@
           display: none;
         }
       }
-      .city{
+      .city {
         display: none;
-        @media screen and(min-width: 768px){
+        @media screen and(min-width: 768px) {
           display: block;
           white-space: nowrap;
         }
       }
-      .state{
+      .state {
         display: none;
-        @media screen and(min-width: 768px){
+        @media screen and(min-width: 768px) {
           display: block;
         }
       }
@@ -260,7 +257,6 @@
         float: right;
         text-align: left;
       }
-
     }
   }
   .demo {

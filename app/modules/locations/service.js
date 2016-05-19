@@ -19,25 +19,12 @@ class LocationsService {
   }
 
   //
-  // new() {
-  //   return {
-  //     title: "Magen",
-  //     address: "777 N Air Depot Blvd",
-  //     city: "Midwest City",
-  //     state: "Oklahoma",
-  //     coords: {},
-  //     weather: {},
-  //     icon: "",
-  //     editing: false,
-  //     deleting: false
-  //   }
-  // }
   new() {
     return {
-      title: "",
-      address: "",
-      city: "",
-      state: "",
+      title: "Magen",
+      address: "777 N Air Depot Blvd",
+      city: "Midwest City",
+      state: "Oklahoma",
       coords: {},
       weather: {},
       icon: "",
@@ -45,6 +32,19 @@ class LocationsService {
       deleting: false
     }
   }
+  // new() {
+  //   return {
+  //     title: "",
+  //     address: "",
+  //     city: "",
+  //     state: "",
+  //     coords: {},
+  //     weather: {},
+  //     icon: "",
+  //     editing: false,
+  //     deleting: false
+  //   }
+  // }
 
   statesList() {
 
