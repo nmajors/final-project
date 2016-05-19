@@ -128,10 +128,10 @@ select {
 
 .locations .content .control {
   border-top: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
   padding: 30px 0; }
   @media screen and (min-width: 1024px) {
     .locations .content .control {
-      border-bottom: 1px solid #aaa;
       width: 30%;
       border: none;
       float: left;
