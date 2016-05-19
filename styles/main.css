@@ -230,7 +230,9 @@ select {
     .locations .content .locationsList {
       padding: 0 15px; }
       .locations .content .locationsList:nth-child(1) {
-        border-top: 1px solid #aaa; } }
+        border-top: 1px solid #aaa; }
+        .locations .content .locationsList:nth-child(1) .locationInfo {
+          padding-top: 30px; } }
   .locations .content .locationsList .locationInfo {
     display: inline-block;
     float: left;
