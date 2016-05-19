@@ -232,7 +232,7 @@ select {
       .locations .content .locationsList:nth-child(1) {
         border-top: 1px solid #aaa; }
         .locations .content .locationsList:nth-child(1) .locationInfo {
-          padding-top: 30px; } }
+          padding-top: 25px; } }
   .locations .content .locationsList .locationInfo {
     display: inline-block;
     float: left;
