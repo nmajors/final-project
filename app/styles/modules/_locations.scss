@@ -27,6 +27,7 @@
       float: right;
       text-align: right;
       margin-top: 30px;
+
       li {
         padding: 0 0 10px;
         .logout {
@@ -41,10 +42,10 @@
     }
     .control {
       border-top: 1px solid #aaa;
-
+      border-bottom: 1px solid #aaa;
       padding: 30px 0;
       @media screen and (min-width: 1024px) {
-        border-bottom: 1px solid #aaa;
+
         width: 30%;
         border: none;
         float: left;
