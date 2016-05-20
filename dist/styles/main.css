@@ -1,7 +1,10 @@
+::-webkit-scrollbar {
+  display: none; }
+
 body {
   min-height: 100vh;
   min-width: 100vw;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/images/background.jpg") no-repeat center center fixed;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/images/background2-min.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -9,7 +12,8 @@ body {
   color: white;
   margin: 0 auto;
   font-family: 'Raleway', sans-serif;
-  letter-spacing: 0.1em; }
+  letter-spacing: 0.1em;
+  overflow-x: hidden; }
 
 ul {
   padding-left: 0; }
@@ -232,7 +236,7 @@ select {
       .locations .content .locationsList:nth-child(1) {
         border-top: 1px solid #aaa; }
         .locations .content .locationsList:nth-child(1) .locationInfo {
-          padding-top: 30px; } }
+          padding-top: 25px; } }
   .locations .content .locationsList .locationInfo {
     display: inline-block;
     float: left;
@@ -338,7 +342,7 @@ select {
   height: 70vh; }
   @media screen and (min-width: 550px) {
     .locations .angular-google-map-container {
-      height: 60vh; } }
+      height: 65vh; } }
   @media screen and (min-width: 1024px) {
     .locations .angular-google-map-container {
       height: 68vh;

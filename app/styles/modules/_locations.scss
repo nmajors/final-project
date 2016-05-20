@@ -120,7 +120,7 @@
         padding: 0 15px;
         &:nth-child(1) {
           .locationInfo {
-            padding-top: 30px;
+            padding-top: 25px;
           }
           border-top: 1px solid #aaa;
         }
@@ -196,7 +196,7 @@
     border-radius: 5px;
     height: 70vh;
     @media screen and(min-width: 550px) {
-      height: 60vh;
+      height: 65vh;
     }
     @media screen and(min-width: 1024px) {
       height: 68vh;
