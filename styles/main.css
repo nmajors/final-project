@@ -12,6 +12,10 @@ body {
   letter-spacing: 0.1em;
   overflow-x: hidden; }
 
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5); }
+
 ul {
   padding-left: 0; }
 
