@@ -72,22 +72,40 @@ class LocationsController {
 
   }
   addLocation() {
+
+    return new this._$q((resolve, reject) => {
     this.hasCurrentPosition = false;
     this._LocationsService
       .createLocation(this.newLocation)
       .then((response) => {
+
         this.locations = response;
+        resolve(this.locations);
+      })
+      .then(()=>{
         this.showMarkers();
+        this.toggleAdding();
+      })
+      .catch((error) => {
+        reject(error);
       });
-    this.toggleAdding();
+
+
+    });
+
+
+
+
   }
 
   toggleDelete(place) {
     place.deleting = !place.deleting;
   }
   deleteLocation(place) {
+
     this._LocationsService.removeLocation(place);
     this.showMarkers();
+
   }
 
 
@@ -220,6 +238,8 @@ class LocationsController {
     })
 
     this.locations.forEach((location) => {
+      console.log(location);
+      if (location.deleting == false){
 
 
       let latitude = location.coords.lat;
@@ -303,7 +323,9 @@ class LocationsController {
 
           this.markers.push(this.marker);
         })
+      }
     });
+
   }
 
 

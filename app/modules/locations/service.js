@@ -18,13 +18,13 @@ class LocationsService {
     return this.locations.$loaded();
   }
 
-  //
+
   new() {
     return {
-      title: "Magen",
-      address: "777 N Air Depot Blvd",
-      city: "Midwest City",
-      state: "Oklahoma",
+      title: "",
+      address: "",
+      city: "",
+      state: "",
       coords: {},
       weather: {},
       icon: "",
@@ -32,19 +32,7 @@ class LocationsService {
       deleting: false
     }
   }
-  // new() {
-  //   return {
-  //     title: "",
-  //     address: "",
-  //     city: "",
-  //     state: "",
-  //     coords: {},
-  //     weather: {},
-  //     icon: "",
-  //     editing: false,
-  //     deleting: false
-  //   }
-  // }
+
 
   statesList() {
 
@@ -83,7 +71,8 @@ class LocationsService {
           coords: {
             lat,
             lng
-          }
+          },
+          deleting: false
         })
 
         .then((ref) => {
@@ -102,7 +91,7 @@ class LocationsService {
   }
 
   removeLocation(location) {
-    this.locations.$remove(location);
+    return this.locations.$remove(location);
   }
 
   editLocation(location) {
