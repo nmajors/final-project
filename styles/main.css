@@ -105,6 +105,9 @@ select {
         background: #d6d6d6;
         background-image: linear-gradient(to bottom, #d6d6d6, #868899);
         text-decoration: none; }
+      @media screen and (min-width: 375px) {
+        .locations header .appTitle .demoMode {
+          font-size: 1.2rem; } }
   .locations header .userInfo {
     float: right;
     text-align: right;
@@ -427,6 +430,22 @@ select {
   @media screen and (min-width: 1024px) {
     .locations .adding {
       display: none; } }
+
+#userEmail {
+  overflow-x: scroll;
+  max-width: 100px; }
+  @media screen and (min-width: 375px) {
+    #userEmail {
+      max-width: 160px; } }
+  @media screen and (min-width: 425px) {
+    #userEmail {
+      max-width: 180px; } }
+  @media screen and (min-width: 500px) {
+    #userEmail {
+      max-width: 220px; } }
+  @media screen and (min-width: 768px) {
+    #userEmail {
+      max-width: 300px; } }
 
 .gray {
   background: rgba(255, 255, 255, 0.1);
