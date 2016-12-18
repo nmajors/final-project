@@ -5,11 +5,13 @@
   <h1 class="appTitle">WEATHER WATCHER</h1>
 <span>Log in to check your Weather Watcher</span>
   <form class="userForm" ng-submit="loginCtrl.login()">
-    <input type="email" placeholder="email" ng-model="loginCtrl.user.email">
-    <input type="password" placeholder="password" ng-model="loginCtrl.user.password">
+    <div class="form-group">
+      <input class="form-control" type="email" placeholder="email" ng-model="loginCtrl.user.email">
+      <input class="form-control" type="password" placeholder="password" ng-model="loginCtrl.user.password">
 
-    <input class="gray" type="submit" value="Login">
-    <a ui-sref="register"><button class="prominent">New User</button></a>
+      <input class="gray" type="submit" value="Login">
+      <a ui-sref="register"><button class="prominent">New User</button></a>
+    </div>
   </form>
 
 </div>

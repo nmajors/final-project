@@ -1,6 +1,17 @@
-
+.big-container{
+  @media screen and (min-width: 1024px){
+    height: 100vh;
+  }
+}
 .page {
   margin: 0 5%;
+  @media screen and(min-width: 550px){
+    margin: 0 10%;
+  }
+  @media screen and (min-width: 768px){
+    margin: 0 80px;
+  }
+
   // margin: 0 10%;
 }
 
@@ -20,14 +31,16 @@
       border-radius: 2px;
       color: black;
     }
-    input[type="submit"] {
+    input[type="submit"], {
       // margin-top: 15px;
       margin-right: 0.75rem;
       height: 34px;
     }
   }
 }
-
+.form-control{
+  margin: 0 auto;
+}
 select{
   color: black;
 }

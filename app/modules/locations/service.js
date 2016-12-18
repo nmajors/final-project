@@ -19,7 +19,6 @@ class LocationsService {
   }
 
 
-
   new() {
     return {
       title: "",
@@ -33,6 +32,7 @@ class LocationsService {
       deleting: false
     }
   }
+
 
   statesList() {
 
@@ -54,20 +54,6 @@ class LocationsService {
           lat = loc.lat(),
           lng = loc.lng();
 
-        // function formatState() {
-        //   let stateDisplay;
-        //   let stateInput = location.state;
-        //   let stateInputArray = location.state.split(" ");
-        //
-        //   if (stateInputArray.length > 2) {
-        //     stateInputArray = stateInputArray.slice(0, 2);
-        //     stateDisplay = stateInputArray.join(" ");
-        //     console.log(stateDisplay);
-        //   } else {
-        //     stateDisplay = location.state;
-        //   }
-        //   return stateDisplay;
-        // }
 
         function formatState(){
           let stateInput = location.state;
@@ -85,7 +71,8 @@ class LocationsService {
           coords: {
             lat,
             lng
-          }
+          },
+          deleting: false
         })
 
         .then((ref) => {
@@ -104,7 +91,7 @@ class LocationsService {
   }
 
   removeLocation(location) {
-    this.locations.$remove(location);
+    return this.locations.$remove(location);
   }
 
   editLocation(location) {

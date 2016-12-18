@@ -1,7 +1,10 @@
+::-webkit-scrollbar {
+  display: none; }
+
 body {
   min-height: 100vh;
   min-width: 100vw;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/images/background.jpg") no-repeat center center fixed;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/images/background2-min.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -9,7 +12,8 @@ body {
   color: white;
   margin: 0 auto;
   font-family: 'Raleway', sans-serif;
-  letter-spacing: 0.1em; }
+  letter-spacing: 0.1em;
+  overflow-x: hidden; }
 
 ul {
   padding-left: 0; }
@@ -22,8 +26,18 @@ input[type="text"] {
   border-radius: 2px;
   line-height: 1.5; }
 
+@media screen and (min-width: 1024px) {
+  .big-container {
+    height: 100vh; } }
+
 .page {
   margin: 0 5%; }
+  @media screen and (min-width: 550px) {
+    .page {
+      margin: 0 10%; } }
+  @media screen and (min-width: 768px) {
+    .page {
+      margin: 0 80px; } }
 
 .userContainer {
   text-align: center;
@@ -44,6 +58,9 @@ input[type="text"] {
       margin-right: 0.75rem;
       height: 34px; }
 
+.form-control {
+  margin: 0 auto; }
+
 select {
   color: black; }
 
@@ -55,10 +72,20 @@ select {
 .condition {
   text-transform: capitalize; }
 
+.hidden-small {
+  display: none; }
+  @media screen and (min-width: 1024px) {
+    .hidden-small {
+      display: block; } }
+
+.visible-small {
+  display: block; }
+  @media screen and (min-width: 1024px) {
+    .visible-small {
+      display: none; } }
+
 .locations header {
-  padding-bottom: 15px;
-  margin-bottom: 30px;
-  border-bottom: 1px solid #aaa; }
+  padding-bottom: 15px; }
   .locations header .appTitle {
     width: 50%;
     display: inline-block; }
@@ -78,6 +105,9 @@ select {
         background: #d6d6d6;
         background-image: linear-gradient(to bottom, #d6d6d6, #868899);
         text-decoration: none; }
+      @media screen and (min-width: 375px) {
+        .locations header .appTitle .demoMode {
+          font-size: 1.2rem; } }
   .locations header .userInfo {
     float: right;
     text-align: right;
@@ -99,57 +129,21 @@ select {
           background-image: linear-gradient(to bottom, #d6d6d6, #868899);
           text-decoration: none; }
 
-.locations .addNew {
-  background: rgba(81, 150, 13, 0.4);
-  border: none;
-  border-radius: 4px;
-  text-shadow: 1px 1px 3px #111;
-  box-shadow: 0 1px 3px 0 #111;
-  color: #ffffff;
-  padding: 7px 15px;
-  text-decoration: none;
-  margin-bottom: 15px;
-  margin-bottom: 0; }
-  .locations .addNew:hover {
-    background-image: linear-gradient(to bottom, #7ca058, #557a30); }
+@media screen and (min-width: 1024px) {
+  .locations .content {
+    border-top: 1px solid #aaa; } }
 
-.locations .closeList,
-.locations .viewAll {
-  background: rgba(255, 255, 255, 0.1);
-  border: none;
-  border-radius: 4px;
-  text-shadow: 1px 1px 3px #111;
-  box-shadow: 0 1px 3px 0 #111;
-  color: #ffffff;
-  padding: 7px 15px;
-  text-decoration: none;
-  margin-bottom: 15px;
-  margin-bottom: 0;
-  float: right; }
-  .locations .closeList:hover,
-  .locations .viewAll:hover {
-    background: #d6d6d6;
-    background-image: linear-gradient(to bottom, #d6d6d6, #868899);
-    text-decoration: none; }
-
-.locations .addLocationForm .fa-times {
-  display: block;
-  width: 80%;
-  text-align: right;
-  font-size: 2rem;
-  margin: 0 auto 30px auto;
-  padding-right: 15px; }
-  .locations .addLocationForm .fa-times:hover {
-    cursor: pointer; }
-
-.locations .addLocationForm form {
-  text-align: center;
-  margin-top: 15px;
-  margin-bottom: 15px; }
-  .locations .addLocationForm form input {
-    width: 80%;
-    margin-bottom: 15px; }
-  .locations .addLocationForm form input[type="submit"] {
+.locations .content .control {
+  border-top: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
+  padding: 30px 0; }
+  @media screen and (min-width: 1024px) {
+    .locations .content .control {
+      width: 30%;
+      border: none;
+      float: left;
+      margin-right: 30px; } }
+  .locations .content .control .addNew {
     background: rgba(81, 150, 13, 0.4);
     border: none;
     border-radius: 4px;
@@ -158,26 +152,103 @@ select {
     color: #ffffff;
     padding: 7px 15px;
     text-decoration: none;
-    margin-bottom: 15px; }
-    .locations .addLocationForm form input[type="submit"]:hover {
+    margin-bottom: 15px;
+    margin-bottom: 0; }
+    .locations .content .control .addNew:hover {
       background-image: linear-gradient(to bottom, #7ca058, #557a30); }
-
-.locations #locationsListContainer {
-  border-top: 1px solid #aaa;
-  margin-top: 30px; }
-
-.locations .locationsList {
-  margin-top: 15px;
-  border-bottom: 1px solid #aaa; }
-  .locations .locationsList .locationInfo {
-    display: inline-block;
-    float: left;
+    @media screen and (min-width: 1024px) {
+      .locations .content .control .addNew {
+        margin-bottom: 15px;
+        width: 100%;
+        display: block; } }
+  .locations .content .control .closeList,
+  .locations .content .control .viewAll {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 4px;
+    text-shadow: 1px 1px 3px #111;
+    box-shadow: 0 1px 3px 0 #111;
+    color: #ffffff;
+    padding: 7px 15px;
+    text-decoration: none;
+    margin-bottom: 15px;
+    margin-bottom: 0;
+    float: right; }
+    .locations .content .control .closeList:hover,
+    .locations .content .control .viewAll:hover {
+      background: #d6d6d6;
+      background-image: linear-gradient(to bottom, #d6d6d6, #868899);
+      text-decoration: none; }
+    @media screen and (min-width: 1024px) {
+      .locations .content .control .closeList,
+      .locations .content .control .viewAll {
+        display: none; } }
+  @media screen and (min-width: 1024px) {
+    .locations .content .control .addFormLargeScreen {
+      background-color: rgba(230, 230, 230, 0.1);
+      margin-bottom: -30px;
+      padding: 30px 15px; } }
+  .locations .content .control .addLocationForm .fa-times {
+    display: block;
+    width: 80%;
+    text-align: right;
+    font-size: 2rem;
+    margin: 0 0 15px auto;
+    padding-right: 15px; }
+    .locations .content .control .addLocationForm .fa-times:hover {
+      cursor: pointer; }
+  .locations .content .control .addLocationForm form {
+    text-align: center;
     margin-top: 15px;
     margin-bottom: 15px; }
-  .locations .locationsList .listButtons {
+    .locations .content .control .addLocationForm form .ui-select-container,
+    .locations .content .control .addLocationForm form input {
+      width: 90%;
+      margin: 0 auto 15px; }
+    .locations .content .control .addLocationForm form input[type="submit"] {
+      background: rgba(81, 150, 13, 0.4);
+      border: none;
+      border-radius: 4px;
+      text-shadow: 1px 1px 3px #111;
+      box-shadow: 0 1px 3px 0 #111;
+      color: #ffffff;
+      padding: 7px 15px;
+      text-decoration: none;
+      margin-bottom: 15px; }
+      .locations .content .control .addLocationForm form input[type="submit"]:hover {
+        background-image: linear-gradient(to bottom, #7ca058, #557a30); }
+
+.locations .content #locationsListContainer {
+  margin-top: 30px;
+  border-top: 1px solid #aaa; }
+  @media screen and (min-width: 1024px) {
+    .locations .content #locationsListContainer {
+      border-top: none;
+      border-radius: 3px;
+      max-height: 59vh;
+      overflow: scroll;
+      background-color: rgba(230, 230, 230, 0.1);
+      box-shadow: 0 1px 3px 0 #111; } }
+
+.locations .content .locationsList {
+  margin-top: 15px;
+  border-bottom: 1px solid #aaa; }
+  @media screen and (min-width: 1024px) {
+    .locations .content .locationsList {
+      padding: 0 15px; }
+      .locations .content .locationsList:nth-child(1) {
+        border-top: 1px solid #aaa; }
+        .locations .content .locationsList:nth-child(1) .locationInfo {
+          padding-top: 25px; } }
+  .locations .content .locationsList .locationInfo {
+    display: inline-block;
+    float: left;
+    margin-top: 5px;
+    margin-bottom: 15px; }
+  .locations .content .locationsList .listButtons {
     text-align: right;
     margin: 30px auto; }
-    .locations .locationsList .listButtons .listButton {
+    .locations .content .locationsList .listButtons .listButton {
       background: rgba(255, 255, 255, 0.1);
       border: none;
       border-radius: 4px;
@@ -188,70 +259,193 @@ select {
       text-decoration: none;
       margin-bottom: 15px;
       margin-bottom: 15px; }
-      .locations .locationsList .listButtons .listButton:hover {
+      .locations .content .locationsList .listButtons .listButton:hover {
         background: #d6d6d6;
         background-image: linear-gradient(to bottom, #d6d6d6, #868899);
         text-decoration: none; }
-  .locations .locationsList .editForm input {
-    text-align: center;
-    width: 80%;
-    margin: 0 auto 15px 60px; }
-  .locations .locationsList .editForm input[type="submit"] {
-    background: rgba(255, 255, 255, 0.1);
-    border: none;
-    border-radius: 4px;
-    text-shadow: 1px 1px 3px #111;
-    box-shadow: 0 1px 3px 0 #111;
-    color: #ffffff;
-    padding: 7px 15px;
-    text-decoration: none;
-    margin-bottom: 15px; }
-    .locations .locationsList .editForm input[type="submit"]:hover {
-      background: #d6d6d6;
-      background-image: linear-gradient(to bottom, #d6d6d6, #868899);
-      text-decoration: none; }
+    .locations .content .locationsList .listButtons .confirmDelete {
+      background: rgba(81, 150, 13, 0.4);
+      border: none;
+      border-radius: 4px;
+      text-shadow: 1px 1px 3px #111;
+      box-shadow: 0 1px 3px 0 #111;
+      color: #ffffff;
+      padding: 7px 15px;
+      text-decoration: none;
+      margin-bottom: 15px;
+      margin-bottom: 15px; }
+      .locations .content .locationsList .listButtons .confirmDelete:hover {
+        background-image: linear-gradient(to bottom, #7ca058, #557a30); }
+    .locations .content .locationsList .listButtons .noDelete {
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      border-radius: 4px;
+      text-shadow: 1px 1px 3px #111;
+      box-shadow: 0 1px 3px 0 #111;
+      color: #ffffff;
+      padding: 7px 15px;
+      text-decoration: none;
+      margin-bottom: 15px; }
+      .locations .content .locationsList .listButtons .noDelete:hover {
+        background: #d6d6d6;
+        background-image: linear-gradient(to bottom, #d6d6d6, #868899);
+        text-decoration: none; }
+  .locations .content .locationsList .editForm {
+    margin-top: 30px; }
+    .locations .content .locationsList .editForm .fa-times {
+      display: block;
+      width: 80%;
+      text-align: right;
+      font-size: 2rem;
+      margin: 0 0 15px auto;
+      padding-right: 15px; }
+      .locations .content .locationsList .editForm .fa-times:hover {
+        cursor: pointer; }
+    .locations .content .locationsList .editForm input {
+      width: 90%;
+      margin: 0 auto 15px; }
+    .locations .content .locationsList .editForm input[type="submit"] {
+      background: rgba(81, 150, 13, 0.4);
+      border: none;
+      border-radius: 4px;
+      text-shadow: 1px 1px 3px #111;
+      box-shadow: 0 1px 3px 0 #111;
+      color: #ffffff;
+      padding: 7px 15px;
+      text-decoration: none;
+      margin-bottom: 15px;
+      margin-left: 5%; }
+      .locations .content .locationsList .editForm input[type="submit"]:hover {
+        background-image: linear-gradient(to bottom, #7ca058, #557a30); }
 
-.locationsMap {
-  border-top: 1px solid #aaa;
+.locations .fa-spinner {
+  text-align: center;
+  z-index: 100;
+  position: absolute;
+  left: 44%;
+  top: 60%;
+  transform: translate(-25%, 0);
+  z-index: 100; }
+  @media screen and (min-width: 550px) {
+    .locations .fa-spinner {
+      left: 46%; } }
+  @media screen and (min-width: 1024px) {
+    .locations .fa-spinner {
+      left: 63%;
+      transform: translate(-30%, -30%); } }
+
+.locations .locationsMap {
   margin-top: 30px; }
-  .locationsMap .demo {
-    display: block;
-    text-align: center;
-    font-size: 24px;
-    margin-top: 15px;
-    margin-bottom: -15px;
-    background: rgba(242, 236, 207, 0.3);
-    border-radius: 5px; }
 
-.angular-google-map-container {
-  height: 70vh;
+.locations .angular-google-map-container {
   width: 100%;
   margin: 30px auto;
   border: 2px solid #666;
-  border-radius: 5px; }
+  border-radius: 5px;
+  height: 70vh; }
+  @media screen and (min-width: 550px) {
+    .locations .angular-google-map-container {
+      height: 65vh; } }
+  @media screen and (min-width: 1024px) {
+    .locations .angular-google-map-container {
+      height: 68vh;
+      width: calc(70% - 30px);
+      float: left;
+      margin: 0 auto; } }
 
-.gm-style-iw div:first-child {
-  width: 300px;
-  padding-right: 30px; }
-
-.infoWindow {
+.locations .infoWindow {
   overflow: auto;
-  zoom: 1; }
-  .infoWindow .windowLocation {
+  zoom: 1;
+  text-align: center; }
+  @media screen and (min-width: 768px) {
+    .locations .infoWindow {
+      padding-left: 40px;
+      padding-right: 40px; } }
+  .locations .infoWindow .windowLocation {
     margin-top: 15px;
-    width: 40%;
-    float: left; }
-    .infoWindow .windowLocation li:first-child {
+    padding-left: 15px; }
+    @media screen and (min-width: 768px) {
+      .locations .infoWindow .windowLocation {
+        margin-left: -35px;
+        width: 50%;
+        float: left;
+        text-align: left; } }
+    .locations .infoWindow .windowLocation li:first-child {
       font-weight: 700; }
-    .infoWindow .windowLocation .state {
-      white-space: nowrap; }
-  .infoWindow .locationWeather {
-    width: 60%;
-    float: right;
+    .locations .infoWindow .windowLocation .cityState {
+      white-space: nowrap;
+      display: block; }
+      @media screen and (min-width: 768px) {
+        .locations .infoWindow .windowLocation .cityState {
+          display: none; } }
+    .locations .infoWindow .windowLocation .city {
+      display: none; }
+      @media screen and (min-width: 768px) {
+        .locations .infoWindow .windowLocation .city {
+          display: block;
+          white-space: nowrap; } }
+    .locations .infoWindow .windowLocation .state {
+      display: none; }
+      @media screen and (min-width: 768px) {
+        .locations .infoWindow .windowLocation .state {
+          display: block; } }
+  .locations .infoWindow .locationWeather {
     padding-left: 15px;
     white-space: nowrap; }
-  .infoWindow .currentWindow {
-    text-align: center; }
+    @media screen and (min-width: 768px) {
+      .locations .infoWindow .locationWeather {
+        padding-right: 30px;
+        width: 50%;
+        float: right;
+        text-align: left; } }
+
+.locations .demo {
+  display: block;
+  text-align: center;
+  font-size: 24px;
+  margin-top: 15px;
+  margin-bottom: -15px;
+  background: rgba(242, 236, 207, 0.3);
+  border-radius: 5px; }
+
+.locations #hidden-small {
+  display: none; }
+  @media screen and (min-width: 1024px) {
+    .locations #hidden-small {
+      width: 50%;
+      display: inline-block;
+      margin-left: -23%;
+      background-color: rgba(230, 230, 230, 0.1);
+      padding-top: 40px;
+      padding-bottom: 40px;
+      position: relative;
+      top: -35px; } }
+
+@media screen and (min-width: 1024px) {
+  .locations .hidden-large {
+    display: none; } }
+
+.locations .adding {
+  display: block; }
+  @media screen and (min-width: 1024px) {
+    .locations .adding {
+      display: none; } }
+
+#userEmail {
+  overflow-x: scroll;
+  max-width: 100px; }
+  @media screen and (min-width: 375px) {
+    #userEmail {
+      max-width: 160px; } }
+  @media screen and (min-width: 425px) {
+    #userEmail {
+      max-width: 180px; } }
+  @media screen and (min-width: 500px) {
+    #userEmail {
+      max-width: 220px; } }
+  @media screen and (min-width: 768px) {
+    #userEmail {
+      max-width: 300px; } }
 
 .gray {
   background: rgba(255, 255, 255, 0.1);
