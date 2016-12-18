@@ -126,7 +126,7 @@ class LocationsController {
   }
 
   toggleDemo() {
-    //switch to view map when demo mode is toggled
+    //if list is current view, switch to view map after demo mode toggled
     this.showList = false;
 
     this.demoMode = !this.demoMode;
@@ -158,8 +158,19 @@ class LocationsController {
     let locationWeatherCode = location.weather.weather[0].id;
 
     if (this.demoMode) {
+      //assign random weather condition code to each location
+      // weather condition codes:
+      // 961 = thunderstorm
+      // 531 = rain
+      // 622 = snow
+      // 771 = haze
+      // 800 = sunny
+      // 804 = cloudy
+      // 900 = tornado
+      // 902 = hurricane
       let demoCodes = [961, 531, 622, 771, 800, 804, 900, 902];
       locationWeatherCode = demoCodes[Math.floor(Math.random() * demoCodes.length)];
+      //ensure that at least one location gets a tornado condition so severe weather functionality will be shown
       if (index === 0) {
         locationWeatherCode = 900;
       }
