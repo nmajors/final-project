@@ -203,6 +203,7 @@ class LocationsController {
   }
 
   showMarkers() {
+    console.log("TESTING");
     this.markers = [];
     navigator.geolocation.getCurrentPosition((position) => {
       console.log(position);
