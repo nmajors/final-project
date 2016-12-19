@@ -11,9 +11,12 @@ class LocationsController {
     this.adding = false;
     this.showList = false;
     this.hasCurrentPosition = false;
+    this.markers = [];
 
     this.states = this._LocationsService.statesList();
     this.newLocation = this._LocationsService.new();
+    this.displayLocation = this.showCurrentWeather();
+
 
     // this.currentPositionMarker = this._LocationsService.getPosition();
 
@@ -80,6 +83,7 @@ class LocationsController {
                   reject(error);
               });
       });
+      this.hasCurrentPosition = true;
   }
 
   toggleDelete(place) {
@@ -165,52 +169,52 @@ class LocationsController {
       return markerIcon;
   }
 
+  showCurrentWeather() {
+//    this.markers = [];
+    navigator.geolocation.getCurrentPosition((position) => {
+        console.log(position);
+        //add a marker to the user's current location.
+        let latitude = position.coords.latitude;
+        let longitude = position.coords.longitude;
+        if (position.coords.longitude) {
+            this.hasCurrentPosition = true;
+        }
+        this._$http
+            .get(`https://whispering-everglades-16419.herokuapp.com/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial`)
+            .then((response) => {
+                console.log(response);
+                let currentWeather = response.data;
+                let iconCode = response.data.weather[0].icon;
+                let iconUrl = `https://openweathermap.org/img/w/${iconCode}.png`;
+
+                this.currentWeatherMarker = {
+                    id: position.timestamp.toString(),
+                    coords: {
+                        latitude: position.coords.latitude,
+                        longitude: position.coords.longitude
+                    },
+                    options: {
+                        icon: './assets/images/star.png'
+                    },
+
+                    name: "Your Weather",
+                    cityState: currentWeather.name,
+                    city: "",
+                    state: currentWeather.name,
+                    image: iconUrl,
+                    // weather: currentWeather,
+                    condition: currentWeather.weather[0].description,
+                    temp: currentWeather.main.temp,
+                    current: true
+
+                };
+                this.markers.push(this.currentWeatherMarker);
+            });
+        //ng-if on ui-gmap-marker prevents marker add attempts before geolocation is complete
+    })
+  }
+
   showMarkers() {
-      this.markers = [];
-      if (this.currentPositionMarker){
-      console.log("CURRENT" + this.currentPositionMarker);
-      }
-      navigator.geolocation.getCurrentPosition((position) => {
-          console.log(position);
-          //add a marker to the user's current location.
-          let latitude = position.coords.latitude;
-          let longitude = position.coords.longitude;
-          if (position.coords.longitude) {
-              this.hasCurrentPosition = true;
-          }
-          this._$http
-              .get(`https://whispering-everglades-16419.herokuapp.com/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial`)
-              .then((response) => {
-                  console.log(response);
-                  let currentWeather = response.data;
-                  let iconCode = response.data.weather[0].icon;
-                  let iconUrl = `https://openweathermap.org/img/w/${iconCode}.png`;
-
-                  this.marker = {
-                      id: position.timestamp.toString(),
-                      coords: {
-                          latitude: position.coords.latitude,
-                          longitude: position.coords.longitude
-                      },
-                      options: {
-                          icon: './assets/images/star.png'
-                      },
-
-                      name: "Your Weather",
-                      cityState: currentWeather.name,
-                      city: "",
-                      state: currentWeather.name,
-                      image: iconUrl,
-                      // weather: currentWeather,
-                      condition: currentWeather.weather[0].description,
-                      temp: currentWeather.main.temp,
-                      current: true
-
-                  };
-                  this.markers.push(this.marker);
-              });
-          //ng-if on ui-gmap-marker prevents marker add attempts before geolocation is complete
-      })
 
       this.locations.forEach((location) => {
           console.log(location);
