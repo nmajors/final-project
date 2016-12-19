@@ -1,18 +1,19 @@
-
 <div class="page">
 
-<div class="userContainer">
-  <h1 class="appTitle">WEATHER WATCHER</h1>
-<span>Log in to check your Weather Watcher</span>
-  <form class="userForm" ng-submit="loginCtrl.login()">
-    <div class="form-group">
-      <input class="form-control" type="email" placeholder="email" ng-model="loginCtrl.user.email">
-      <input class="form-control" type="password" placeholder="password" ng-model="loginCtrl.user.password">
+    <div class="userContainer">
+        <h1 class="appTitle">WEATHER WATCHER</h1>
+        <span ng-class="{'isGuest': loginCtrl.isGuest}">Log in to check your Weather Watcher</span>
 
-      <input class="gray" type="submit" value="Login">
-      <a ui-sref="register"><button class="prominent">New User</button></a>
+        <form class="userForm" ng-submit="loginCtrl.login()">
+            <div class="form-group loginForm" ng-class="{'isGuest': loginCtrl.isGuest}">
+              <input class="form-control" type="email" placeholder="email" ng-model="loginCtrl.user.email">
+              <input class="form-control" type="password" placeholder="password" ng-model="loginCtrl.user.password">
+              <input class="gray" type="submit" value="Login">
+              <a ui-sref="register">
+                  <button class="prominent">New User</button>
+              </a>
+            </div>
+        </form>
+        <button class="gray guestLogin" ng-class="{'isGuest': loginCtrl.isGuest}" ng-click="loginCtrl.guestLogin()">Guest</button>
     </div>
-  </form>
-
-</div>
 </div>

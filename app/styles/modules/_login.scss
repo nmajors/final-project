@@ -1,10 +1,19 @@
 .gray{
   @include grayButton;
-  // margin-top: 15px;
 }
 .prominent{
   @include greenButton;
 }
+
+.loginForm{
+  margin-bottom: 0;
+
+}
+.isGuest{
+  visibility: hidden;
+}
+
+
 // #userEmail{
 //   max-width: 700px;
 //   overflow-x: scroll;
