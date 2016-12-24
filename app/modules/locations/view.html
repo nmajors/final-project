@@ -125,10 +125,10 @@
 
 
 
-    <i class="fa fa-spinner fa-pulse fa-3x fa-fw" ng-if="!locationsCtrl.hasCurrentPosition"></i>
+    <i class="fa fa-spinner fa-pulse fa-3x fa-fw" ng-if="!locationsCtrl.geopositionDone"></i>
 
     <!--TODO: make infoWindow close on click-->
-    <div class="locationsMap" ng-if="locationsCtrl.hasCurrentPosition" ng-hide="locationsCtrl.showList">
+    <div class="locationsMap" ng-if="locationsCtrl.geopositionDone" ng-hide="locationsCtrl.showList">
       <span class="demo hidden-large" ng-if="locationsCtrl.demoMode">Demo Mode</span>
 
 

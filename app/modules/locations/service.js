@@ -39,9 +39,39 @@ class LocationsService {
   let states = ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Dakota", "North Carolina", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"];
 
   return states;
-
-
   }
+
+  getUserLocation(){
+    return new this._$q((resolve, reject) => {
+      let position;
+      let geolocateDone;
+      let geoOptions = {
+        timeout:(5000),
+        maximumAge: (60 * 60 * 1000)
+      };
+
+      let geoSuccess = function(userPosition){
+        position = userPosition;
+        // console.log("YOU MADE IT: " + position);
+          resolve(userPosition);
+      };
+
+      let geoErrorHandler = function(err){
+        // position = userDefault;
+        // console.log("Error code: " + err.code);
+        reject(geoErrorHandler);
+        // console.log("NO MADE IT: " + err);
+          // this.geopositionDone=true;
+      };
+
+
+        // this.geopositionDone = true;
+
+        navigator.geolocation.getCurrentPosition(geoSuccess, geoErrorHandler, geoOptions);
+
+      });
+
+}
 
   createLocation(location) {
     return new this._$q((resolve, reject) => {
