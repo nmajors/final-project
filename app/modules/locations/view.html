@@ -134,7 +134,7 @@
 
       <ui-gmap-google-map center='locationsCtrl.map.center' zoom='locationsCtrl.map.zoom'>
 
-        <ui-gmap-markers models="locationsCtrl.markers" coords="'coords'" fit="true" click="onClick" options="'options'">
+        <ui-gmap-markers models="locationsCtrl.markers" coords="'coords'" fit="true" click="onClick" doRebuildAll="true" options="'options'">
           <ui-gmap-windows show="show">
             <div class="infoWindow" ng-non-bindable>
 

@@ -102,7 +102,8 @@ class LocationsService {
             lat,
             lng
           },
-          deleting: false
+          deleting: false,
+          editing: false
         })
 
         .then((ref) => {

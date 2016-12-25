@@ -40,7 +40,7 @@ class LocationsController {
                     } else {
                         this.currentUser = response.password.email;
                     }
-                    this.displayLocation;
+                    // this.displayLocation;
                     this._LocationsService.getLocations(this.user)
                         .then((response) => {
                             this.locations = response;
@@ -85,7 +85,6 @@ class LocationsController {
                     reject(error);
                     this.geopositionDone = true;
                     this.noGeoposition = true;
-
                 })
                 .then(() => {
                   if ((this.noGeoposition === false) && (this.geopositionDone === true)) {
@@ -97,7 +96,6 @@ class LocationsController {
 
     getUserWeather() {
         return new this._$q((resolve, reject) => {
-
                 console.log(this.noGeoposition);
                 console.log(this.geopositionDone);
                 console.log(this.geoposition);
@@ -157,6 +155,7 @@ class LocationsController {
                 .then((response) => {
                     this.locations = response;
                     resolve(this.locations);
+                    this.geopositionDone = true;
                 })
                 .then(() => {
                     this.showMarkers();
@@ -166,7 +165,7 @@ class LocationsController {
                     reject(error);
                 });
         });
-        this.displayLocation;
+        // this.displayLocation;
         this.geopositionDone = true;
     }
 
@@ -176,6 +175,7 @@ class LocationsController {
 
     deleteLocation(place) {
         this._LocationsService.removeLocation(place);
+        console.log(place);
         this.showMarkers();
     }
 
@@ -331,7 +331,6 @@ class LocationsController {
     //   }
 
     showMarkers() {
-
         this.locations.forEach((location) => {
             console.log(location);
             if (location.deleting == false) {
@@ -415,7 +414,7 @@ class LocationsController {
             }
         });
 
-        console.log(this.markers);
+        // console.log(this.markers);
         // console.log(this.currentWeatherMarker);
   //end forEach
     }
