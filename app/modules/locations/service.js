@@ -122,8 +122,16 @@ class LocationsService {
   }
 
   removeLocation(location) {
-    return this.locations.$remove(location);
-  }
+    return new this._$q((resolve, reject) => {
+    this.locations.$remove(location)
+    .then(() =>{
+      resolve(this.locations);
+    })
+    .catch((error) => {
+      reject(error);
+    });
+  });    
+}
 
   editLocation(location) {
     this.locations.$save(location);

@@ -1,3 +1,5 @@
+//TODO: fix demo mode
+
 class LocationsController {
     constructor($state, UserService, LocationsService, $scope, $http, $q, $timeout) {
             this._$http = $http;
@@ -23,6 +25,8 @@ class LocationsController {
             $scope.onClick = function(marker, eventName, model) {
                 model.show = !model.show;
             };
+
+            // $scope.$watch(this.markers, this.showMarkers());
 
             this.map = {
                 center: {
@@ -95,17 +99,14 @@ class LocationsController {
     }
 
     getUserWeather() {
-        return new this._$q((resolve, reject) => {
-                console.log(this.noGeoposition);
-                console.log(this.geopositionDone);
-                console.log(this.geoposition);
+        // return new this._$q((resolve, reject) => {
                 let latitude = this.geoposition.coords.latitude;
                 let longitude = this.geoposition.coords.longitude;
                 let position = this.geoposition;
                 this._$http
                     .get(`https://whispering-everglades-16419.herokuapp.com/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial`)
                     .then((response) => {
-                        console.log(response);
+                        // console.log(response);
                         let currentWeather = response.data;
                         let iconCode = response.data.weather[0].icon;
                         let iconUrl = `https://openweathermap.org/img/w/${iconCode}.png`;
@@ -132,19 +133,17 @@ class LocationsController {
                         this.markers.push(this.currentWeatherMarker);
                         this.currentNotNeeded = true;
                         // console.log(this.markers);
-                        resolve(response);
+                        // resolve(response);
                     })
-                    .catch((error) => {
-                        console.log(error);
-                        reject(error);
+                    .then(() =>{
+                    // .catch((error) => {
+                        // console.log(error);
+                        // reject(error);
                         this.geopositionDone = true;
                         this.noGeoposition = true;
-                        // this.showMarkers();
-                    })
-                    // .then(() => {
-                    //     this.showMarkers();
-                    // });
-        });
+                    // })
+                  });
+        // });
     }
 
     addLocation() {
@@ -165,7 +164,6 @@ class LocationsController {
                     reject(error);
                 });
         });
-        // this.displayLocation;
         this.geopositionDone = true;
     }
 
@@ -174,9 +172,14 @@ class LocationsController {
     }
 
     deleteLocation(place) {
-        this._LocationsService.removeLocation(place);
-        console.log(place);
-        this.showMarkers();
+        this._LocationsService.removeLocation(place)
+        .then(() => {
+          this.markers = [];
+          if (this.currentNotNeeded == true){
+            this.markers.push(this.currentWeatherMarker);
+          }
+          this.showMarkers();
+        });
     }
 
     changeLocation(place) {
@@ -209,7 +212,7 @@ class LocationsController {
                 this.showList = false;
                 this.isFading = false;
             }, 900);
-            this.showMarkers();
+            // this.showMarkers();
         } else {
             this.showList = true;
 
@@ -252,83 +255,6 @@ class LocationsController {
         }
         return markerIcon;
     }
-
-    // getUserLocation(){
-    //   return new this._$q((resolve, reject) => {
-    //     let position;
-    //     let geolocateDone;
-    //     let geoOptions = {
-    //       timeout:(1000 * 5),
-    //       maximumAge: (60 * 60 * 1000)
-    //     };
-    //
-    //     let geoSuccess = function(userPosition){
-    //       position = userPosition
-    //       resolve(position);
-    //       // this.geopositionDone = true;
-    //     };
-    //     let geoErrorHandler = function(err){
-    //       console.log("Error code: " + err.code);
-    //       reject(geoErrorHandler);
-    //       this.geopositionDone = true;
-    //     };
-    //       navigator.geolocation.getCurrentPosition(geoSuccess, geoErrorHandler, geoOptions);
-    //     });
-    //     // this.geopositionDone = true;
-    // }
-    //   showCurrentWeather() {
-    // //    this.markers = [];
-    //   // if (navigator.geolocation){
-    //
-    //
-    //     navigator.geolocation.getCurrentPosition((position, geoErrorHandler, geoOptions) => {
-    //         console.log(position);
-    //         //add a marker to the user's current location.
-    //         let latitude = position.coords.latitude;
-    //         let longitude = position.coords.longitude;
-    //         if (position.coords.longitude) {
-    //             this.geopositionDone = true;
-    //         }
-    //         this._$http
-    //             .get(`https://whispering-everglades-16419.herokuapp.com/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial`)
-    //             .then((response) => {
-    //                 console.log(response);
-    //                 let currentWeather = response.data;
-    //                 let iconCode = response.data.weather[0].icon;
-    //                 let iconUrl = `https://openweathermap.org/img/w/${iconCode}.png`;
-    //
-    //                 this.currentWeatherMarker = {
-    //                     id: position.timestamp.toString(),
-    //                     coords: {
-    //                         latitude: position.coords.latitude,
-    //                         longitude: position.coords.longitude
-    //                     },
-    //                     options: {
-    //                         icon: './assets/images/star.png'
-    //                     },
-    //
-    //                     name: "Your Weather",
-    //                     cityState: currentWeather.name,
-    //                     city: "",
-    //                     state: currentWeather.name,
-    //                     image: iconUrl,
-    //                     // weather: currentWeather,
-    //                     condition: currentWeather.weather[0].description,
-    //                     temp: currentWeather.main.temp,
-    //                     current: true
-    //
-    //                 };
-    //                 this.markers.push(this.currentWeatherMarker);
-    //             });
-    //         //ng-if on ui-gmap-marker prevents marker add attempts before geolocation is complete
-    //     })
-    //
-    //   // }
-    //   // else{
-    //   //   this.geopositionDone=true;
-    //   // }
-    //   console.log(this.geopositionDone);
-    //   }
 
     showMarkers() {
         this.locations.forEach((location) => {
@@ -409,14 +335,11 @@ class LocationsController {
                             this.marker.condition = "Clear Sky";
                         }
                         this.markers.push(this.marker);
-                        // console.log("in here: " + this.geopositionDone);
                     })
             }
         });
-
-        // console.log(this.markers);
-        // console.log(this.currentWeatherMarker);
-  //end forEach
+      //end forEach
+      // console.log(this.markers);
     }
 
 }
